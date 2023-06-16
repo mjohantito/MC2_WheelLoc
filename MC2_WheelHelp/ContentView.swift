@@ -38,7 +38,7 @@ struct ContentView: View {
                     }
                 }
             }
-            Text("Select an item, test test")
+            Text("Select an item, markicob")
         }
     }
 
