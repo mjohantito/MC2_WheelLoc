@@ -13,6 +13,7 @@
 		C994EFEC2A3C551900667459 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C994EFEB2A3C551900667459 /* Preview Assets.xcassets */; };
 		C994EFEE2A3C551900667459 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFED2A3C551900667459 /* Persistence.swift */; };
 		C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C994EFEF2A3C551900667459 /* MC2_WheelHelp.xcdatamodeld */; };
+		FF29F02C2A42EAE0001234AB /* placeDetailInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF29F02B2A42EAE0001234AB /* placeDetailInformationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C994EFED2A3C551900667459 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		C994EFF02A3C551900667459 /* MC2_WheelHelp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MC2_WheelHelp.xcdatamodel; sourceTree = "<group>"; };
 		C994EFF22A3C551900667459 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF29F02B2A42EAE0001234AB /* placeDetailInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeDetailInformationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		C994EFE32A3C551800667459 /* MC2_WheelHelp */ = {
 			isa = PBXGroup;
 			children = (
+				FF29F02A2A42E908001234AB /* View */,
 				C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */,
 				C994EFE62A3C551800667459 /* ContentView.swift */,
 				C994EFE82A3C551900667459 /* Assets.xcassets */,
@@ -73,6 +76,14 @@
 				C994EFEB2A3C551900667459 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FF29F02A2A42E908001234AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FF29F02B2A42EAE0001234AB /* placeDetailInformationView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +159,7 @@
 				C994EFEE2A3C551900667459 /* Persistence.swift in Sources */,
 				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
 				C994EFE72A3C551800667459 /* ContentView.swift in Sources */,
+				FF29F02C2A42EAE0001234AB /* placeDetailInformationView.swift in Sources */,
 				C994EFE52A3C551800667459 /* MC2_WheelHelpApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
