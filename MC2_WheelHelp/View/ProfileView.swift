@@ -9,31 +9,39 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        Form{
-            Section{
-                HStack{
-                    Text("gambar")
-                    VStack{
-                        HStack{
-                            Text("Angelo Kusuma")
-                                .fontWeight(.semibold)
-                                .multilineTextAlignment(.leading)
-                            Spacer()
-                        }
-                        HStack{
-                            Text("administrator1@icloud.com")
-                                .fontWeight(.light)
-                                .multilineTextAlignment(.leading)
-                            Spacer()
+        NavigationStack{
+            Form{
+                Section{
+                    HStack{
+                        Image("ProfilePhoto")
+                            .resizable()
+                            .frame(width: 70, height : 70)
+                            .clipShape(Circle())// request dari apple acount
+                        VStack{
+                            HStack{
+                                Text("Angelo Kusuma") // request dari apple account
+                                    .fontWeight(.semibold)
+                                    .multilineTextAlignment(.leading)
+                                Spacer()
+                            }
+                            HStack{
+                                Text("administrator1@icloud.com") // request dari apple account
+                                    .fontWeight(.light)
+                                    .multilineTextAlignment(.leading)
+                                Spacer()
+                            }
                         }
                     }
                 }
+                Section{
+                    HStack{
+                        Text("Reviews")
+                        Spacer()
+                        Image(systemName: "chevron.forward")
+                    }
+                }
             }
-            Section{
-                Text("Reviews")
-                Spacer()
-                
-            }
+            .navigationTitle("Akun")
         }
     }
 }
