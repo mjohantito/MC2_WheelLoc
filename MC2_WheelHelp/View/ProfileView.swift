@@ -14,13 +14,25 @@ struct ProfileView: View {
                 HStack{
                     Text("gambar")
                     VStack{
-                        Text("nama")
-                        Text("email")
+                        HStack{
+                            Text("Angelo Kusuma")
+                                .fontWeight(.semibold)
+                                .multilineTextAlignment(.leading)
+                            Spacer()
+                        }
+                        HStack{
+                            Text("administrator1@icloud.com")
+                                .fontWeight(.light)
+                                .multilineTextAlignment(.leading)
+                            Spacer()
+                        }
                     }
                 }
             }
             Section{
                 Text("Reviews")
+                Spacer()
+                
             }
         }
     }
