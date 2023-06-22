@@ -11,7 +11,7 @@ struct RekomendasiCardView: View {
 
     let image: String
     let title: String
-    let rating: Int
+    let rating: Double
    
     var body: some View {
         VStack{
@@ -33,7 +33,7 @@ struct RekomendasiCardView: View {
                 Image("wheelchair")
                     .resizable()
                     .frame(width: 23, height: 23)
-                Text("\(String(rating)).0")
+                Text("\(String(rating))")
                     .font(.body)
                 
             }

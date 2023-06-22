@@ -10,7 +10,7 @@ import SwiftUI
 struct KategoriCardView: View {
     let image: String
     let title: String
-    let rating: Int
+    let rating: Double
     let jumlahrating: Int
     
     var body: some View {
@@ -32,7 +32,7 @@ struct KategoriCardView: View {
                 Image("wheelchair")
                     .resizable()
                     .frame(width: 23, height: 23)
-                Text("\(String(rating)).0")
+                Text("\(String(rating))")
                     .font(.body)
                 
                 Spacer()
