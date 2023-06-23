@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9521A8112A445071004116E6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9521A8102A445071004116E6 /* SearchView.swift */; };
 		954217162A4306070031A3A4 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217152A4306070031A3A4 /* PlaceView.swift */; };
 		9542171A2A43067C0031A3A4 /* ExtensionRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217192A43067C0031A3A4 /* ExtensionRoundedCorner.swift */; };
 		9542171C2A4306940031A3A4 /* RekomendasiCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9542171B2A4306940031A3A4 /* RekomendasiCardView.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9521A8102A445071004116E6 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		954217152A4306070031A3A4 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
 		954217192A43067C0031A3A4 /* ExtensionRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRoundedCorner.swift; sourceTree = "<group>"; };
 		9542171B2A4306940031A3A4 /* RekomendasiCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RekomendasiCardView.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				954217172A4306360031A3A4 /* CardView */,
 				954217152A4306070031A3A4 /* PlaceView.swift */,
+				9521A8102A445071004116E6 /* SearchView.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				9542171E2A4306B00031A3A4 /* KategoriCardView.swift in Sources */,
 				C994EFE72A3C551800667459 /* ContentView.swift in Sources */,
 				FF29F02C2A42EAE0001234AB /* placeDetailInformationView.swift in Sources */,
+				9521A8112A445071004116E6 /* SearchView.swift in Sources */,
 				C994EFFB2A42ED7C00667459 /* ProfileView.swift in Sources */,
 				9542171A2A43067C0031A3A4 /* ExtensionRoundedCorner.swift in Sources */,
 				C994EFE52A3C551800667459 /* MC2_WheelHelpApp.swift in Sources */,
