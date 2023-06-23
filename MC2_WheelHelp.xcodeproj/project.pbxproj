@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C9655F132A44319D00CCA85F /* ReviewListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9655F122A44319D00CCA85F /* ReviewListing.swift */; };
+		C9655F162A45A20A00CCA85F /* ReviewListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9655F152A45A20A00CCA85F /* ReviewListViewModel.swift */; };
 		C994EFE52A3C551800667459 /* MC2_WheelHelpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */; };
 		C994EFE72A3C551800667459 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFE62A3C551800667459 /* ContentView.swift */; };
 		C994EFE92A3C551900667459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C994EFE82A3C551900667459 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		C9655F122A44319D00CCA85F /* ReviewListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListing.swift; sourceTree = "<group>"; };
+		C9655F152A45A20A00CCA85F /* ReviewListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListViewModel.swift; sourceTree = "<group>"; };
 		C994EFE12A3C551800667459 /* MC2_WheelHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2_WheelHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_WheelHelpApp.swift; sourceTree = "<group>"; };
 		C994EFE62A3C551800667459 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		C9655F142A45A1E300CCA85F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C9655F152A45A20A00CCA85F /* ReviewListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		C994EFD82A3C551800667459 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				C994EFFC2A42F12600667459 /* MC2_WheelHelp.entitlements */,
+				C9655F142A45A1E300CCA85F /* ViewModels */,
 				C9655F112A44318300CCA85F /* Models */,
 				FF29F02A2A42E908001234AB /* View */,
 				C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */,
@@ -178,6 +189,7 @@
 				C994EFEE2A3C551900667459 /* Persistence.swift in Sources */,
 				C994EFFE2A42F92600667459 /* SignInView.swift in Sources */,
 				C9655F132A44319D00CCA85F /* ReviewListing.swift in Sources */,
+				C9655F162A45A20A00CCA85F /* ReviewListViewModel.swift in Sources */,
 				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
 				C994EFE72A3C551800667459 /* ContentView.swift in Sources */,
 				FF29F02C2A42EAE0001234AB /* placeDetailInformationView.swift in Sources */,
