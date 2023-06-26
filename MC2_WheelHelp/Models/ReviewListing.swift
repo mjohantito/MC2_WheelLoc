@@ -10,6 +10,8 @@ import CloudKit
 
 struct ReviewListing {
     
+//    @Binding var userId: String
+    
     
     //review desc
     var recordID: CKRecord.ID? // recordID generate by cloudKit
@@ -25,31 +27,30 @@ struct ReviewListing {
     
     
     //detail information
-    let isEskalator: Bool //toogle eskalator
-    let flEskalator: String //floor eskalator
-    let locEskalator: String //lokasi eskalator
+    let isEskalator: Int //toogle eskalator, di CK ga ada bool
+//    let flEskalator: String //floor eskalator
+//    let locEskalator: String //lokasi eskalator
+    let detailEskalator: String
     
-    let isToilet: Bool //toogle toilet
-    let flToilet: String //floor toilet
-    let locToilet: String //lokasi toilet
+//    let isToilet: Bool //toogle toilet
+//    let flToilet: String //floor toilet
+//    let locToilet: String //lokasi toilet
+//
+//    let isLift: Bool //toogle toilet
+//    let flLift: String //floor toilet
+//    let locLift: String //lokasi toilet
+//
+//    let isEntry: Bool //toogle aksesmasuk
+//    let locEntry: String //lokasi aksesmasuk
+//
+//    let isParkingSlot: Bool //toogle tempatparkir
+//    let locParkingSlot: String //lokasi tempatparkir
+//
+//    let isWheelChair: Bool // toogle kursi roda
+//    let locWheelChair: String // lokasi peminjaman kursi roda
     
-    let isLift: Bool //toogle toilet
-    let flLift: String //floor toilet
-    let locLift: String //lokasi toilet
-    
-    let isAksesMasuk: Bool //toogle aksesmasuk
-    let locAksesMasuk: String //lokasi aksesmasuk
-    
-    let isTempatParkir: Bool //toogle tempatparkir
-    let locTempatParkir: String //lokasi tempatparkir
-    
-    let isKursiRoda: Bool // toogle kursi roda
-    let locKursiRoda: String // lokasi peminjaman kursi roda
-    
-    
-    init(recordID: CKRecord.ID? = nil, fkPlaceId: String, rating: Double, title: String, desc: String, date: Date, image: String, likes: Int, isEskalator: Bool, flEskalator: String, locEskalator: String, isToilet: Bool, flToilet: String, locToilet: String, isLift: Bool, flLift: String, locLift: String, isAksesMasuk: Bool, locAksesMasuk: String, isTempatParkir: Bool, locTempatParkir: String, isKursiRoda: Bool, locKursiRoda: String) {
+    init(recordID: CKRecord.ID? = nil, fkPlaceId: String, rating: Double, title: String, desc: String, date: Date, image: String, likes: Int, isEskalator: Int, detailEskalator: String) {
         self.recordID = recordID
-        // self.fkUserId = fkUserId
         self.fkPlaceId = fkPlaceId
         self.rating = rating
         self.title = title
@@ -58,20 +59,7 @@ struct ReviewListing {
         self.image = image
         self.likes = likes
         self.isEskalator = isEskalator
-        self.flEskalator = flEskalator
-        self.locEskalator = locEskalator
-        self.isToilet = isToilet
-        self.flToilet = flToilet
-        self.locToilet = locToilet
-        self.isLift = isLift
-        self.flLift = flLift
-        self.locLift = locLift
-        self.isAksesMasuk = isAksesMasuk
-        self.locAksesMasuk = locAksesMasuk
-        self.isTempatParkir = isTempatParkir
-        self.locTempatParkir = locTempatParkir
-        self.isKursiRoda = isKursiRoda
-        self.locKursiRoda = locKursiRoda
+        self.detailEskalator = detailEskalator
     }
     
     

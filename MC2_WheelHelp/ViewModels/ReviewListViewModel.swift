@@ -8,15 +8,20 @@
 import Foundation
 import CloudKit
 
+
 class ItemListViewModel: ObservableObject {
-    
+
     private var database: CKDatabase
     private var container: CKContainer
-    
+
     init(container: CKContainer) {
-        self.database = self.container.publicCloudDatabase // 9:53 beggining cloudkit
         self.container = container
+        self.database = self.container.publicCloudDatabase // 9:53 beggining cloudkit
     }
     
-    // func saveitem
+    func saveItem(title: String, price: Decimal) {
+        
+        
+        
+    }
 }
