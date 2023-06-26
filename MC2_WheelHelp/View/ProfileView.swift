@@ -12,15 +12,33 @@ struct ProfileView: View {
         Form{
             Section{
                 HStack{
-                    Text("gambar")
-                    VStack{
-                        Text("nama")
-                        Text("email")
+                    Image(systemName: "person.circle")
+                      .resizable()
+                      .frame(width: 60, height: 60)
+                      .foregroundColor(.black)
+                      .padding(10)
+                      .background(Color.white)
+                      .clipShape(Circle())
+                    
+                    VStack(alignment: .leading){
+                        Text("Angelo Kusuma")
+                            .font(.headline)
+                        
+                        Text(verbatim: "administrator@icloud.com")
+                            .font(.caption)
+                            .foregroundColor(.gray)
                     }
                 }
             }
             Section{
-                Text("Reviews")
+                HStack{
+                    Text("Reviews")
+                    
+                    Spacer()
+                    
+                    Image(systemName: "chevron.right")
+                }
+                
             }
         }
     }
