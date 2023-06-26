@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct PlaceDetailInformationView: View {
+    
+    @State var showSheet = false
+    
     var body: some View {
         NavigationStack{
             ScrollView{
@@ -206,13 +209,17 @@ struct PlaceDetailInformationView: View {
                     
                     HStack {
                         Button{
-                            
+                            showSheet.toggle()
                         }label: {
                             Text(Image(systemName: "square.and.pencil"))
                                 .padding(.top)
                             Text("Tulis Ulasan")
                                 .frame(alignment: .leading)
                                 .padding(.top)
+                            
+                                .sheet(isPresented: $showSheet){
+                                    AddReviewView()
+                                }
                     }
                         
                         Spacer()

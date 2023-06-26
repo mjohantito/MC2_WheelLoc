@@ -14,6 +14,7 @@
 		C994EFEE2A3C551900667459 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFED2A3C551900667459 /* Persistence.swift */; };
 		C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C994EFEF2A3C551900667459 /* MC2_WheelHelp.xcdatamodeld */; };
 		FF29F02E2A42EEBF001234AB /* PlaceDetailInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF29F02D2A42EEBF001234AB /* PlaceDetailInformationView.swift */; };
+		FF3F39902A496DBB004B1E3F /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F398F2A496DBB004B1E3F /* AddReviewView.swift */; };
 		FF9A44CE2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9A44CD2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift */; };
 		FF9A44D22A444C2400D345EC /* ReviewSmallCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9A44D12A444C2400D345EC /* ReviewSmallCardView.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		C994EFF02A3C551900667459 /* MC2_WheelHelp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MC2_WheelHelp.xcdatamodel; sourceTree = "<group>"; };
 		C994EFF22A3C551900667459 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF29F02D2A42EEBF001234AB /* PlaceDetailInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailInformationView.swift; sourceTree = "<group>"; };
+		FF3F398F2A496DBB004B1E3F /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
 		FF9A44CD2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyHealthFacilitiesCardView.swift; sourceTree = "<group>"; };
 		FF9A44D12A444C2400D345EC /* ReviewSmallCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSmallCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +97,7 @@
 			children = (
 				FF9A44CC2A443E4E00D345EC /* CardView */,
 				FF29F02D2A42EEBF001234AB /* PlaceDetailInformationView.swift */,
+				FF3F398F2A496DBB004B1E3F /* AddReviewView.swift */,
 			);
 			path = PlaceDetail;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				FF9A44D22A444C2400D345EC /* ReviewSmallCardView.swift in Sources */,
 				FF29F02E2A42EEBF001234AB /* PlaceDetailInformationView.swift in Sources */,
 				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
+				FF3F39902A496DBB004B1E3F /* AddReviewView.swift in Sources */,
 				C994EFE72A3C551800667459 /* ContentView.swift in Sources */,
 				FF9A44CE2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift in Sources */,
 				C994EFE52A3C551800667459 /* MC2_WheelHelpApp.swift in Sources */,
