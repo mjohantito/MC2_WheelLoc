@@ -22,6 +22,7 @@
 		C994EFEE2A3C551900667459 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFED2A3C551900667459 /* Persistence.swift */; };
 		C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C994EFEF2A3C551900667459 /* MC2_WheelHelp.xcdatamodeld */; };
 		C994EFFB2A42ED7C00667459 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFFA2A42ED7C00667459 /* ProfileView.swift */; };
+		C994EFFE2A42F92600667459 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFFD2A42F92600667459 /* SignInView.swift */; };
 		FF29F02C2A42EAE0001234AB /* placeDetailInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF29F02B2A42EAE0001234AB /* placeDetailInformationView.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,8 @@
 		C994EFF02A3C551900667459 /* MC2_WheelHelp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MC2_WheelHelp.xcdatamodel; sourceTree = "<group>"; };
 		C994EFF22A3C551900667459 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C994EFFA2A42ED7C00667459 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		C994EFFC2A42F12600667459 /* MC2_WheelHelp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MC2_WheelHelp.entitlements; sourceTree = "<group>"; };
+		C994EFFD2A42F92600667459 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		FF29F02B2A42EAE0001234AB /* placeDetailInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeDetailInformationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +124,7 @@
 		C994EFE32A3C551800667459 /* MC2_WheelHelp */ = {
 			isa = PBXGroup;
 			children = (
+				C994EFFC2A42F12600667459 /* MC2_WheelHelp.entitlements */,
 				FF29F02A2A42E908001234AB /* View */,
 				954217182A43063D0031A3A4 /* Extension */,
 				C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */,
@@ -149,6 +153,7 @@
 				954217142A4305510031A3A4 /* CategoryListView */,
 				FF29F02B2A42EAE0001234AB /* placeDetailInformationView.swift */,
 				C994EFFA2A42ED7C00667459 /* ProfileView.swift */,
+				C994EFFD2A42F92600667459 /* SignInView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,7 +231,11 @@
 				954217242A4307260031A3A4 /* CategoryListCardView.swift in Sources */,
 				9542171C2A4306940031A3A4 /* RekomendasiCardView.swift in Sources */,
 				C994EFEE2A3C551900667459 /* Persistence.swift in Sources */,
+
 				954217222A4307020031A3A4 /* StarRatingView.swift in Sources */,
+
+				C994EFFE2A42F92600667459 /* SignInView.swift in Sources */,
+
 				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
 				954217262A4307400031A3A4 /* CategoryListView.swift in Sources */,
 				954217162A4306070031A3A4 /* PlaceView.swift in Sources */,
@@ -362,9 +371,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MC2_WheelHelp/MC2_WheelHelp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2_WheelHelp/Preview Content\"";
+				DEVELOPMENT_TEAM = GVC59RAZPM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -390,9 +401,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MC2_WheelHelp/MC2_WheelHelp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2_WheelHelp/Preview Content\"";
+				DEVELOPMENT_TEAM = GVC59RAZPM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

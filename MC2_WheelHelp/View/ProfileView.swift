@@ -9,37 +9,41 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        Form{
-            Section{
-                HStack{
-                    Image(systemName: "person.circle")
-                      .resizable()
-                      .frame(width: 60, height: 60)
-                      .foregroundColor(.black)
-                      .padding(10)
-                      .background(Color.white)
-                      .clipShape(Circle())
-                    
-                    VStack(alignment: .leading){
-                        Text("Angelo Kusuma")
-                            .font(.headline)
-                        
-                        Text(verbatim: "administrator@icloud.com")
-                            .font(.caption)
-                            .foregroundColor(.gray)
+
+        NavigationStack{
+            Form{
+                Section{
+                    HStack{
+                        Image("ProfilePhoto")
+                            .resizable()
+                            .frame(width: 70, height : 70)
+                            .clipShape(Circle())// request dari apple acount
+                        VStack{
+                            HStack{
+                                Text("Angelo Kusuma") // request dari apple account
+                                    .fontWeight(.semibold)
+                                    .multilineTextAlignment(.leading)
+                                Spacer()
+                            }
+                            HStack{
+                                Text("administrator1@icloud.com") // request dari apple account
+                                    .fontWeight(.light)
+                                    .multilineTextAlignment(.leading)
+                                Spacer()
+                            }
+                        }
+                    }
+                }
+                Section{
+                    HStack{
+                        Text("Reviews")
+                        Spacer()
+                        Image(systemName: "chevron.forward")
                     }
                 }
             }
-            Section{
-                HStack{
-                    Text("Reviews")
-                    
-                    Spacer()
-                    
-                    Image(systemName: "chevron.right")
-                }
-                
-            }
+            .navigationTitle("Akun")
+
         }
     }
 }
