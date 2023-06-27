@@ -218,7 +218,7 @@ struct PlaceDetailInformationView: View {
                                 .padding(.top)
                             
                                 .sheet(isPresented: $showSheet){
-                                    AddReviewView()
+                                    AddReviewView(rating: 3, maxRating: 5)
                                 }
                     }
                         

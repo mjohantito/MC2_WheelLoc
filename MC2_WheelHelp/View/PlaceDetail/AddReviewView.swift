@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct AddReviewView: View {
     
@@ -52,8 +53,16 @@ struct AddReviewView: View {
     @State private var floorAvailableWheelchair = ""
     @State private var locationAvailableWheelchair = ""
     
+    // Input Image
     @State private var image: Image? = nil
+    @State private var selectedItems = [PhotosPickerItem]()
+    @State private var selectedImages = [Image]()
 
+    @State var rating: CGFloat
+    @State var maxRating: Int
+    
+    @State var selected = -1
+    @State var message = false
 
     
     
@@ -71,6 +80,7 @@ struct AddReviewView: View {
                         Text("Nama")
                         TextField("Masukkan Nama", text: $enterName)
                             .textContentType(.givenName)
+//                            .padding(.left,8)
                         
                     }.multilineTextAlignment(.leading)
                     
@@ -279,22 +289,39 @@ struct AddReviewView: View {
                 }
                 
                 // Section Aksesibilitas
-                Section{
-                    Text("Aksesibilitas")
+                
+                Section(footer: Text("Note : Berikan rating dengan objektif dan sesuai dengan tingkat aksesibilitas kursiroda")){
+                    Text("Rating Aksesibilitas")
                         .fontWeight(.bold)
+                    
                     VStack{
-                        Text("Ketuk untuk Menilai")
-                            .font(.system(size: 12))
-                            .padding(.bottom,16)
-                        HStack{
-                            Image(systemName: "figure.roll")
-                                
+                        VStack{
+//                            Text("Ketuk untuk Menilai")
+//    //                            .font(.system(size: 12))
+//
+//                                .padding(.bottom,16)
+//                                .frame(alignment: .leading)
+                        }
+                        
+                            
+                        HStack {
+//                            Text("Rating")
+//                            Spacer()
+                            
+                            HStack {
+                                RatingView(selected: $selected, message: $message)
+                            }
+                            .padding(.top,4)
+                            .padding(.bottom,4)
+                        }.alert(isPresented: $message) {
+                            Alert(title: Text("Rating Submit"), message: Text("You Rated \(self.selected + 1) out of 5 Star Rating"), dismissButton: .none)
                         }
                         
                     }
-            
-                    .frame(alignment: .leading)
+//                    .multilineTextAlignment(.leading)
+
                 }
+                .multilineTextAlignment(.leading)
                 
                 
                 Section(footer: Text("Note : Pastikan Ulasan tidak Mengandung unsur SARA dan ujaran kebencian")){
@@ -319,9 +346,38 @@ struct AddReviewView: View {
                 
                 
                 // Section Tambahkan File
-                Section{
+                Section(footer: Text("Note : Pastikan gambar terlihat jelas dan tidak mengandung SARA dan pornografi")){
+                    VStack{
+                        PhotosPicker("Masukkan Gambar", selection: $selectedItems, matching: .images)
+                            .padding(.top,10)
+                        LazyVStack {
+                            ForEach(0..<selectedImages.count, id: \.self) { i in
+                                selectedImages[i]
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 300, height: 300)
+                            }
+                        }
+                        
+                        
+                        .onChange(of: selectedItems) { _ in
+                            Task {
+                                selectedImages.removeAll()
+                                
+                                for item in selectedItems {
+                                    if let data = try? await item.loadTransferable(type: Data.self) {
+                                        if let uiImage = UIImage(data: data) {
+                                            let image = Image(uiImage: uiImage)
+                                            selectedImages.append(image)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                     
                 }
+                .multilineTextAlignment(.leading)
                 
                 
                 
@@ -349,6 +405,25 @@ struct AddReviewView: View {
 
 struct AddReviewView_Previews: PreviewProvider {
     static var previews: some View {
-        AddReviewView()
+        AddReviewView(rating: 1, maxRating: 5)
+    }
+}
+
+struct RatingView : View {
+     
+    @Binding var selected : Int
+    @Binding var message : Bool
+     
+    var body: some View {
+        ForEach(0..<5) { rating in
+            Image(systemName: "star.fill")
+                .resizable()
+                .frame(width: 30, height: 30)
+                .foregroundColor(self.selected >= rating ? .yellow : .gray)
+                .onTapGesture {
+                    self.selected = rating
+                    self.message.toggle()
+                }
+        }
     }
 }
