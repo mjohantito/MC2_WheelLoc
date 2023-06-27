@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE046BDE2A458E67005DE26A /* ButtonGenerateDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE046BDD2A458E67005DE26A /* ButtonGenerateDataView.swift */; };
+		BEA3EF542A4430FE002805DF /* PlacesPhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA3EF532A4430FE002805DF /* PlacesPhotosModel.swift */; };
+		BEF118DA2A42E786000FA40D /* SearchPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118D92A42E786000FA40D /* SearchPlaceView.swift */; };
+		BEF118DC2A42E898000FA40D /* FoursquareAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */; };
+		BEF118E02A4304CF000FA40D /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118DF2A4304CF000FA40D /* PlacesModel.swift */; };
 		C994EFE52A3C551800667459 /* MC2_WheelHelpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */; };
 		C994EFE72A3C551800667459 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFE62A3C551800667459 /* ContentView.swift */; };
 		C994EFE92A3C551900667459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C994EFE82A3C551900667459 /* Assets.xcassets */; };
@@ -16,6 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE046BDD2A458E67005DE26A /* ButtonGenerateDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGenerateDataView.swift; sourceTree = "<group>"; };
+		BEA3EF532A4430FE002805DF /* PlacesPhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesPhotosModel.swift; sourceTree = "<group>"; };
+		BEF118D92A42E786000FA40D /* SearchPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceView.swift; sourceTree = "<group>"; };
+		BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPI.swift; sourceTree = "<group>"; };
+		BEF118DF2A4304CF000FA40D /* PlacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
 		C994EFE12A3C551800667459 /* MC2_WheelHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2_WheelHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_WheelHelpApp.swift; sourceTree = "<group>"; };
 		C994EFE62A3C551800667459 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +68,11 @@
 			children = (
 				C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */,
 				C994EFE62A3C551800667459 /* ContentView.swift */,
+				BEF118D92A42E786000FA40D /* SearchPlaceView.swift */,
+				BE046BDD2A458E67005DE26A /* ButtonGenerateDataView.swift */,
+				BEF118DF2A4304CF000FA40D /* PlacesModel.swift */,
+				BEA3EF532A4430FE002805DF /* PlacesPhotosModel.swift */,
+				BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */,
 				C994EFE82A3C551900667459 /* Assets.xcassets */,
 				C994EFED2A3C551900667459 /* Persistence.swift */,
 				C994EFF22A3C551900667459 /* Info.plist */,
@@ -145,8 +160,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEA3EF542A4430FE002805DF /* PlacesPhotosModel.swift in Sources */,
+				BEF118E02A4304CF000FA40D /* PlacesModel.swift in Sources */,
 				C994EFEE2A3C551900667459 /* Persistence.swift in Sources */,
+				BEF118DC2A42E898000FA40D /* FoursquareAPI.swift in Sources */,
+				BEF118DA2A42E786000FA40D /* SearchPlaceView.swift in Sources */,
 				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
+				BE046BDE2A458E67005DE26A /* ButtonGenerateDataView.swift in Sources */,
 				C994EFE72A3C551800667459 /* ContentView.swift in Sources */,
 				C994EFE52A3C551800667459 /* MC2_WheelHelpApp.swift in Sources */,
 			);
