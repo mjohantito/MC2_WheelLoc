@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BE046BDE2A458E67005DE26A /* ButtonGenerateDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE046BDD2A458E67005DE26A /* ButtonGenerateDataView.swift */; };
 		BEA3EF542A4430FE002805DF /* PlacesPhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA3EF532A4430FE002805DF /* PlacesPhotosModel.swift */; };
+		BEB382A22A4C202D00ED81AA /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB382A12A4C202D00ED81AA /* CloudKit.swift */; };
 		BEF118DA2A42E786000FA40D /* SearchPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118D92A42E786000FA40D /* SearchPlaceView.swift */; };
 		BEF118DC2A42E898000FA40D /* FoursquareAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */; };
 		BEF118E02A4304CF000FA40D /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118DF2A4304CF000FA40D /* PlacesModel.swift */; };
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		BE046BDD2A458E67005DE26A /* ButtonGenerateDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGenerateDataView.swift; sourceTree = "<group>"; };
 		BEA3EF532A4430FE002805DF /* PlacesPhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesPhotosModel.swift; sourceTree = "<group>"; };
+		BEB382A02A4C16DC00ED81AA /* MC2_WheelHelp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MC2_WheelHelp.entitlements; sourceTree = "<group>"; };
+		BEB382A12A4C202D00ED81AA /* CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
 		BEF118D92A42E786000FA40D /* SearchPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceView.swift; sourceTree = "<group>"; };
 		BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPI.swift; sourceTree = "<group>"; };
 		BEF118DF2A4304CF000FA40D /* PlacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
@@ -66,6 +69,7 @@
 		C994EFE32A3C551800667459 /* MC2_WheelHelp */ = {
 			isa = PBXGroup;
 			children = (
+				BEB382A02A4C16DC00ED81AA /* MC2_WheelHelp.entitlements */,
 				C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */,
 				C994EFE62A3C551800667459 /* ContentView.swift */,
 				BEF118D92A42E786000FA40D /* SearchPlaceView.swift */,
@@ -73,6 +77,7 @@
 				BEF118DF2A4304CF000FA40D /* PlacesModel.swift */,
 				BEA3EF532A4430FE002805DF /* PlacesPhotosModel.swift */,
 				BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */,
+				BEB382A12A4C202D00ED81AA /* CloudKit.swift */,
 				C994EFE82A3C551900667459 /* Assets.xcassets */,
 				C994EFED2A3C551900667459 /* Persistence.swift */,
 				C994EFF22A3C551900667459 /* Info.plist */,
@@ -164,6 +169,7 @@
 				BEF118E02A4304CF000FA40D /* PlacesModel.swift in Sources */,
 				C994EFEE2A3C551900667459 /* Persistence.swift in Sources */,
 				BEF118DC2A42E898000FA40D /* FoursquareAPI.swift in Sources */,
+				BEB382A22A4C202D00ED81AA /* CloudKit.swift in Sources */,
 				BEF118DA2A42E786000FA40D /* SearchPlaceView.swift in Sources */,
 				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
 				BE046BDE2A458E67005DE26A /* ButtonGenerateDataView.swift in Sources */,
@@ -294,9 +300,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MC2_WheelHelp/MC2_WheelHelp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2_WheelHelp/Preview Content\"";
+				DEVELOPMENT_TEAM = ADCCQ7XPC3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -309,8 +318,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ada.MC2-WheelHelp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ada.MC2-WheelHelp-Putri";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -322,9 +332,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MC2_WheelHelp/MC2_WheelHelp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2_WheelHelp/Preview Content\"";
+				DEVELOPMENT_TEAM = ADCCQ7XPC3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -337,8 +350,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ada.MC2-WheelHelp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ada.MC2-WheelHelp-Putri";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

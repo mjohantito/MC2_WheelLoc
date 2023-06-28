@@ -11,50 +11,75 @@ struct ButtonGenerateDataView: View {
     
     @StateObject var foursquareAPI = FoursquareAPI()
     @State private var imagesData: [images]? = nil
-//    @State private var healthFacilitesData: [HealthFacilities]? = nil
+    @State private var healthFacilitesData: [HealthFacilities]? = nil
     var body: some View {
-        Button(action: {
-                    // Action to perform when the button is tapped
-                    buttonTapped()
-                }) {
-                    Text("Generate Data")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                }
+        VStack {
+            Button(action: {
+                buttonPlacesTapped()
+            }) {
+                Text("Generate Places Data")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }.padding(.bottom, 30)
+            Button(action: {
+                buttonHealthFacilitiesTapped()
+            }) {
+                Text("Generate Health Facilities Data")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            
+        }
+        
     }
     
     
-    func buttonTapped() {
-        // Handle button tap action here
+    func buttonPlacesTapped() {
         foursquareAPI.fetchPlacesandImages()
-//        foursquareAPI.fetchNearestHealthFacilities(ll: "39.044804,-77.476121")
-//        fetchHealthFacilities()
-//        fetchImages()
         print("Button tapped")
         
     }
-    func fetchImages() {
-        let fsq_id = "4bc2a3ec4cdfc9b66c6f9621" // Replace with the actual fsq_id
-        
-        foursquareAPI.fetchImagesPlaces(fsq_id: fsq_id) { fetchedImagesData in
-            DispatchQueue.main.async {
-                self.imagesData = fetchedImagesData
-            }
-        }
-    }
-    
-//    func fetchHealthFacilities() {
-//        let ll = "39.044804,-77.476121"
+    func buttonHealthFacilitiesTapped() {
+        let ll = "39.044804,-77.476121"
+        foursquareAPI.fetchNearestHealthFacilities(ll: ll)
+//        Task.init {
+//            await foursquareAPI.fetchNearestHealthFacilities(ll: ll)
 //
-//        foursquareAPI.fetchNearestHealthFacilities(ll: ll) { fetchedHealthFacilitiesData in
-//            DispatchQueue.main.async {
-//                self.healthFacilitesData = fetchedHealthFacilitiesData
+//            let encoder = JSONEncoder()
+//            encoder.outputFormatting = .prettyPrinted
+//
+//            let jsonDataNew = try encoder.encode(foursquareAPI.placeResults2)
+//            if let jsonString = String(data: jsonDataNew, encoding: .utf8) {
+//
+//                print("\(jsonString)")
+//
 //            }
 //        }
-//    }
+        print("Button tapped")
+        
+    }
+    //    func fetchImages() {
+    //        foursquareAPI.fetchImagesPlaces(fsq_id: fsq_id) { fetchedImagesData in
+    //            DispatchQueue.main.async {
+    //                self.imagesData = fetchedImagesData
+    //            }
+    //        }
+    //    }
+    
+    //    func fetchHealthFacilities() {
+    //        let ll = "39.044804,-77.476121"
+    //        foursquareAPI.fetchNearestHealthFacilities(ll: ll) { fetchedHealthFacilitiesData in
+    //            DispatchQueue.main.async {
+    //                self.healthFacilitesData = fetchedHealthFacilitiesData
+    //            }
+    //        }
+    //    }
 }
 
 struct ButtonGenerateDataView_Previews: PreviewProvider {
