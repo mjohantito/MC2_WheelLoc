@@ -28,6 +28,7 @@ struct AddReviewView: View {
     // Input Escalator
     @State private var floorEscalator = ""
     @State private var locationEscalator = ""
+    @State private var rows: [String] = [""]
     
     // Input Toilet Disabilitas
     @State private var floorToiletDisable = ""
@@ -57,71 +58,79 @@ struct AddReviewView: View {
     @State private var image: Image? = nil
     @State private var selectedItems = [PhotosPickerItem]()
     @State private var selectedImages = [Image]()
-
+    
     @State var rating: CGFloat
     @State var maxRating: Int
     
     @State var selected = -1
     @State var message = false
-
+    
     
     
     
     var body: some View {
         NavigationStack{
-//            VStack{
-//
-//            }
-            
-            Form{
-                Section{
-                    
-                    HStack{
-                        Text("Nama")
-                        TextField("Masukkan Nama", text: $enterName)
-                            .textContentType(.givenName)
-//                            .padding(.left,8)
-                        
-                    }.multilineTextAlignment(.leading)
+            //            VStack{
+            //
+            //            }
+            VStack{
+                HStack{
+                    Image(systemName: "figure.roll")
+                    Toggle("Eskalator", isOn: $isOnEscalator)
                     
                 }
+                if (isOnEscalator == true){
+                    VStack{
+                        List {
+                            ForEach(0..<rows.count, id: \.self) { index in
+                                HStack {
+                                    TextField("Enter text", text: $rows[index])
+                                        .textContentType(.givenName)
+                                        .multilineTextAlignment(.leading)
+                                    
+                                    Button(action: {
+                                        rows.remove(at: index)
+                                    }) {
+                                        Image(systemName: "minus.circle")
+                                            .foregroundColor(.red)
+                                    }
+                                }
+                            }
+                            
+                            .onDelete { offsets in
+                                rows.remove(atOffsets: offsets)
+                            }
+                        }
+                        Button(action: {
+                            rows.append("")
+                        }) {
+                            Text("Add Row")
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                    }
+                
+                        
+                   
+                }
+            }.padding(.leading,8)
+                .padding(.trailing,8)
+            
+            Form{
+
                 Section{
                     
                     // Eskalator Toggle
-                    VStack{
-                        HStack{
-                            Image(systemName: "figure.roll")
-                            Toggle("Eskalator", isOn: $isOnEscalator)
-                                
-                        }
-                        if (isOnEscalator == true){
-                            VStack{
-                                HStack{
-                                    Text("Lantai")
-                                    TextField("Contoh: G", text: $floorEscalator)
-                                        .textContentType(.givenName)
-                                        .multilineTextAlignment(.leading)
-                                        
-                                }
-                                HStack{
-                                    Text("Lokasi")
-                                    TextField("Depan Toko Bulan", text: $locationEscalator)
-                                        .textContentType(.givenName)
-                                        .multilineTextAlignment(.leading)
-                                    }
-                                   
-                                
-                                
-                            }.padding(.top,8)
-                        }
-                    }
+                    
                     
                     // Toilet Disabilitas Toggle
                     VStack {
                         HStack{
                             Image(systemName: "figure.roll")
                             Toggle("Toilet Disabilitas", isOn: $isOnToiletDisable)
-                                
+                            
                         }
                         if (isOnToiletDisable == true){
                             VStack{
@@ -130,15 +139,15 @@ struct AddReviewView: View {
                                     TextField("Contoh: G", text: $floorToiletDisable)
                                         .textContentType(.givenName)
                                         .multilineTextAlignment(.leading)
-                                        
+                                    
                                 }
                                 HStack{
                                     Text("Lokasi")
                                     TextField("Depan Toko Bulan", text: $locationToiletDisable)
                                         .textContentType(.givenName)
                                         .multilineTextAlignment(.leading)
-                                    }
-                                   
+                                }
+                                
                                 
                                 
                             }.padding(.top,8)
@@ -158,15 +167,15 @@ struct AddReviewView: View {
                                     TextField("Contoh: G", text: $floorLift)
                                         .textContentType(.givenName)
                                         .multilineTextAlignment(.leading)
-                                        
+                                    
                                 }
                                 HStack{
                                     Text("Lokasi")
                                     TextField("Depan Toko Bulan", text: $locationLift)
                                         .textContentType(.givenName)
                                         .multilineTextAlignment(.leading)
-                                    }
-                                   
+                                }
+                                
                                 
                                 
                             }.padding(.top,8)
@@ -186,15 +195,15 @@ struct AddReviewView: View {
                                     TextField("Contoh: G", text: $floorRamp)
                                         .textContentType(.givenName)
                                         .multilineTextAlignment(.leading)
-                                        
+                                    
                                 }
                                 HStack{
                                     Text("Lokasi")
                                     TextField("Depan Toko Bulan", text: $locationRamp)
                                         .textContentType(.givenName)
                                         .multilineTextAlignment(.leading)
-                                    }
-                                   
+                                }
+                                
                                 
                                 
                             }.padding(.top,8)
@@ -214,15 +223,15 @@ struct AddReviewView: View {
                                     TextField("Contoh: G", text: $floorEnterAccess)
                                         .textContentType(.givenName)
                                         .multilineTextAlignment(.leading)
-                                        
+                                    
                                 }
                                 HStack{
                                     Text("Lokasi")
                                     TextField("Depan Toko Bulan", text: $locationEnterAccess)
                                         .textContentType(.givenName)
                                         .multilineTextAlignment(.leading)
-                                    }
-                                   
+                                }
+                                
                                 
                                 
                             }.padding(.top,8)
@@ -242,15 +251,15 @@ struct AddReviewView: View {
                                     TextField("Contoh: G", text: $floorParking)
                                         .textContentType(.givenName)
                                         .multilineTextAlignment(.leading)
-                                        
+                                    
                                 }
                                 HStack{
                                     Text("Lokasi")
                                     TextField("Depan Toko Bulan", text: $locationParking)
                                         .textContentType(.givenName)
                                         .multilineTextAlignment(.leading)
-                                    }
-                                   
+                                }
+                                
                                 
                                 
                             }.padding(.top,8)
@@ -270,15 +279,15 @@ struct AddReviewView: View {
                                     TextField("Contoh: G", text: $floorAvailableWheelchair)
                                         .textContentType(.givenName)
                                         .multilineTextAlignment(.leading)
-                                        
+                                    
                                 }
                                 HStack{
                                     Text("Lokasi")
                                     TextField("Depan Toko Bulan", text: $locationAvailableWheelchair)
                                         .textContentType(.givenName)
                                         .multilineTextAlignment(.leading)
-                                    }
-                                   
+                                }
+                                
                                 
                                 
                             }.padding(.top,8)
@@ -296,17 +305,17 @@ struct AddReviewView: View {
                     
                     VStack{
                         VStack{
-//                            Text("Ketuk untuk Menilai")
-//    //                            .font(.system(size: 12))
-//
-//                                .padding(.bottom,16)
-//                                .frame(alignment: .leading)
+                            //                            Text("Ketuk untuk Menilai")
+                            //    //                            .font(.system(size: 12))
+                            //
+                            //                                .padding(.bottom,16)
+                            //                                .frame(alignment: .leading)
                         }
                         
-                            
+                        
                         HStack {
-//                            Text("Rating")
-//                            Spacer()
+                            //                            Text("Rating")
+                            //                            Spacer()
                             
                             HStack {
                                 RatingView(selected: $selected, message: $message)
@@ -318,8 +327,8 @@ struct AddReviewView: View {
                         }
                         
                     }
-//                    .multilineTextAlignment(.leading)
-
+                    //                    .multilineTextAlignment(.leading)
+                    
                 }
                 .multilineTextAlignment(.leading)
                 
@@ -329,7 +338,7 @@ struct AddReviewView: View {
                     Text("Ulasan")
                         .fontWeight(.bold)
                     VStack{
-                       
+                        
                         TextField("Masukkan Judul", text: $titleReview)
                             .textContentType(.givenName)
                             .multilineTextAlignment(.leading)
@@ -401,6 +410,10 @@ struct AddReviewView: View {
             }
         }
     }
+    
+    func deleteRow(at offsets: IndexSet) {
+            rows.remove(atOffsets: offsets)
+    }
 }
 
 struct AddReviewView_Previews: PreviewProvider {
@@ -410,10 +423,10 @@ struct AddReviewView_Previews: PreviewProvider {
 }
 
 struct RatingView : View {
-     
+    
     @Binding var selected : Int
     @Binding var message : Bool
-     
+    
     var body: some View {
         ForEach(0..<5) { rating in
             Image(systemName: "star.fill")
@@ -427,3 +440,4 @@ struct RatingView : View {
         }
     }
 }
+

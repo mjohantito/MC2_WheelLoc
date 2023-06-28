@@ -17,9 +17,9 @@ struct NearbyHealthFacilitiesCardView: View {
     
     var body: some View {
         HStack{
-//            Image(imageNearbyFacilites)
-//                .resizable()
-//                .frame(width: 80, height: 100, alignment: .leading)
+            Image(imageNearbyFacilites)
+                .resizable()
+                .frame(width: 80, height: 100, alignment: .leading)
 
             VStack(alignment: .leading){
                 
