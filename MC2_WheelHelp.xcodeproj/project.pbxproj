@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< Updated upstream
+=======
+		BE046BDE2A458E67005DE26A /* ButtonGenerateDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE046BDD2A458E67005DE26A /* ButtonGenerateDataView.swift */; };
+		BE9E0E682A4DA71200C4D8E1 /* PlaceDetailInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9E0E672A4DA71200C4D8E1 /* PlaceDetailInformationView.swift */; };
+		BE9E0E6B2A4DA77500C4D8E1 /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9E0E6A2A4DA77500C4D8E1 /* AddReviewView.swift */; };
+		BE9E0E6D2A4DA79200C4D8E1 /* NearbyHealthFacilitiesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9E0E6C2A4DA79200C4D8E1 /* NearbyHealthFacilitiesCardView.swift */; };
+		BE9E0E6F2A4DA7A700C4D8E1 /* ReviewSmallCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9E0E6E2A4DA7A700C4D8E1 /* ReviewSmallCardView.swift */; };
+		BEA3EF542A4430FE002805DF /* PlacesPhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA3EF532A4430FE002805DF /* PlacesPhotosModel.swift */; };
+		BEB382A22A4C202D00ED81AA /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB382A12A4C202D00ED81AA /* CloudKit.swift */; };
+		BEF118DA2A42E786000FA40D /* SearchPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118D92A42E786000FA40D /* SearchPlaceView.swift */; };
+		BEF118DC2A42E898000FA40D /* FoursquareAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */; };
+		BEF118E02A4304CF000FA40D /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118DF2A4304CF000FA40D /* PlacesModel.swift */; };
+>>>>>>> Stashed changes
 		C994EFE52A3C551800667459 /* MC2_WheelHelpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */; };
 		C994EFE72A3C551800667459 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFE62A3C551800667459 /* ContentView.swift */; };
 		C994EFE92A3C551900667459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C994EFE82A3C551900667459 /* Assets.xcassets */; };
@@ -19,6 +32,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+<<<<<<< Updated upstream
+=======
+		BE046BDD2A458E67005DE26A /* ButtonGenerateDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGenerateDataView.swift; sourceTree = "<group>"; };
+		BE9E0E672A4DA71200C4D8E1 /* PlaceDetailInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailInformationView.swift; sourceTree = "<group>"; };
+		BE9E0E6A2A4DA77500C4D8E1 /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
+		BE9E0E6C2A4DA79200C4D8E1 /* NearbyHealthFacilitiesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyHealthFacilitiesCardView.swift; sourceTree = "<group>"; };
+		BE9E0E6E2A4DA7A700C4D8E1 /* ReviewSmallCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSmallCardView.swift; sourceTree = "<group>"; };
+		BEA3EF532A4430FE002805DF /* PlacesPhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesPhotosModel.swift; sourceTree = "<group>"; };
+		BEB382A02A4C16DC00ED81AA /* MC2_WheelHelp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MC2_WheelHelp.entitlements; sourceTree = "<group>"; };
+		BEB382A12A4C202D00ED81AA /* CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
+		BEF118D92A42E786000FA40D /* SearchPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceView.swift; sourceTree = "<group>"; };
+		BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPI.swift; sourceTree = "<group>"; };
+		BEF118DF2A4304CF000FA40D /* PlacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		C994EFE12A3C551800667459 /* MC2_WheelHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2_WheelHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_WheelHelpApp.swift; sourceTree = "<group>"; };
 		C994EFE62A3C551800667459 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +71,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE9E0E692A4DA74C00C4D8E1 /* PlaceDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				BE9E0E672A4DA71200C4D8E1 /* PlaceDetailInformationView.swift */,
+				BE9E0E6A2A4DA77500C4D8E1 /* AddReviewView.swift */,
+				BE9E0E6C2A4DA79200C4D8E1 /* NearbyHealthFacilitiesCardView.swift */,
+				BE9E0E6E2A4DA7A700C4D8E1 /* ReviewSmallCardView.swift */,
+			);
+			path = PlaceDetailView;
+			sourceTree = "<group>";
+		};
 		C994EFD82A3C551800667459 = {
 			isa = PBXGroup;
 			children = (
@@ -63,8 +101,13 @@
 		C994EFE32A3C551800667459 /* MC2_WheelHelp */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< Updated upstream
 				C994EFFC2A42F12600667459 /* MC2_WheelHelp.entitlements */,
 				FF29F02A2A42E908001234AB /* View */,
+=======
+				BE9E0E692A4DA74C00C4D8E1 /* PlaceDetailView */,
+				BEB382A02A4C16DC00ED81AA /* MC2_WheelHelp.entitlements */,
+>>>>>>> Stashed changes
 				C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */,
 				C994EFE62A3C551800667459 /* ContentView.swift */,
 				C994EFE82A3C551900667459 /* Assets.xcassets */,
@@ -164,9 +207,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< Updated upstream
 				C994EFEE2A3C551900667459 /* Persistence.swift in Sources */,
 				C994EFFE2A42F92600667459 /* SignInView.swift in Sources */,
 				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
+=======
+				BEA3EF542A4430FE002805DF /* PlacesPhotosModel.swift in Sources */,
+				BEF118E02A4304CF000FA40D /* PlacesModel.swift in Sources */,
+				BE9E0E682A4DA71200C4D8E1 /* PlaceDetailInformationView.swift in Sources */,
+				C994EFEE2A3C551900667459 /* Persistence.swift in Sources */,
+				BE9E0E6D2A4DA79200C4D8E1 /* NearbyHealthFacilitiesCardView.swift in Sources */,
+				BEF118DC2A42E898000FA40D /* FoursquareAPI.swift in Sources */,
+				BEB382A22A4C202D00ED81AA /* CloudKit.swift in Sources */,
+				BEF118DA2A42E786000FA40D /* SearchPlaceView.swift in Sources */,
+				BE9E0E6F2A4DA7A700C4D8E1 /* ReviewSmallCardView.swift in Sources */,
+				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
+				BE9E0E6B2A4DA77500C4D8E1 /* AddReviewView.swift in Sources */,
+				BE046BDE2A458E67005DE26A /* ButtonGenerateDataView.swift in Sources */,
+>>>>>>> Stashed changes
 				C994EFE72A3C551800667459 /* ContentView.swift in Sources */,
 				FF29F02C2A42EAE0001234AB /* placeDetailInformationView.swift in Sources */,
 				C994EFFB2A42ED7C00667459 /* ProfileView.swift in Sources */,

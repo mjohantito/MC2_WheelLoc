@@ -13,7 +13,11 @@ struct MC2_WheelHelpApp: App {
 
     var body: some Scene {
         WindowGroup {
+<<<<<<< Updated upstream
             ContentView()
+=======
+            PlaceDetailInformationView()
+>>>>>>> Stashed changes
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
