@@ -14,43 +14,51 @@ struct KategoriCardView: View {
     let jumlahrating: Int
     
     var body: some View {
-        VStack(alignment: .leading){
-            //Gambar Tempat
-            Image(image)
-                .resizable()
-                .frame(width: 170, height: 130)
-                .cornerRadius(10, corners: [.topLeft, .topRight])
-            
-            //Nama Tempat
-            Text(title)
-                .font(.subheadline)
-                .bold()
-                .padding(.leading, 8)
-            
-            //Rating
-            HStack{
-                Image("wheelchair")
-                    .resizable()
-                    .frame(width: 23, height: 23)
-                Text("\(String(rating))")
-                    .font(.body)
+        NavigationLink(destination: PlaceDetailInformationView()) {
+            HStack {
+                VStack(alignment: .leading){
+                    //Gambar Tempat
+                    Image(image)
+                        .resizable()
+                        .frame(width: 170, height: 130)
+                        .cornerRadius(10, corners: [.topLeft, .topRight])
+                    
+                    //Nama Tempat
+                    Text(title)
+                        .font(.subheadline)
+                        .bold()
+                        .padding(.leading, 8)
+                        .foregroundColor(.primary)
+                    
+                    //Rating
+                    HStack{
+                        Image("wheelchair")
+                            .resizable()
+                            .frame(width: 23, height: 23)
+                        Text("\(String(rating))")
+                            .font(.body)
+                            .foregroundColor(.primary)
+                        
+                        Spacer()
+                        
+                        Text("(\(String(jumlahrating)))")
+                            .foregroundColor(.primary)
+                    }
+                    .padding(.horizontal, 8)
+                    .padding(.bottom,8)
+                }
                 
-                Spacer()
+                .frame(width: 170)
+                .padding(.bottom, 4)
                 
-                Text("(\(String(jumlahrating)))")
+                //Corner Radius Card dan Border
+                .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.gray, lineWidth: 1)
+            )
             }
-            .padding(.horizontal, 8)
-            .padding(.bottom,8)
         }
-        .frame(width: 170)
-        .padding(.bottom, 4)
-        
-        //Corner Radius Card dan Border
-        .cornerRadius(10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(.gray, lineWidth: 1)
-        )
     }
 }
 

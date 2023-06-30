@@ -20,6 +20,7 @@ struct PlaceView: View {
                         .padding(.leading, 16)
                         .foregroundColor(Color.blue)
                     
+                    
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack{
                             ForEach(0..<2, id: \.self){ _ in
@@ -89,7 +90,7 @@ struct PlaceView: View {
                             .bold()
                         
                         Spacer()
-
+                        
                         NavigationLink(destination: CategoryListView(kategori: "Hotel")) {
                             Text("Lihat Semua")
                                 .foregroundColor(Color.blue)
@@ -133,11 +134,21 @@ struct PlaceView: View {
                             }
                         }
                     }
-                    
-                    
-                    
                 }
-            }.navigationTitle("Telusuri")
+                
+            }
+            .navigationTitle("Telusuri")
+            .toolbar {
+                ToolbarItemGroup(placement: .primaryAction){
+                    NavigationLink(destination: SignInView()) {
+                        Image(systemName: "person.circle")
+                            .resizable()
+                            .foregroundColor(.primary)
+                            .scaledToFit()
+                            .frame(width: 40, height: 40)
+                    }
+                }
+            }
         }
         .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .always))
     }}

@@ -10,28 +10,43 @@ import SwiftUI
 struct PlaceDetailInformationView: View {
     
     @State var showSheet = false
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationStack{
-            ScrollView{
-                
-                TabView {
+            ScrollView {
+                ZStack (alignment: .leading){
+                    TabView {
+                        Image("national-hospital")
+                            .resizable()
+                            .frame(maxWidth: .infinity)
+                        
+                        Image("national-hospital")
+                            .resizable()
+                            .frame(maxWidth: .infinity)
+                        
+                        Image("national-hospital")
+                            .resizable()
+                            .frame(maxWidth: .infinity)
+                    }
+                    .frame(height: 300)
+                    .tabViewStyle(.page)
+                    .padding(.top, -80)
+
                     
-                    Image("national-hospital")
-                        .resizable()
-                        .frame(maxWidth: .infinity)
+                    VStack {
+                        Button(){
+                            dismiss()
+                        } label: {
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(.primary)
+                        }
+                        .padding(.leading)
+                           
+                        Spacer()
+                    }
                     
-                    Image("national-hospital")
-                        .resizable()
-                        .frame(maxWidth: .infinity)
-                    
-                    Image("national-hospital")
-                        .resizable()
-                        .frame(maxWidth: .infinity)
                 }
-                .frame(height: 300)
-                .tabViewStyle(.page)
-                .padding(.top, -80)
                 
                 VStack{
                     
@@ -48,7 +63,7 @@ struct PlaceDetailInformationView: View {
                             .fontWeight(.bold)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.top,10)
-
+                        
                     }
                     HStack {
                         Image("wheelchairSmall")
@@ -59,7 +74,7 @@ struct PlaceDetailInformationView: View {
                             Image(systemName: "star.fill")
                                 .foregroundColor(Color.yellow)
                         }
-        
+                        
                         Text("5.0")
                             .fontWeight(.bold)
                         
@@ -81,9 +96,9 @@ struct PlaceDetailInformationView: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .fontWeight(.bold)
                             
-                                NavigationLink(destination: PlaceDetailFacilityView()){
-                                    Text("Lihat Semua")
-                                }
+                            NavigationLink(destination: PlaceDetailFacilityView()){
+                                Text("Lihat Semua")
+                            }
                             
                         }
                         HStack{
@@ -93,7 +108,7 @@ struct PlaceDetailInformationView: View {
                                     Image("elevator")
                                         .resizable()
                                         .frame(width: 30, height: 30, alignment: .leading)
-                                    .foregroundColor(Color.black)
+                                        .foregroundColor(Color.black)
                                     Text("Lift")
                                 }
                                 
@@ -101,7 +116,7 @@ struct PlaceDetailInformationView: View {
                                     Image("escalator")
                                         .resizable()
                                         .frame(width: 30, height: 30, alignment: .leading)
-                                    .foregroundColor(Color.black)
+                                        .foregroundColor(Color.black)
                                     
                                     Text("Eskalator")
                                 }
@@ -110,7 +125,7 @@ struct PlaceDetailInformationView: View {
                                     Image("ramp-loading")
                                         .resizable()
                                         .frame(width: 30, height: 30, alignment: .leading)
-                                    .foregroundColor(Color.black)
+                                        .foregroundColor(Color.black)
                                     
                                     Text("Ramp")
                                 }
@@ -124,7 +139,7 @@ struct PlaceDetailInformationView: View {
                                     Image("wheelchairSmall")
                                         .resizable()
                                         .frame(width: 30, height: 30, alignment: .leading)
-                                    .foregroundColor(Color.black)
+                                        .foregroundColor(Color.black)
                                     Text("Toilet Disabilitas")
                                 }
                                 
@@ -132,7 +147,7 @@ struct PlaceDetailInformationView: View {
                                     Image("wheelchairSmall")
                                         .resizable()
                                         .frame(width: 30, height: 30, alignment: .leading)
-                                    .foregroundColor(Color.black)
+                                        .foregroundColor(Color.black)
                                     Text("Akses Masuk")
                                 }
                                 
@@ -140,7 +155,7 @@ struct PlaceDetailInformationView: View {
                                     Image("wheelchairSmall")
                                         .resizable()
                                         .frame(width: 30, height: 30, alignment: .leading)
-                                    .foregroundColor(Color.black)
+                                        .foregroundColor(Color.black)
                                     
                                     Text("Tempat Parkir")
                                 }
@@ -178,7 +193,7 @@ struct PlaceDetailInformationView: View {
                                 ForEach (0..<3, id: \.self){_ in
                                     NearbyHealthFacilitiesCardView(imageNearbyFacilites: "national-hospital", titleNearbyFacilities: "National Hospital", categoryNearbyFacilities: "Rumah Sakit", distanceNearbyFacilities: 4.5)
                                 }
-
+                                
                                 Spacer()
                                 
                             }
@@ -218,7 +233,7 @@ struct PlaceDetailInformationView: View {
                             ForEach (0..<3, id: \.self){_ in
                                 ReviewSmallCardView(userNameReview: "Angelo Kusuma", dateReview: "30 Mar 2023", ratingReview: 4.5, titleReview: "Bagus Banget!", descriptionReview: "Disini fasilitas buat pengguna kursi roda aman banget, bahkan toiletnya disediain khusus buat disabilitas!")
                             }
-
+                            
                             Spacer()
                             
                         }
@@ -241,7 +256,7 @@ struct PlaceDetailInformationView: View {
                                 .sheet(isPresented: $showSheet){
                                     AddReviewView(rating: 3, maxRating: 5)
                                 }
-                    }
+                        }
                         
                         Spacer()
                     }
@@ -265,31 +280,24 @@ struct PlaceDetailInformationView: View {
                             .fontWeight(.bold)
                         
                     }
-
-             
+                    
+                    
                     Button(action: {
                         if let url = URL(string: "https://maps.apple.com/?ll=-7.28879,112.675712") {
-                                    UIApplication.shared.open(url)
-                                }
-                            }) {
-                                Image("appleMapsStatic")
-                                    .resizable()
-                                    .scaledToFill()
-                            }
-
+                            UIApplication.shared.open(url)
+                        }
+                    }) {
+                        Image("appleMapsStatic")
+                            .resizable()
+                            .scaledToFill()
+                    }
+                    
                     
                 }
                 .padding()
-            
-                
-                
-                
-                
             }
-            
-
-
-        }.ignoresSafeArea()
+        }
+        .navigationBarHidden(true)
     }
 }
 
