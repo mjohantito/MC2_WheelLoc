@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
+		BE046BDE2A458E67005DE26A /* ButtonGenerateDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE046BDD2A458E67005DE26A /* ButtonGenerateDataView.swift */; };
+		BEA3EF542A4430FE002805DF /* PlacesPhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA3EF532A4430FE002805DF /* PlacesPhotosModel.swift */; };
+		BEB382A22A4C202D00ED81AA /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB382A12A4C202D00ED81AA /* CloudKit.swift */; };
+		BEF118DA2A42E786000FA40D /* SearchPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118D92A42E786000FA40D /* SearchPlaceView.swift */; };
+		BEF118DC2A42E898000FA40D /* FoursquareAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */; };
+		BEF118E02A4304CF000FA40D /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118DF2A4304CF000FA40D /* PlacesModel.swift */; };
 		9521A8112A445071004116E6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9521A8102A445071004116E6 /* SearchView.swift */; };
 		954217162A4306070031A3A4 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217152A4306070031A3A4 /* PlaceView.swift */; };
 		9542171A2A43067C0031A3A4 /* ExtensionRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217192A43067C0031A3A4 /* ExtensionRoundedCorner.swift */; };
@@ -15,6 +22,7 @@
 		954217222A4307020031A3A4 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217212A4307020031A3A4 /* StarRatingView.swift */; };
 		954217242A4307260031A3A4 /* CategoryListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217232A4307260031A3A4 /* CategoryListCardView.swift */; };
 		954217262A4307400031A3A4 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217252A4307400031A3A4 /* CategoryListView.swift */; };
+
 		C994EFE52A3C551800667459 /* MC2_WheelHelpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */; };
 		C994EFE72A3C551800667459 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFE62A3C551800667459 /* ContentView.swift */; };
 		C994EFE92A3C551900667459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C994EFE82A3C551900667459 /* Assets.xcassets */; };
@@ -34,6 +42,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
+		BE046BDD2A458E67005DE26A /* ButtonGenerateDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGenerateDataView.swift; sourceTree = "<group>"; };
+		BEA3EF532A4430FE002805DF /* PlacesPhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesPhotosModel.swift; sourceTree = "<group>"; };
+		BEB382A02A4C16DC00ED81AA /* MC2_WheelHelp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MC2_WheelHelp.entitlements; sourceTree = "<group>"; };
+		BEB382A12A4C202D00ED81AA /* CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
+		BEF118D92A42E786000FA40D /* SearchPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceView.swift; sourceTree = "<group>"; };
+		BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPI.swift; sourceTree = "<group>"; };
+		BEF118DF2A4304CF000FA40D /* PlacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
+
 		9521A8102A445071004116E6 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		954217152A4306070031A3A4 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
 		954217192A43067C0031A3A4 /* ExtensionRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRoundedCorner.swift; sourceTree = "<group>"; };
@@ -42,6 +59,7 @@
 		954217212A4307020031A3A4 /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		954217232A4307260031A3A4 /* CategoryListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCardView.swift; sourceTree = "<group>"; };
 		954217252A4307400031A3A4 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+
 		C994EFE12A3C551800667459 /* MC2_WheelHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2_WheelHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_WheelHelpApp.swift; sourceTree = "<group>"; };
 		C994EFE62A3C551800667459 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -138,11 +156,19 @@
 		C994EFE32A3C551800667459 /* MC2_WheelHelp */ = {
 			isa = PBXGroup;
 			children = (
-				C994EFFC2A42F12600667459 /* MC2_WheelHelp.entitlements */,
+
+				BEB382A02A4C16DC00ED81AA /* MC2_WheelHelp.entitlements */,
 				FF29F02A2A42E908001234AB /* View */,
 				954217182A43063D0031A3A4 /* Extension */,
+
 				C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */,
 				C994EFE62A3C551800667459 /* ContentView.swift */,
+				BEF118D92A42E786000FA40D /* SearchPlaceView.swift */,
+				BE046BDD2A458E67005DE26A /* ButtonGenerateDataView.swift */,
+				BEF118DF2A4304CF000FA40D /* PlacesModel.swift */,
+				BEA3EF532A4430FE002805DF /* PlacesPhotosModel.swift */,
+				BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */,
+				BEB382A12A4C202D00ED81AA /* CloudKit.swift */,
 				C994EFE82A3C551900667459 /* Assets.xcassets */,
 				C994EFED2A3C551900667459 /* Persistence.swift */,
 				C994EFF22A3C551900667459 /* Info.plist */,
@@ -265,6 +291,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				BEA3EF542A4430FE002805DF /* PlacesPhotosModel.swift in Sources */,
+				BEF118E02A4304CF000FA40D /* PlacesModel.swift in Sources */,
+				C994EFEE2A3C551900667459 /* Persistence.swift in Sources */,
+				BEF118DC2A42E898000FA40D /* FoursquareAPI.swift in Sources */,
+				BEB382A22A4C202D00ED81AA /* CloudKit.swift in Sources */,
+				BEF118DA2A42E786000FA40D /* SearchPlaceView.swift in Sources */,
+				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
+				BE046BDE2A458E67005DE26A /* ButtonGenerateDataView.swift in Sources */,
+
 				954217242A4307260031A3A4 /* CategoryListCardView.swift in Sources */,
 				9542171C2A4306940031A3A4 /* RekomendasiCardView.swift in Sources */,
 				C994EFEE2A3C551900667459 /* Persistence.swift in Sources */,
@@ -278,10 +314,10 @@
 				FF9A44CE2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift in Sources */,
 				954217222A4307020031A3A4 /* StarRatingView.swift in Sources */,
 				C994EFFE2A42F92600667459 /* SignInView.swift in Sources */,
-				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
 				954217262A4307400031A3A4 /* CategoryListView.swift in Sources */,
 				954217162A4306070031A3A4 /* PlaceView.swift in Sources */,
 				9542171E2A4306B00031A3A4 /* KategoriCardView.swift in Sources */,
+
 				C994EFE72A3C551800667459 /* ContentView.swift in Sources */,
 				9521A8112A445071004116E6 /* SearchView.swift in Sources */,
 				C994EFFB2A42ED7C00667459 /* ProfileView.swift in Sources */,
@@ -415,10 +451,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MC2_WheelHelp/MC2_WheelHelp.entitlements;
+
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2_WheelHelp/Preview Content\"";
-				DEVELOPMENT_TEAM = GVC59RAZPM;
+				DEVELOPMENT_TEAM = ADCCQ7XPC3;
+
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -431,8 +470,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ada.MC2-WheelHelp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ada.MC2-WheelHelp-Putri";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -445,10 +485,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MC2_WheelHelp/MC2_WheelHelp.entitlements;
+
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2_WheelHelp/Preview Content\"";
-				DEVELOPMENT_TEAM = GVC59RAZPM;
+				DEVELOPMENT_TEAM = ADCCQ7XPC3;
+
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -461,8 +504,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ada.MC2-WheelHelp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ada.MC2-WheelHelp-Putri";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
