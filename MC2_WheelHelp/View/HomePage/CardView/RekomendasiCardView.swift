@@ -14,28 +14,32 @@ struct RekomendasiCardView: View {
     let rating: Double
    
     var body: some View {
-        VStack{
-            //Gambar Tempat
-            Image(image)
-                .resizable()
-                .frame(width: 350, height: 200)
-                .cornerRadius(10)
-            
-            HStack{
-                //Nama Tempat
-                Text(title)
-                    .font(.title)
-                    .bold()
-                
-                Spacer()
-                
-                //Rating
-                Image("wheelchair")
+        NavigationLink(destination: PlaceDetailInformationView()) {
+            VStack{
+                //Gambar Tempat
+                Image(image)
                     .resizable()
-                    .frame(width: 23, height: 23)
-                Text("\(String(rating))")
-                    .font(.body)
+                    .frame(width: 350, height: 200)
+                    .cornerRadius(10)
                 
+                HStack{
+                    //Nama Tempat
+                    Text(title)
+                        .font(.title)
+                        .bold()
+                        .foregroundColor(.primary)
+                    
+                    Spacer()
+                    
+                    //Rating
+                    Image("wheelchair")
+                        .resizable()
+                        .frame(width: 23, height: 23)
+                    Text("\(String(rating))")
+                        .font(.body)
+                        .foregroundColor(.primary)
+                    
+                }
             }
         }
     }
