@@ -23,61 +23,48 @@ struct OnBoardingPageView: View {
     }
     
     var body: some View {
-        NavigationStack {
-            TabView {
-                ForEach(0..<onBoardingPage.count) { x in
-                    ZStack {
-//                        Image(onBoardingPage[x].background)
-//                            .resizable()
-//                            .scaledToFill()
-//                            .ignoresSafeArea()
+        TabView {
+            ForEach(0..<onBoardingPage.count) { x in
+                ZStack {
+                    Image(onBoardingPage[x].background)
+                        .resizable()
+                        .scaledToFill()
+                        .ignoresSafeArea()
+                    
+                    Image(onBoardingPage[x].image)
+                        .resizable()
+                        .scaledToFill()
+                        .padding()
+                    
+                    VStack(alignment: .center){
+                        Text(onBoardingPage[x].title)
+                            .font(.largeTitle)
+                            .bold()
+                            .foregroundColor(Color(red: 64/255, green: 190/255, blue: 218/255))
                         
-//                        if(x == 2){
-//                            Image(onBoardingPage[x].image)
-//                                .resizable()
-//                                .scaledToFill()
-//                                .padding(.top, 100)
-//                        }else{
-//                            Image(onBoardingPage[x].image)
-//                                .resizable()
-//                                .scaledToFill()
-//                        }
+                        Text(onBoardingPage[x].description)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal)
                         
-                        Image(onBoardingPage[x].image)
-                            .resizable()
-                            .scaledToFill()
-                            .padding()
-                        
-                        VStack(alignment: .center){
-                            Text(onBoardingPage[x].title)
-                                .font(.largeTitle)
-                                .bold()
-                                .foregroundColor(Color(red: 64/255, green: 190/255, blue: 218/255))
-                            
-                            Text(onBoardingPage[x].description)
-                                .multilineTextAlignment(.center)
-                                .padding(.horizontal)
-                            
-                            if(x == 3){
-                                Text("Lanjut ke Aplikasi")
-                                    .padding(16)
-                                    .frame(maxWidth: .infinity)
-                                    .background(Color.blue)
-                                    .cornerRadius(10)
-                                    .padding(.horizontal, 32)
-                                    .foregroundColor(.white)
-                                    .onTapGesture {
-                                        UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: PlaceView())
-                                    }
-                            }
+                        if(x == 3){
+                            Text("Lanjut ke Aplikasi")
+                                .padding(16)
+                                .frame(maxWidth: .infinity)
+                                .background(Color.blue)
+                                .cornerRadius(10)
+                                .padding(.horizontal, 32)
+                                .foregroundColor(.white)
+                                .onTapGesture {
+                                    UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: PlaceView())
+                                }
                         }
-                        .padding(.top, 450)
                     }
+                    .padding(.top, 450)
                 }
             }
-            .ignoresSafeArea()
-            .tabViewStyle(.page)
         }
+        .ignoresSafeArea()
+        .tabViewStyle(.page)
     }
 }
 
