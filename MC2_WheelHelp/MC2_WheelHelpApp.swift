@@ -13,7 +13,7 @@ struct MC2_WheelHelpApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ButtonGenerateDataView()
+            PlaceView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
