@@ -17,6 +17,10 @@
 		FF3F39902A496DBB004B1E3F /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F398F2A496DBB004B1E3F /* AddReviewView.swift */; };
 		FF9A44CE2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9A44CD2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift */; };
 		FF9A44D22A444C2400D345EC /* ReviewSmallCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9A44D12A444C2400D345EC /* ReviewSmallCardView.swift */; };
+		FFEEEBBE2A4E8F0A00E97FE5 /* PlaceDetailFacilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEEEBBD2A4E8F0A00E97FE5 /* PlaceDetailFacilityView.swift */; };
+		FFEEEBC02A4E915100E97FE5 /* PlaceDetailReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEEEBBF2A4E915100E97FE5 /* PlaceDetailReviewView.swift */; };
+		FFEEEBC22A4E93FB00E97FE5 /* ReviewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEEEBC12A4E93FB00E97FE5 /* ReviewCardView.swift */; };
+		FFEEEBC42A4E972D00E97FE5 /* FacilityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEEEBC32A4E972D00E97FE5 /* FacilityCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		FF3F398F2A496DBB004B1E3F /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
 		FF9A44CD2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyHealthFacilitiesCardView.swift; sourceTree = "<group>"; };
 		FF9A44D12A444C2400D345EC /* ReviewSmallCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSmallCardView.swift; sourceTree = "<group>"; };
+		FFEEEBBD2A4E8F0A00E97FE5 /* PlaceDetailFacilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailFacilityView.swift; sourceTree = "<group>"; };
+		FFEEEBBF2A4E915100E97FE5 /* PlaceDetailReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailReviewView.swift; sourceTree = "<group>"; };
+		FFEEEBC12A4E93FB00E97FE5 /* ReviewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCardView.swift; sourceTree = "<group>"; };
+		FFEEEBC32A4E972D00E97FE5 /* FacilityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +106,8 @@
 				FF9A44CC2A443E4E00D345EC /* CardView */,
 				FF29F02D2A42EEBF001234AB /* PlaceDetailInformationView.swift */,
 				FF3F398F2A496DBB004B1E3F /* AddReviewView.swift */,
+				FFEEEBBD2A4E8F0A00E97FE5 /* PlaceDetailFacilityView.swift */,
+				FFEEEBBF2A4E915100E97FE5 /* PlaceDetailReviewView.swift */,
 			);
 			path = PlaceDetail;
 			sourceTree = "<group>";
@@ -107,6 +117,8 @@
 			children = (
 				FF9A44CD2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift */,
 				FF9A44D12A444C2400D345EC /* ReviewSmallCardView.swift */,
+				FFEEEBC12A4E93FB00E97FE5 /* ReviewCardView.swift */,
+				FFEEEBC32A4E972D00E97FE5 /* FacilityCardView.swift */,
 			);
 			path = CardView;
 			sourceTree = "<group>";
@@ -186,9 +198,13 @@
 				FF29F02E2A42EEBF001234AB /* PlaceDetailInformationView.swift in Sources */,
 				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
 				FF3F39902A496DBB004B1E3F /* AddReviewView.swift in Sources */,
+				FFEEEBC22A4E93FB00E97FE5 /* ReviewCardView.swift in Sources */,
+				FFEEEBC02A4E915100E97FE5 /* PlaceDetailReviewView.swift in Sources */,
 				C994EFE72A3C551800667459 /* ContentView.swift in Sources */,
 				FF9A44CE2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift in Sources */,
 				C994EFE52A3C551800667459 /* MC2_WheelHelpApp.swift in Sources */,
+				FFEEEBBE2A4E8F0A00E97FE5 /* PlaceDetailFacilityView.swift in Sources */,
+				FFEEEBC42A4E972D00E97FE5 /* FacilityCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,13 +14,30 @@ struct PlaceDetailInformationView: View {
     var body: some View {
         NavigationStack{
             ScrollView{
+                
+                TabView {
+                    
+                    Image("national-hospital")
+                        .resizable()
+                        .frame(maxWidth: .infinity)
+                    
+                    Image("national-hospital")
+                        .resizable()
+                        .frame(maxWidth: .infinity)
+                    
+                    Image("national-hospital")
+                        .resizable()
+                        .frame(maxWidth: .infinity)
+                }
+                .frame(height: 300)
+                .tabViewStyle(.page)
+                .padding(.top, -80)
+                
                 VStack{
                     
                     // Section Image Slider
                     
-                    HStack{
-                        Image("")
-                    }
+                    
                     
                     
                     // Section Nama Tempat & Rating
@@ -63,9 +80,11 @@ struct PlaceDetailInformationView: View {
                             Text("Fasilitas")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .fontWeight(.bold)
-                            Button("Lihat Semua"){
-                                
-                            }
+                            
+                                NavigationLink(destination: PlaceDetailFacilityView()){
+                                    Text("Lihat Semua")
+                                }
+                            
                         }
                         HStack{
                             VStack(alignment: .leading){
@@ -165,6 +184,7 @@ struct PlaceDetailInformationView: View {
                             }
                             .frame(alignment: .leading)
                             
+                            
                         }
                         
                     }
@@ -176,6 +196,7 @@ struct PlaceDetailInformationView: View {
                     // End Section Fasilitas Kesehatan Terdekat
                     
                 }
+                .padding()
                 
                 // Section Ulasan
                 
@@ -184,8 +205,8 @@ struct PlaceDetailInformationView: View {
                         Text("Ulasan")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .fontWeight(.bold)
-                        Button("Lihat Semua"){
-                            
+                        NavigationLink(destination: PlaceDetailReviewView()){
+                            Text("Lihat Semua")
                         }
                     }
                     
@@ -228,8 +249,7 @@ struct PlaceDetailInformationView: View {
                     
                     
                 }
-                .padding(.top)
-                .padding(.bottom)
+                .padding()
                 
                 Divider()
                 
@@ -259,18 +279,17 @@ struct PlaceDetailInformationView: View {
 
                     
                 }
-                .padding(.top)
-                .padding(.bottom)
+                .padding()
             
                 
                 
                 
                 
             }
-            .padding()
+            
 
 
-        }
+        }.ignoresSafeArea()
     }
 }
 
