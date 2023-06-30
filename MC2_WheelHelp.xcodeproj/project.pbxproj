@@ -15,6 +15,8 @@
 		954217222A4307020031A3A4 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217212A4307020031A3A4 /* StarRatingView.swift */; };
 		954217242A4307260031A3A4 /* CategoryListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217232A4307260031A3A4 /* CategoryListCardView.swift */; };
 		954217262A4307400031A3A4 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217252A4307400031A3A4 /* CategoryListView.swift */; };
+		9583E39A2A4F0EA70062B1D4 /* OnBoardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583E3992A4F0EA70062B1D4 /* OnBoardingPageView.swift */; };
+		9583E3A12A4F155F0062B1D4 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583E3A02A4F155F0062B1D4 /* OnBoarding.swift */; };
 		C994EFE52A3C551800667459 /* MC2_WheelHelpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */; };
 		C994EFE72A3C551800667459 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFE62A3C551800667459 /* ContentView.swift */; };
 		C994EFE92A3C551900667459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C994EFE82A3C551900667459 /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		954217212A4307020031A3A4 /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		954217232A4307260031A3A4 /* CategoryListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCardView.swift; sourceTree = "<group>"; };
 		954217252A4307400031A3A4 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		9583E3992A4F0EA70062B1D4 /* OnBoardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageView.swift; sourceTree = "<group>"; };
+		9583E3A02A4F155F0062B1D4 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
 		C994EFE12A3C551800667459 /* MC2_WheelHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2_WheelHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_WheelHelpApp.swift; sourceTree = "<group>"; };
 		C994EFE62A3C551800667459 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -119,6 +123,29 @@
 			path = CardView;
 			sourceTree = "<group>";
 		};
+		9583E3962A4F0D460062B1D4 /* OnBoardingPage */ = {
+			isa = PBXGroup;
+			children = (
+				9583E3992A4F0EA70062B1D4 /* OnBoardingPageView.swift */,
+			);
+			path = OnBoardingPage;
+			sourceTree = "<group>";
+		};
+		9583E39E2A4F15210062B1D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9583E3A02A4F155F0062B1D4 /* OnBoarding.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9583E39F2A4F15250062B1D4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		C994EFD82A3C551800667459 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				C994EFFC2A42F12600667459 /* MC2_WheelHelp.entitlements */,
+				9583E39E2A4F15210062B1D4 /* Model */,
+				9583E39F2A4F15250062B1D4 /* ViewModel */,
 				FF29F02A2A42E908001234AB /* View */,
 				954217182A43063D0031A3A4 /* Extension */,
 				C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */,
@@ -163,6 +192,7 @@
 		FF29F02A2A42E908001234AB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9583E3962A4F0D460062B1D4 /* OnBoardingPage */,
 				FF9A44CB2A443CEC00D345EC /* PlaceDetail */,
 				954217132A4305490031A3A4 /* HomePage */,
 				954217142A4305510031A3A4 /* CategoryListView */,
@@ -271,10 +301,12 @@
 				FF9A44D22A444C2400D345EC /* ReviewSmallCardView.swift in Sources */,
 				FF29F02E2A42EEBF001234AB /* PlaceDetailInformationView.swift in Sources */,
 				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
+				9583E3A12A4F155F0062B1D4 /* OnBoarding.swift in Sources */,
 				FF3F39902A496DBB004B1E3F /* AddReviewView.swift in Sources */,
 				FFEEEBC22A4E93FB00E97FE5 /* ReviewCardView.swift in Sources */,
 				FFEEEBC02A4E915100E97FE5 /* PlaceDetailReviewView.swift in Sources */,
 				C994EFE72A3C551800667459 /* ContentView.swift in Sources */,
+				9583E39A2A4F0EA70062B1D4 /* OnBoardingPageView.swift in Sources */,
 				FF9A44CE2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift in Sources */,
 				954217222A4307020031A3A4 /* StarRatingView.swift in Sources */,
 				C994EFFE2A42F92600667459 /* SignInView.swift in Sources */,
