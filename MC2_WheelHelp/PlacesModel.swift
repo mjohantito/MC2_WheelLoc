@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct CombinedResult: Codable {
-    var places: [Place]
-}
-
 struct Place: Codable {
     let fsq_id: String
     let categories_name: String
@@ -131,10 +127,6 @@ struct chains:Hashable,Codable
 }
 struct images:Hashable,Codable
 {
-//    let id:String
-//    let created_at: String
     let prefix: String
     let suffix: String
-//    let width: Int
-//    let height: Int
 }

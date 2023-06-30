@@ -4,15 +4,15 @@
 //
 //  Created by Dyah Putri Nariswari on 22/06/23.
 //
-
-import Foundation
-
+// MARK: UNUSED
+//import Foundation
+//
 //struct images:Hashable,Codable
 //{
-////    let id:String
-////    let created_at: String
+//    let id:String
+//    let created_at: String
 //    let prefix: String
 //    let suffix: String
-////    let width: Int
-////    let height: Int
+//    let width: Int
+//    let height: Int
 //}
