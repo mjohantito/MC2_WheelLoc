@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
+
         NavigationStack{
             Form{
                 Section{
@@ -42,6 +43,7 @@ struct ProfileView: View {
                 }
             }
             .navigationTitle("Akun")
+
         }
     }
 }
