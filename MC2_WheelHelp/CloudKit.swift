@@ -107,15 +107,15 @@ func addReviewToCloudKit(
 
     let database = container.publicCloudDatabase
 
-//    database.save(record) { (savedRecord, error) in
-//        if let error = error {
-//            // Handle the error
-//            print("Error saving record: \(error.localizedDescription)")
-//        } else {
-//            // Handle the success
-//            print("Record saved successfully")
-//        }
-//    }
+    database.save(record) { (savedRecord, error) in
+        if let error = error {
+            // Handle the error
+            print("Error saving record: \(error.localizedDescription)")
+        } else {
+            // Handle the success
+            print("Record saved successfully")
+        }
+    }
 }
 
 func removeDuplicateHealthFacilityRecords() {
