@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct PlaceView: View {
-    
     @State private var search = ""
-    @State private var userEmail: String = ""
-    @State private var showSignInSheet = false
     
     var body: some View {
         NavigationStack{
@@ -143,9 +140,7 @@ struct PlaceView: View {
             .navigationTitle("Telusuri")
             .toolbar {
                 ToolbarItemGroup(placement: .primaryAction){
-                    Button(action: {
-                        showSignInSheet = true
-                    }) {
+                    NavigationLink(destination: SignInView()) {
                         Image(systemName: "person.circle")
                             .resizable()
                             .foregroundColor(.primary)
@@ -156,12 +151,6 @@ struct PlaceView: View {
             }
         }
         .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .always))
-        .sheet(isPresented: $showSignInSheet) {
-            SignInView(onSuccess: { email in
-                userEmail = email
-                print("Parent view userEmail: \(userEmail)")
-            }, userEmail: $userEmail)
-        }
     }}
 
 struct PlaceView_Previews: PreviewProvider {

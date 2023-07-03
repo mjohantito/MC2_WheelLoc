@@ -7,15 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9521A8112A445071004116E6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9521A8102A445071004116E6 /* SearchView.swift */; };
-		954217162A4306070031A3A4 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217152A4306070031A3A4 /* PlaceView.swift */; };
 		9542171A2A43067C0031A3A4 /* ExtensionRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217192A43067C0031A3A4 /* ExtensionRoundedCorner.swift */; };
-		9542171C2A4306940031A3A4 /* RekomendasiCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9542171B2A4306940031A3A4 /* RekomendasiCardView.swift */; };
-		9542171E2A4306B00031A3A4 /* KategoriCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9542171D2A4306B00031A3A4 /* KategoriCardView.swift */; };
 		954217222A4307020031A3A4 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217212A4307020031A3A4 /* StarRatingView.swift */; };
-		954217242A4307260031A3A4 /* CategoryListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217232A4307260031A3A4 /* CategoryListCardView.swift */; };
-		954217262A4307400031A3A4 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217252A4307400031A3A4 /* CategoryListView.swift */; };
-
 		BE046BDE2A458E67005DE26A /* ButtonGenerateDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE046BDD2A458E67005DE26A /* ButtonGenerateDataView.swift */; };
 		BE26F93C2A5082F8003BE293 /* [UNUSED]fetchDataFromCloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26F93B2A5082F8003BE293 /* [UNUSED]fetchDataFromCloudKit.swift */; };
 		BE2EFA432A5147C10037B779 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2EFA422A5147C10037B779 /* AuthManager.swift */; };
@@ -26,11 +19,6 @@
 		BEF118DA2A42E786000FA40D /* SearchPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118D92A42E786000FA40D /* SearchPlaceView.swift */; };
 		BEF118DC2A42E898000FA40D /* FoursquareAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */; };
 		BEF118E02A4304CF000FA40D /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118DF2A4304CF000FA40D /* PlacesModel.swift */; };
-
-		9583E39A2A4F0EA70062B1D4 /* OnBoardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583E3992A4F0EA70062B1D4 /* OnBoardingPageView.swift */; };
-		9583E3A12A4F155F0062B1D4 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583E3A02A4F155F0062B1D4 /* OnBoarding.swift */; };
-
-
 		C994EFE52A3C551800667459 /* MC2_WheelHelpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */; };
 		C994EFE72A3C551800667459 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFE62A3C551800667459 /* ContentView.swift */; };
 		C994EFE92A3C551900667459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C994EFE82A3C551900667459 /* Assets.xcassets */; };
@@ -39,6 +27,14 @@
 		C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C994EFEF2A3C551900667459 /* MC2_WheelHelp.xcdatamodeld */; };
 		C994EFFB2A42ED7C00667459 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFFA2A42ED7C00667459 /* ProfileView.swift */; };
 		C994EFFE2A42F92600667459 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFFD2A42F92600667459 /* SignInView.swift */; };
+		C9CC26812A52D6B500F602B1 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC26802A52D6B500F602B1 /* PlaceView.swift */; };
+		C9CC26832A52D6CA00F602B1 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC26822A52D6CA00F602B1 /* SearchView.swift */; };
+		C9CC26862A52D71F00F602B1 /* KategoriCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC26852A52D71F00F602B1 /* KategoriCardView.swift */; };
+		C9CC26882A52D72B00F602B1 /* RekomendasiCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC26872A52D72B00F602B1 /* RekomendasiCardView.swift */; };
+		C9CC268A2A52D75000F602B1 /* OnBoardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC26892A52D75000F602B1 /* OnBoardingPageView.swift */; };
+		C9CC268D2A52D7A300F602B1 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC268C2A52D7A300F602B1 /* CategoryListView.swift */; };
+		C9CC26902A52D7BF00F602B1 /* CategoryListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC268F2A52D7BF00F602B1 /* CategoryListCardView.swift */; };
+		C9CC26942A52D80700F602B1 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC26932A52D80700F602B1 /* OnBoarding.swift */; };
 		FF29F02E2A42EEBF001234AB /* PlaceDetailInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF29F02D2A42EEBF001234AB /* PlaceDetailInformationView.swift */; };
 		FF3F39902A496DBB004B1E3F /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F398F2A496DBB004B1E3F /* AddReviewView.swift */; };
 		FF9A44CE2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9A44CD2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift */; };
@@ -50,15 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9521A8102A445071004116E6 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		954217152A4306070031A3A4 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
 		954217192A43067C0031A3A4 /* ExtensionRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRoundedCorner.swift; sourceTree = "<group>"; };
-		9542171B2A4306940031A3A4 /* RekomendasiCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RekomendasiCardView.swift; sourceTree = "<group>"; };
-		9542171D2A4306B00031A3A4 /* KategoriCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KategoriCardView.swift; sourceTree = "<group>"; };
 		954217212A4307020031A3A4 /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
-		954217232A4307260031A3A4 /* CategoryListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCardView.swift; sourceTree = "<group>"; };
-		954217252A4307400031A3A4 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
-
 		BE046BDD2A458E67005DE26A /* ButtonGenerateDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGenerateDataView.swift; sourceTree = "<group>"; };
 		BE26F93B2A5082F8003BE293 /* [UNUSED]fetchDataFromCloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[UNUSED]fetchDataFromCloudKit.swift"; sourceTree = "<group>"; };
 		BE2EFA422A5147C10037B779 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -70,10 +59,6 @@
 		BEF118D92A42E786000FA40D /* SearchPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceView.swift; sourceTree = "<group>"; };
 		BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPI.swift; sourceTree = "<group>"; };
 		BEF118DF2A4304CF000FA40D /* PlacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
-
-		9583E3992A4F0EA70062B1D4 /* OnBoardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageView.swift; sourceTree = "<group>"; };
-		9583E3A02A4F155F0062B1D4 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
-
 		C994EFE12A3C551800667459 /* MC2_WheelHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2_WheelHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_WheelHelpApp.swift; sourceTree = "<group>"; };
 		C994EFE62A3C551800667459 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,6 +69,14 @@
 		C994EFF22A3C551900667459 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C994EFFA2A42ED7C00667459 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		C994EFFD2A42F92600667459 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		C9CC26802A52D6B500F602B1 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
+		C9CC26822A52D6CA00F602B1 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		C9CC26852A52D71F00F602B1 /* KategoriCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KategoriCardView.swift; sourceTree = "<group>"; };
+		C9CC26872A52D72B00F602B1 /* RekomendasiCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RekomendasiCardView.swift; sourceTree = "<group>"; };
+		C9CC26892A52D75000F602B1 /* OnBoardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageView.swift; sourceTree = "<group>"; };
+		C9CC268C2A52D7A300F602B1 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		C9CC268F2A52D7BF00F602B1 /* CategoryListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCardView.swift; sourceTree = "<group>"; };
+		C9CC26932A52D80700F602B1 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
 		FF29F02D2A42EEBF001234AB /* PlaceDetailInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailInformationView.swift; sourceTree = "<group>"; };
 		FF3F398F2A496DBB004B1E3F /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
 		FF9A44CD2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyHealthFacilitiesCardView.swift; sourceTree = "<group>"; };
@@ -105,32 +98,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		954217132A4305490031A3A4 /* HomePage */ = {
-
-			isa = PBXGroup;
-			children = (
-				C9655F122A44319D00CCA85F /* ReviewListing.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		C9655F142A45A1E300CCA85F /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				C9655F152A45A20A00CCA85F /* ReviewListViewModel.swift */,
-			);
-			path = CategoryListView;
-			sourceTree = "<group>";
-		};
-		954217172A4306360031A3A4 /* CardView */ = {
-			isa = PBXGroup;
-			children = (
-				9542171B2A4306940031A3A4 /* RekomendasiCardView.swift */,
-				9542171D2A4306B00031A3A4 /* KategoriCardView.swift */,
-			);
-			path = CardView;
-			sourceTree = "<group>";
-		};
 		954217182A43063D0031A3A4 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,15 +107,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		9542171F2A4306D00031A3A4 /* CardView */ = {
-			isa = PBXGroup;
-			children = (
-				954217232A4307260031A3A4 /* CategoryListCardView.swift */,
-			);
-			path = CardView;
-			sourceTree = "<group>";
-		};
-
 		BE496F662A4ED8D700434A7D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,24 +114,6 @@
 				BE26F93B2A5082F8003BE293 /* [UNUSED]fetchDataFromCloudKit.swift */,
 			);
 			path = ViewModel;
-
-		9583E3962A4F0D460062B1D4 /* OnBoardingPage */ = {
-			isa = PBXGroup;
-			children = (
-				9583E3992A4F0EA70062B1D4 /* OnBoardingPageView.swift */,
-			);
-			path = OnBoardingPage;
-			sourceTree = "<group>";
-		};
-		9583E39E2A4F15210062B1D4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				9583E3A02A4F155F0062B1D4 /* OnBoarding.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-
 			sourceTree = "<group>";
 		};
 		C994EFD82A3C551800667459 = {
@@ -195,13 +135,8 @@
 		C994EFE32A3C551800667459 /* MC2_WheelHelp */ = {
 			isa = PBXGroup;
 			children = (
-
+				C9CC26922A52D7FC00F602B1 /* Model */,
 				BEB382A02A4C16DC00ED81AA /* MC2_WheelHelp.entitlements */,
-
-				9583E39E2A4F15210062B1D4 /* Model */,
-				9583E39F2A4F15250062B1D4 /* ViewModel */,
-
-
 				FF29F02A2A42E908001234AB /* View */,
 				954217182A43063D0031A3A4 /* Extension */,
 				C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */,
@@ -232,13 +167,65 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		C9CC267E2A52D67700F602B1 /* OnBoardingPage */ = {
+			isa = PBXGroup;
+			children = (
+				C9CC26892A52D75000F602B1 /* OnBoardingPageView.swift */,
+			);
+			path = OnBoardingPage;
+			sourceTree = "<group>";
+		};
+		C9CC267F2A52D69600F602B1 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				C9CC26842A52D6FD00F602B1 /* CardView */,
+				C9CC26802A52D6B500F602B1 /* PlaceView.swift */,
+				C9CC26822A52D6CA00F602B1 /* SearchView.swift */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		C9CC26842A52D6FD00F602B1 /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				C9CC26852A52D71F00F602B1 /* KategoriCardView.swift */,
+				C9CC26872A52D72B00F602B1 /* RekomendasiCardView.swift */,
+			);
+			path = CardView;
+			sourceTree = "<group>";
+		};
+		C9CC268B2A52D79200F602B1 /* CategoryListView */ = {
+			isa = PBXGroup;
+			children = (
+				C9CC268E2A52D7A600F602B1 /* CardView */,
+				C9CC268C2A52D7A300F602B1 /* CategoryListView.swift */,
+			);
+			path = CategoryListView;
+			sourceTree = "<group>";
+		};
+		C9CC268E2A52D7A600F602B1 /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				C9CC268F2A52D7BF00F602B1 /* CategoryListCardView.swift */,
+			);
+			path = CardView;
+			sourceTree = "<group>";
+		};
+		C9CC26922A52D7FC00F602B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C9CC26932A52D80700F602B1 /* OnBoarding.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FF29F02A2A42E908001234AB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9583E3962A4F0D460062B1D4 /* OnBoardingPage */,
+				C9CC268B2A52D79200F602B1 /* CategoryListView */,
+				C9CC267F2A52D69600F602B1 /* HomePage */,
+				C9CC267E2A52D67700F602B1 /* OnBoardingPage */,
 				FF9A44CB2A443CEC00D345EC /* PlaceDetail */,
-				954217132A4305490031A3A4 /* HomePage */,
-				954217142A4305510031A3A4 /* CategoryListView */,
 				C994EFFA2A42ED7C00667459 /* ProfileView.swift */,
 				C994EFFD2A42F92600667459 /* SignInView.swift */,
 			);
@@ -343,47 +330,37 @@
 				C994EFEE2A3C551900667459 /* Persistence.swift in Sources */,
 				BEF118DC2A42E898000FA40D /* FoursquareAPI.swift in Sources */,
 				BEB382A22A4C202D00ED81AA /* CloudKit.swift in Sources */,
+				C9CC268A2A52D75000F602B1 /* OnBoardingPageView.swift in Sources */,
 				BEF118DA2A42E786000FA40D /* SearchPlaceView.swift in Sources */,
 				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
 				BE2EFA432A5147C10037B779 /* AuthManager.swift in Sources */,
 				BE046BDE2A458E67005DE26A /* ButtonGenerateDataView.swift in Sources */,
-				954217242A4307260031A3A4 /* CategoryListCardView.swift in Sources */,
-				9542171C2A4306940031A3A4 /* RekomendasiCardView.swift in Sources */,
 				C994EFEE2A3C551900667459 /* Persistence.swift in Sources */,
 				FF9A44D22A444C2400D345EC /* ReviewSmallCardView.swift in Sources */,
 				FF29F02E2A42EEBF001234AB /* PlaceDetailInformationView.swift in Sources */,
 				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
-
 				BE26F93C2A5082F8003BE293 /* [UNUSED]fetchDataFromCloudKit.swift in Sources */,
 				BE496F652A4ED8D200434A7D /* FetchDataFromCloudKit.swift in Sources */,
-
-				9583E3A12A4F155F0062B1D4 /* OnBoarding.swift in Sources */,
-
 				FF3F39902A496DBB004B1E3F /* AddReviewView.swift in Sources */,
+				C9CC26902A52D7BF00F602B1 /* CategoryListCardView.swift in Sources */,
 				FFEEEBC22A4E93FB00E97FE5 /* ReviewCardView.swift in Sources */,
 				FFEEEBC02A4E915100E97FE5 /* PlaceDetailReviewView.swift in Sources */,
+				C9CC26812A52D6B500F602B1 /* PlaceView.swift in Sources */,
 				C994EFE72A3C551800667459 /* ContentView.swift in Sources */,
-
 				BE2EFA452A51F03F0037B779 /* FacilityModel.swift in Sources */,
 				FF9A44CE2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift in Sources */,
 				954217222A4307020031A3A4 /* StarRatingView.swift in Sources */,
 				C994EFFE2A42F92600667459 /* SignInView.swift in Sources */,
-
-				9583E39A2A4F0EA70062B1D4 /* OnBoardingPageView.swift in Sources */,
-
-
-				C9655F132A44319D00CCA85F /* ReviewListing.swift in Sources */,
-				C9655F162A45A20A00CCA85F /* ReviewListViewModel.swift in Sources */,
+				C9CC26942A52D80700F602B1 /* OnBoarding.swift in Sources */,
 				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
-
-				954217262A4307400031A3A4 /* CategoryListView.swift in Sources */,
-				954217162A4306070031A3A4 /* PlaceView.swift in Sources */,
-				9542171E2A4306B00031A3A4 /* KategoriCardView.swift in Sources */,
 				C994EFE72A3C551800667459 /* ContentView.swift in Sources */,
-				9521A8112A445071004116E6 /* SearchView.swift in Sources */,
 				C994EFFB2A42ED7C00667459 /* ProfileView.swift in Sources */,
+				C9CC26882A52D72B00F602B1 /* RekomendasiCardView.swift in Sources */,
 				9542171A2A43067C0031A3A4 /* ExtensionRoundedCorner.swift in Sources */,
+				C9CC268D2A52D7A300F602B1 /* CategoryListView.swift in Sources */,
+				C9CC26832A52D6CA00F602B1 /* SearchView.swift in Sources */,
 				C994EFE52A3C551800667459 /* MC2_WheelHelpApp.swift in Sources */,
+				C9CC26862A52D71F00F602B1 /* KategoriCardView.swift in Sources */,
 				FFEEEBBE2A4E8F0A00E97FE5 /* PlaceDetailFacilityView.swift in Sources */,
 				FFEEEBC42A4E972D00E97FE5 /* FacilityCardView.swift in Sources */,
 			);

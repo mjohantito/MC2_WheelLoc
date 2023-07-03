@@ -11,7 +11,6 @@ struct CategoryListView: View {
     
     let kategori: String
     @State private var search = ""
-    @State private var categoryViews: [CategoryListCardView] = []
     
     var body: some View {
         NavigationStack{
@@ -19,18 +18,9 @@ struct CategoryListView: View {
                 
                 //Scroll View List
                 VStack(alignment: .leading){
-                    //                    ForEach(0..<10, id: \.self){ _ in
-                    //                        CategoryListCardView(image: "BebekTepiSawah", placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5)
-                    //                            .padding(.horizontal, 8)
-                    //                    }
-                    ForEach(categoryViews, id: \.placeName) { view in
-                        view
-                            .padding()
-                    }
-                }
-                .onAppear {
-                    fetchDataPlaceFromCloudKit(recordTypes: ["Place"], category: kategori) { views in
-                        categoryViews = views
+                    ForEach(0..<10, id: \.self){ _ in
+                        CategoryListCardView(image: "BebekTepiSawah", title: "Bebek Tepi Sawah", subtitle: "Jalan Diponegoro No.87, Surabaya", jam: "07.00 - 20.00", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5)
+                            .padding(.horizontal, 8)
                     }
                 }
                 
