@@ -17,6 +17,7 @@ class ItemListViewModel: ObservableObject {
     init(container: CKContainer) {
         self.container = container
         self.database = self.container.publicCloudDatabase // 9:53 beggining cloudkit
+        CKRecord(recordType: "ReviewListing")
     }
     
     func saveItem(title: String, price: Decimal) {
