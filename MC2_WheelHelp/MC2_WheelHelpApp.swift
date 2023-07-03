@@ -13,16 +13,8 @@ struct MC2_WheelHelpApp: App {
 
     var body: some Scene {
         WindowGroup {
-            if(UserDefaults.standard.bool(forKey: "notFirstInApp") == false){
-                OnBoardingPageView()
-                    .onAppear {
-                        UserDefaults.standard.set(true, forKey: "notFirstInApp")
-                    }
-                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
-            }else{
-                PlaceView()
-                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
-            }
+            ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
