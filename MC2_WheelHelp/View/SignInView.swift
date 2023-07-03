@@ -11,10 +11,12 @@ import SwiftUI
 struct SignInView: View {
     @Environment(\.colorScheme) var colorScheme
     
+    
+    
     @AppStorage("email") var email: String = ""
     @AppStorage("firstName") var firstName: String = ""
     @AppStorage("lastName") var lastName: String = ""
-    @AppStorage("userId") var userId: String = ""
+    @State var userId: String = ""
     
     var body: some View {
         NavigationStack{
