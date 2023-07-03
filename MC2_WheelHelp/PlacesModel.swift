@@ -14,7 +14,7 @@ struct Place: Codable {
     let latitude: Double
     let longitude: Double
     let formatted_address: String?
-    var imagesData: [images]?
+    var imagesData: [Images]?
     var healthFacilities: [HealthFacilities]?
 
     private enum CodingKeys: String, CodingKey {
@@ -49,7 +49,7 @@ struct HealthFacilities: Codable {
     let latitude: Double
     let longitude: Double
     let formatted_address: String?
-    var imagesData: [images]?
+    var imagesData: [Images]?
 
     private enum CodingKeys: String, CodingKey {
         case fsq_id
@@ -75,57 +75,53 @@ struct HealthFacilities: Codable {
 
 
 struct Response: Codable {
-    let hasil: [hasil]
+    let hasil: [Hasil]
 }
 
-struct hasil: Codable {
+struct Hasil: Codable {
     let fsq_id:String
     let name:String
 }
 
-struct Initial:Hashable,Codable
-{
-    let results: [results]
+struct Initial: Hashable,Codable {
+    let results: [Results]
 }
 
-struct results:Hashable,Codable
-{
+struct Results: Hashable,Codable {
     let fsq_id:String
-    let categories: [categories]
-    let chains: [chains]
+    let categories: [Categories]
+    let chains: [Chains]
     let distance: Float
     let name:String
-    let geocodes: geocodes
-    let location: location
+    let geocodes: Geocodes
+    let location: Location
    
 }
 
-struct categories:Hashable,Codable
-{
+struct Categories: Hashable,Codable {
     let id: Int
     let name:String
 }
 
-struct geocodes:Hashable,Codable
-{
-    let main: main
+struct Geocodes:Hashable,Codable {
+    let main: Main
 }
 
-struct location:Hashable, Codable
+struct Location:Hashable, Codable
 {
     let formatted_address: String
 }
 
-struct main: Hashable,Codable
+struct Main: Hashable,Codable
 {
     let latitude: Double
     let longitude: Double
 }
-struct chains:Hashable,Codable
+struct Chains:Hashable,Codable
 {
     
 }
-struct images:Hashable,Codable
+struct Images:Hashable,Codable
 {
     let prefix: String
     let suffix: String

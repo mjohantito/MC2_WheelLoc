@@ -10,7 +10,7 @@ import SwiftUI
 struct ButtonGenerateDataView: View {
     
     @StateObject var foursquareAPI = FoursquareAPI()
-    @State private var imagesData: [images]? = nil
+    @State private var imagesData: [Images]? = nil
     @State private var healthFacilitesData: [HealthFacilities]? = nil
     var body: some View {
         VStack {
@@ -33,6 +33,16 @@ struct ButtonGenerateDataView: View {
                     .padding()
                     .background(Color.blue)
                     .cornerRadius(10)
+            }.padding(.bottom, 30)
+            Button(action: {
+                buttonDeleteRecordsHealthFacilitiesTapped()
+            }) {
+                Text("Delete Health Facilities Duplicate Data")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
             }
             
         }
@@ -45,6 +55,10 @@ struct ButtonGenerateDataView: View {
         print("Button tapped")
         
     }
+    func buttonDeleteRecordsHealthFacilitiesTapped() {
+        removeDuplicateHealthFacilityRecords()
+    }
+    
     func buttonHealthFacilitiesTapped() {
         let ll = "39.044804,-77.476121"
         foursquareAPI.fetchNearestHealthFacilities(ll: ll)
