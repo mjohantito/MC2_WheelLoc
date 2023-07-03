@@ -14,7 +14,7 @@ struct KategoriCardView: View {
     let jumlahrating: Int
     
     var body: some View {
-        NavigationLink(destination: PlaceDetailInformationView()) {
+//        NavigationLink(destination: PlaceDetailInformationView(imageURL: URL(string: "default") ?? , placeName: "default", address: "default", kategori:"default", rating: 1.0, jumlahUlasan: 1, fsq_id: "default", latitude: 1.0, longitude: 1.0)) {
             HStack {
                 VStack(alignment: .leading){
                     //Gambar Tempat
@@ -55,12 +55,12 @@ struct KategoriCardView: View {
                 .cornerRadius(10)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(.gray, lineWidth: 1)
+                        .stroke(.gray.opacity(0.4), lineWidth: 1)
             )
             }
         }
     }
-}
+//}
 
 struct KategoriCardView_Previews: PreviewProvider {
     static var previews: some View {

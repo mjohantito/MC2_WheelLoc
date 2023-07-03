@@ -10,9 +10,11 @@ import SwiftUI
 @main
 struct MC2_WheelHelpApp: App {
     let persistenceController = PersistenceController.shared
+    @StateObject var authManager = AuthManager()
 
     var body: some Scene {
         WindowGroup {
+
             if(UserDefaults.standard.bool(forKey: "notFirstInApp") == false){
                 OnBoardingPageView()
                     .onAppear {
@@ -23,6 +25,7 @@ struct MC2_WheelHelpApp: App {
                 PlaceView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
+
         }
     }
 }

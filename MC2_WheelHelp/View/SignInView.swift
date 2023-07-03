@@ -9,14 +9,20 @@ import AuthenticationServices
 import SwiftUI
 
 struct SignInView: View {
+    @EnvironmentObject var authManager: AuthManager
+    var onSuccess: (String) -> Void
     @Environment(\.colorScheme) var colorScheme
     
+
     
     
     @AppStorage("email") var email: String = ""
+
     @AppStorage("firstName") var firstName: String = ""
     @AppStorage("lastName") var lastName: String = ""
     @State var userId: String = ""
+    
+    @Binding var userEmail: String
     
     var body: some View {
         NavigationStack{
@@ -24,15 +30,19 @@ struct SignInView: View {
                 Text("Sebelum melakukan review, harap melakukan Log In terlebih dahulu")
                     .multilineTextAlignment(.center)
                 Spacer()
-                Text("gambar")
+                Image("logo")
+                    .resizable()
+                    .frame(width: 320, height: 300)
+                Text("Wheeloc")
+                    .font(.largeTitle)
+                    .bold()
+                    .foregroundColor(Color("customPrimary"))
+                Text("Get the best experience")
                 Spacer()
                 
                 
                 SignInWithAppleButton(.continue) {request in
-                    
                     request.requestedScopes = [.email, .fullName]
-                    
-                    
                 } onCompletion: { result in
                     
                     switch result {
@@ -40,23 +50,27 @@ struct SignInView: View {
                         
                         switch auth.credential{
                         case let credential as ASAuthorizationAppleIDCredential:
-                            
-                            //user ID
+
                             let userid = credential.user
-                            
-                            //user info
                             let email = credential.email
                             let firstName = credential.fullName?.givenName
                             let lastName = credential.fullName?.familyName
                             
-                            self.userId = userid
-                            self.email = email ?? ""
+                            self.userEmail = email ?? ""
+
+                            // Update other properties if needed
                             self.firstName = firstName ?? ""
                             self.lastName = lastName ?? ""
+                            self.userId = userid
+                            
+                            authManager.isSignedIn = true
+                            onSuccess(userEmail)
+                            print("sign in view: \(userEmail)")
                             
                         default:
                             break
                         }
+                        
                         
                         
                     case.failure(let error):
@@ -66,18 +80,19 @@ struct SignInView: View {
                     
                 }
                 .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
-                
                 .frame(height : 50)
                 .padding()
-                .cornerRadius(8)
+                .cornerRadius(10)
             }
             .navigationTitle("Log In")
+            .padding()
         }
     }
 }
 
 struct SignInView_Previews: PreviewProvider {
+    @State static var userEmail = ""
     static var previews: some View {
-        SignInView()
+        SignInView(onSuccess: { email in }, userEmail: $userEmail)
     }
 }
