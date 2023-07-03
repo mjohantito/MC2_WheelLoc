@@ -14,10 +14,18 @@ struct MC2_WheelHelpApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            ButtonGenerateDataView()
-            PlaceView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .environmentObject(authManager)
+
+            if(UserDefaults.standard.bool(forKey: "notFirstInApp") == false){
+                OnBoardingPageView()
+                    .onAppear {
+                        UserDefaults.standard.set(true, forKey: "notFirstInApp")
+                    }
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            }else{
+                PlaceView()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            }
+
         }
     }
 }

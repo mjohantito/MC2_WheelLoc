@@ -15,6 +15,7 @@
 		954217222A4307020031A3A4 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217212A4307020031A3A4 /* StarRatingView.swift */; };
 		954217242A4307260031A3A4 /* CategoryListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217232A4307260031A3A4 /* CategoryListCardView.swift */; };
 		954217262A4307400031A3A4 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954217252A4307400031A3A4 /* CategoryListView.swift */; };
+
 		BE046BDE2A458E67005DE26A /* ButtonGenerateDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE046BDD2A458E67005DE26A /* ButtonGenerateDataView.swift */; };
 		BE26F93C2A5082F8003BE293 /* [UNUSED]fetchDataFromCloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26F93B2A5082F8003BE293 /* [UNUSED]fetchDataFromCloudKit.swift */; };
 		BE2EFA432A5147C10037B779 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2EFA422A5147C10037B779 /* AuthManager.swift */; };
@@ -25,6 +26,11 @@
 		BEF118DA2A42E786000FA40D /* SearchPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118D92A42E786000FA40D /* SearchPlaceView.swift */; };
 		BEF118DC2A42E898000FA40D /* FoursquareAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */; };
 		BEF118E02A4304CF000FA40D /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118DF2A4304CF000FA40D /* PlacesModel.swift */; };
+
+		9583E39A2A4F0EA70062B1D4 /* OnBoardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583E3992A4F0EA70062B1D4 /* OnBoardingPageView.swift */; };
+		9583E3A12A4F155F0062B1D4 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583E3A02A4F155F0062B1D4 /* OnBoarding.swift */; };
+
+
 		C994EFE52A3C551800667459 /* MC2_WheelHelpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */; };
 		C994EFE72A3C551800667459 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFE62A3C551800667459 /* ContentView.swift */; };
 		C994EFE92A3C551900667459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C994EFE82A3C551900667459 /* Assets.xcassets */; };
@@ -52,6 +58,7 @@
 		954217212A4307020031A3A4 /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		954217232A4307260031A3A4 /* CategoryListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCardView.swift; sourceTree = "<group>"; };
 		954217252A4307400031A3A4 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+
 		BE046BDD2A458E67005DE26A /* ButtonGenerateDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGenerateDataView.swift; sourceTree = "<group>"; };
 		BE26F93B2A5082F8003BE293 /* [UNUSED]fetchDataFromCloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[UNUSED]fetchDataFromCloudKit.swift"; sourceTree = "<group>"; };
 		BE2EFA422A5147C10037B779 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -63,6 +70,10 @@
 		BEF118D92A42E786000FA40D /* SearchPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceView.swift; sourceTree = "<group>"; };
 		BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPI.swift; sourceTree = "<group>"; };
 		BEF118DF2A4304CF000FA40D /* PlacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
+
+		9583E3992A4F0EA70062B1D4 /* OnBoardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageView.swift; sourceTree = "<group>"; };
+		9583E3A02A4F155F0062B1D4 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
+
 		C994EFE12A3C551800667459 /* MC2_WheelHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2_WheelHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_WheelHelpApp.swift; sourceTree = "<group>"; };
 		C994EFE62A3C551800667459 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,20 +106,18 @@
 
 /* Begin PBXGroup section */
 		954217132A4305490031A3A4 /* HomePage */ = {
+
 			isa = PBXGroup;
 			children = (
-				954217172A4306360031A3A4 /* CardView */,
-				954217152A4306070031A3A4 /* PlaceView.swift */,
-				9521A8102A445071004116E6 /* SearchView.swift */,
+				C9655F122A44319D00CCA85F /* ReviewListing.swift */,
 			);
-			path = HomePage;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		954217142A4305510031A3A4 /* CategoryListView */ = {
+		C9655F142A45A1E300CCA85F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				9542171F2A4306D00031A3A4 /* CardView */,
-				954217252A4307400031A3A4 /* CategoryListView.swift */,
+				C9655F152A45A20A00CCA85F /* ReviewListViewModel.swift */,
 			);
 			path = CategoryListView;
 			sourceTree = "<group>";
@@ -139,6 +148,7 @@
 			path = CardView;
 			sourceTree = "<group>";
 		};
+
 		BE496F662A4ED8D700434A7D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +156,24 @@
 				BE26F93B2A5082F8003BE293 /* [UNUSED]fetchDataFromCloudKit.swift */,
 			);
 			path = ViewModel;
+
+		9583E3962A4F0D460062B1D4 /* OnBoardingPage */ = {
+			isa = PBXGroup;
+			children = (
+				9583E3992A4F0EA70062B1D4 /* OnBoardingPageView.swift */,
+			);
+			path = OnBoardingPage;
+			sourceTree = "<group>";
+		};
+		9583E39E2A4F15210062B1D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9583E3A02A4F155F0062B1D4 /* OnBoarding.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+
 			sourceTree = "<group>";
 		};
 		C994EFD82A3C551800667459 = {
@@ -167,7 +195,13 @@
 		C994EFE32A3C551800667459 /* MC2_WheelHelp */ = {
 			isa = PBXGroup;
 			children = (
+
 				BEB382A02A4C16DC00ED81AA /* MC2_WheelHelp.entitlements */,
+
+				9583E39E2A4F15210062B1D4 /* Model */,
+				9583E39F2A4F15250062B1D4 /* ViewModel */,
+
+
 				FF29F02A2A42E908001234AB /* View */,
 				954217182A43063D0031A3A4 /* Extension */,
 				C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */,
@@ -201,6 +235,7 @@
 		FF29F02A2A42E908001234AB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9583E3962A4F0D460062B1D4 /* OnBoardingPage */,
 				FF9A44CB2A443CEC00D345EC /* PlaceDetail */,
 				954217132A4305490031A3A4 /* HomePage */,
 				954217142A4305510031A3A4 /* CategoryListView */,
@@ -318,16 +353,29 @@
 				FF9A44D22A444C2400D345EC /* ReviewSmallCardView.swift in Sources */,
 				FF29F02E2A42EEBF001234AB /* PlaceDetailInformationView.swift in Sources */,
 				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
+
 				BE26F93C2A5082F8003BE293 /* [UNUSED]fetchDataFromCloudKit.swift in Sources */,
 				BE496F652A4ED8D200434A7D /* FetchDataFromCloudKit.swift in Sources */,
+
+				9583E3A12A4F155F0062B1D4 /* OnBoarding.swift in Sources */,
+
 				FF3F39902A496DBB004B1E3F /* AddReviewView.swift in Sources */,
 				FFEEEBC22A4E93FB00E97FE5 /* ReviewCardView.swift in Sources */,
 				FFEEEBC02A4E915100E97FE5 /* PlaceDetailReviewView.swift in Sources */,
 				C994EFE72A3C551800667459 /* ContentView.swift in Sources */,
+
 				BE2EFA452A51F03F0037B779 /* FacilityModel.swift in Sources */,
 				FF9A44CE2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift in Sources */,
 				954217222A4307020031A3A4 /* StarRatingView.swift in Sources */,
 				C994EFFE2A42F92600667459 /* SignInView.swift in Sources */,
+
+				9583E39A2A4F0EA70062B1D4 /* OnBoardingPageView.swift in Sources */,
+
+
+				C9655F132A44319D00CCA85F /* ReviewListing.swift in Sources */,
+				C9655F162A45A20A00CCA85F /* ReviewListViewModel.swift in Sources */,
+				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
+
 				954217262A4307400031A3A4 /* CategoryListView.swift in Sources */,
 				954217162A4306070031A3A4 /* PlaceView.swift in Sources */,
 				9542171E2A4306B00031A3A4 /* KategoriCardView.swift in Sources */,

@@ -13,10 +13,14 @@ struct SignInView: View {
     var onSuccess: (String) -> Void
     @Environment(\.colorScheme) var colorScheme
     
-//    @AppStorage("email") var email: String = ""
+
+    
+    
+    @AppStorage("email") var email: String = ""
+
     @AppStorage("firstName") var firstName: String = ""
     @AppStorage("lastName") var lastName: String = ""
-    @AppStorage("userId") var userId: String = ""
+    @State var userId: String = ""
     
     @Binding var userEmail: String
     
