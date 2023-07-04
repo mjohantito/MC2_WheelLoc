@@ -13,16 +13,13 @@ struct SignInView: View {
     var onSuccess: (String) -> Void
     @Environment(\.colorScheme) var colorScheme
     
-
-    
-    
     @AppStorage("email") var email: String = ""
-
     @AppStorage("firstName") var firstName: String = ""
     @AppStorage("lastName") var lastName: String = ""
-    @State var userId: String = ""
+//    @State private var userId: String = ""
     
     @Binding var userEmail: String
+    @Binding var userId: String
     
     var body: some View {
         NavigationStack{
@@ -63,6 +60,9 @@ struct SignInView: View {
                             self.lastName = lastName ?? ""
                             self.userId = userid
                             
+                            addUsersToCloudKit(fName: firstName ?? "", lName: lastName ?? "")
+                            
+                            
                             authManager.isSignedIn = true
                             onSuccess(userEmail)
                             print("sign in view: \(userEmail)")
@@ -92,7 +92,8 @@ struct SignInView: View {
 
 struct SignInView_Previews: PreviewProvider {
     @State static var userEmail = ""
+    @State static var userId = ""
     static var previews: some View {
-        SignInView(onSuccess: { email in }, userEmail: $userEmail)
+        SignInView(onSuccess: { email in }, userEmail: $userEmail, userId: $userId)
     }
 }

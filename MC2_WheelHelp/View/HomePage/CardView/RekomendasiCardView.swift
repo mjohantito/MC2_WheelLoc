@@ -14,7 +14,7 @@ struct RekomendasiCardView: View {
     let rating: Double
    
     var body: some View {
-        NavigationLink(destination: PlaceDetailInformationView()) {
+//        NavigationLink(destination: PlaceDetailInformationView()) {
             VStack{
                 //Gambar Tempat
                 Image(image)
@@ -41,7 +41,7 @@ struct RekomendasiCardView: View {
                     
                 }
             }
-        }
+//        }
     }
 }
 

@@ -67,7 +67,7 @@ func addRecordHealthFacilitiesToCloudKit(name:String, address:String, category:S
 func addReviewToCloudKit(
     accessibility_rating:Int64, akses_masuk:String, date:Date, description:String, eskalator_lantai:[String], eskalator_lokasi:[String],
     first_name:String, id_place:String, image:[CKAsset], last_name:String, lift_lantai:[String], lift_lokasi:[String], likes:Int64,
-    place_name:String, ramp:String, sedia_kursi_roda:String, tempat_prakir:String, title:String, toilet_lantai:[String], toilet_lokasi:[String], email_user:String) {
+    place_name:String, ramp:String, sedia_kursi_roda:String, tempat_prakir:String, title:String, toilet_lantai:[String], toilet_lokasi:[String], email_user:String, recordid_user: String) { //+ recordid_user
     
     print("ke passed: \(id_place) - \(email_user)")
         
@@ -79,6 +79,7 @@ func addReviewToCloudKit(
     let zoneID = CKRecordZone.default().zoneID
     let id_place = CKRecord.ID(recordName: referenceRecordName, zoneID: zoneID)
     let reference = CKRecord.Reference(recordID: id_place, action: .none)
+    // variable simpen recordid_user
     print("ref: \(reference.recordID)")
 
     record["accesibility_rating"] = accessibility_rating as CKRecordValue
@@ -102,6 +103,8 @@ func addReviewToCloudKit(
     record["toilet_lantai"] = toilet_lantai as CKRecordValue
     record["toilet_lokasi"] = toilet_lokasi as CKRecordValue
     record["email_user"] = email_user as CKRecordValue
+    record["recordid_user"] = recordid_user as CKRecordValue
+    
         
     print("after: \(id_place) - \(email_user)")
 
@@ -117,6 +120,41 @@ func addReviewToCloudKit(
         }
     }
 }
+
+
+func addUsersToCloudKit(fName:String, lName: String){
+    
+    let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
+    let recordType = "Users"
+    let record = CKRecord(recordType: recordType)
+    
+    record["fName"] = fName as CKRecordValue
+    record["lName"] = lName as CKRecordValue
+    
+    let database = container.publicCloudDatabase
+
+    database.save(record) { (savedRecord, error) in
+        if let error = error {
+            // Handle the error
+            print("Error saving record: \(error.localizedDescription)")
+        } else {
+            // Handle the success
+            print("Record saved successfully")
+        }
+    }
+    
+    print("\(fName) - \(lName)")
+    
+}
+
+
+
+
+
+
+
+
+
 
 func removeDuplicateHealthFacilityRecords() {
     let container = CKContainer.default()
