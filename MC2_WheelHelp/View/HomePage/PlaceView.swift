@@ -140,13 +140,13 @@ struct PlaceView: View {
             .navigationTitle("Telusuri")
             .toolbar {
                 ToolbarItemGroup(placement: .primaryAction){
-                    NavigationLink(destination: SignInView()) {
+//                    NavigationLink(destination: SignInView(onSuccess: { email in }, userEmail: "")) {
                         Image(systemName: "person.circle")
                             .resizable()
                             .foregroundColor(.primary)
                             .scaledToFit()
                             .frame(width: 40, height: 40)
-                    }
+//                    }
                 }
             }
         }
