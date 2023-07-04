@@ -60,6 +60,19 @@ struct OnBoardingPageView: View {
                         }
                     }
                     .padding(.top, 450)
+                    
+                    VStack {
+                        HStack (){
+                            Spacer()
+                            Text("Skip")
+                                .foregroundColor(.primary)
+                                .onTapGesture {
+                                    UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: PlaceView())
+                                }
+                                .padding(.trailing,40)
+                        }
+                        Spacer()
+                    }
                 }
             }
         }
