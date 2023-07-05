@@ -65,7 +65,7 @@ struct SignInView: View {
                             
                             authManager.isSignedIn = true
                             onSuccess(userEmail)
-                            print("sign in view: \(userEmail)")
+                            print("USERID: \(userid) - \(email)")
                             
                         default:
                             break

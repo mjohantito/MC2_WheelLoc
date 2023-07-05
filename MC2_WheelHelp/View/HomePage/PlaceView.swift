@@ -10,6 +10,7 @@ import SwiftUI
 struct PlaceView: View {
     @State private var search = ""
     @State private var categoryViews: [KategoriCardView] = []
+    @EnvironmentObject var authManager: AuthManager
     
     @State private var userEmail: String = ""
     @State private var userId: String = ""
@@ -153,7 +154,7 @@ struct PlaceView: View {
             .navigationTitle("Telusuri")
             .toolbar {
                 ToolbarItemGroup(placement: .primaryAction){
-                    NavigationLink(destination: SignInView(onSuccess: { email in }, userEmail: $userEmail, userId: $userId)) {
+                    NavigationLink(destination: SignInView(onSuccess: { email in }, userEmail: $userEmail, userId: $userId).environmentObject(authManager)) {
                         Image(systemName: "person.circle")
                             .resizable()
                             .foregroundColor(.primary)

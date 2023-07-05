@@ -125,7 +125,7 @@ func addReviewToCloudKit(
 func addUsersToCloudKit(fName:String, lName: String){
     
     let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
-    let recordType = "Users"
+    let recordType = "UserListing"
     let record = CKRecord(recordType: recordType)
     
     record["fName"] = fName as CKRecordValue
