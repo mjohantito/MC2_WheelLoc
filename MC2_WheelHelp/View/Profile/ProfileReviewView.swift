@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ProfileReviewView: View {
+    
+    @State private var profileReviewCardView: [ProfileReviewCardView] = []
+    
+    let userId = "000706.9217dd9da939472d8493656de017a04a.0848" //harusnya dapet dari signIn
+    
     var body: some View {
         NavigationStack{
             ScrollView{
@@ -19,6 +24,12 @@ struct ProfileReviewView: View {
             }.padding(.top,16)
         }
         .navigationTitle("Ulasan")
+        .onAppear{
+            fetchDataUserReviewFromCloudkit(recordTypes: ["Review"], userId: userId) { views in
+                profileReviewCardView = views
+                
+            }
+        }
         
     }
 }
