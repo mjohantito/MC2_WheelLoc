@@ -12,12 +12,14 @@ struct ProfileReviewView: View {
         NavigationStack{
             ScrollView{
                 ForEach (0..<3, id: \.self){_ in
-                    ReviewCardView(userNameReview: "Angelo Kusuma", dateReview: "30 Mar 2023", ratingReview: 4.5, titleReview: "Bagus Banget!", descriptionReview: "Disini fasilitas buat pengguna kursi roda aman banget, bahkan toiletnya disediain khusus buat disabilitas!")
+                    ProfileReviewCardView(userNameReview: "Angelo Kusuma", dateReview: "30 Mar 2023", ratingReview: 4.5, titleReview: "Bagus Banget!", descriptionReview: "Disini fasilitas buat pengguna kursi roda aman banget, bahkan toiletnya disediain khusus buat disabilitas!")
                 }
 
                 Spacer()
             }.padding(.top,16)
-        } .navigationTitle("Ulasan")
+        }
+        .navigationTitle("Ulasan")
+        
     }
 }
 

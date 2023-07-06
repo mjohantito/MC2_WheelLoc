@@ -36,6 +36,7 @@
 		C9CC26902A52D7BF00F602B1 /* CategoryListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC268F2A52D7BF00F602B1 /* CategoryListCardView.swift */; };
 		C9CC26942A52D80700F602B1 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC26932A52D80700F602B1 /* OnBoarding.swift */; };
 		C9CC26C12A56A9E500F602B1 /* ProfileReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC26C02A56A9E500F602B1 /* ProfileReviewView.swift */; };
+		C9CC26C52A56B32A00F602B1 /* ProfileReviewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC26C42A56B32A00F602B1 /* ProfileReviewCardView.swift */; };
 		FF29F02E2A42EEBF001234AB /* PlaceDetailInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF29F02D2A42EEBF001234AB /* PlaceDetailInformationView.swift */; };
 		FF3F39902A496DBB004B1E3F /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F398F2A496DBB004B1E3F /* AddReviewView.swift */; };
 		FF9A44CE2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9A44CD2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift */; };
@@ -79,6 +80,7 @@
 		C9CC268F2A52D7BF00F602B1 /* CategoryListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCardView.swift; sourceTree = "<group>"; };
 		C9CC26932A52D80700F602B1 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
 		C9CC26C02A56A9E500F602B1 /* ProfileReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReviewView.swift; sourceTree = "<group>"; };
+		C9CC26C42A56B32A00F602B1 /* ProfileReviewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReviewCardView.swift; sourceTree = "<group>"; };
 		FF29F02D2A42EEBF001234AB /* PlaceDetailInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailInformationView.swift; sourceTree = "<group>"; };
 		FF3F398F2A496DBB004B1E3F /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
 		FF9A44CD2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyHealthFacilitiesCardView.swift; sourceTree = "<group>"; };
@@ -224,10 +226,19 @@
 		C9CC26C22A56A9EB00F602B1 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				C9CC26C32A56B31300F602B1 /* CardView */,
 				C994EFFA2A42ED7C00667459 /* ProfileView.swift */,
 				C9CC26C02A56A9E500F602B1 /* ProfileReviewView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		C9CC26C32A56B31300F602B1 /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				C9CC26C42A56B32A00F602B1 /* ProfileReviewCardView.swift */,
+			);
+			path = CardView;
 			sourceTree = "<group>";
 		};
 		FF29F02A2A42E908001234AB /* View */ = {
@@ -237,6 +248,7 @@
 				C9CC267F2A52D69600F602B1 /* HomePage */,
 				C9CC267E2A52D67700F602B1 /* OnBoardingPage */,
 				FF9A44CB2A443CEC00D345EC /* PlaceDetail */,
+				C9CC26C22A56A9EB00F602B1 /* Profile */,
 				C994EFFD2A42F92600667459 /* SignInView.swift */,
 			);
 			path = View;
@@ -250,7 +262,6 @@
 				FF3F398F2A496DBB004B1E3F /* AddReviewView.swift */,
 				FFEEEBBD2A4E8F0A00E97FE5 /* PlaceDetailFacilityView.swift */,
 				FFEEEBBF2A4E915100E97FE5 /* PlaceDetailReviewView.swift */,
-				C9CC26C22A56A9EB00F602B1 /* Profile */,
 			);
 			path = PlaceDetail;
 			sourceTree = "<group>";
@@ -366,6 +377,7 @@
 				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
 				C994EFE72A3C551800667459 /* ContentView.swift in Sources */,
 				C994EFFB2A42ED7C00667459 /* ProfileView.swift in Sources */,
+				C9CC26C52A56B32A00F602B1 /* ProfileReviewCardView.swift in Sources */,
 				C9CC26882A52D72B00F602B1 /* RekomendasiCardView.swift in Sources */,
 				9542171A2A43067C0031A3A4 /* ExtensionRoundedCorner.swift in Sources */,
 				C9CC268D2A52D7A300F602B1 /* CategoryListView.swift in Sources */,
