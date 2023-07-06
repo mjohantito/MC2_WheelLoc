@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct CategoryListCardView: View {
     @State private var imageURL: URL
@@ -35,7 +36,7 @@ struct CategoryListCardView: View {
     
     var body: some View {
         
-        NavigationLink(destination: PlaceDetailInformationView(imageURLs: [imageURL], placeName: placeName, address: address, kategori:category, rating: rating, jumlahUlasan: jumlahUlasan, fsq_id: fsq_id, latitude: latitude, longitude: longitude, health_facilities_id: health_facilities_id)) {
+        NavigationLink(destination: PlaceDetailInformationView(imageURLs: [imageURL], placeName: placeName, address: address, kategori:category, rating: rating, jumlahUlasan: jumlahUlasan, fsq_id: fsq_id, latitude: latitude, longitude: longitude, health_facilities_id: health_facilities_id, ckRecordIdPlace: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"))) {
             VStack {
                 HStack{
                     VStack(alignment: .leading){

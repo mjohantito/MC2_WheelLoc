@@ -118,11 +118,14 @@ struct AddReviewView: View {
     @State var rating: CGFloat
     @State var maxRating: Int
     @State var fsq_id: String
+    @State var ckRecordIdPlace: CKRecord.ID
     @State var placeName: String
     @Binding var userEmail: String
     
     @State var selected = -1
     @State var message = false
+    
+//    @State var xxx:CKRecord.ID?
     
     var body: some View {
         NavigationView{
@@ -463,7 +466,8 @@ struct AddReviewView: View {
                             title: titleReview,
                             toilet_lantai: isOnToiletDisable ? arrayFloorToiletDisable : [],
                             toilet_lokasi: isOnToiletDisable ? arrayLocationToiletDisable : [],
-                            email_user: userEmail
+                            email_user: userEmail,
+                            ckRecordIdPlace: ckRecordIdPlace
                         )
                         
                         dismissSheet()
@@ -502,7 +506,7 @@ struct AddReviewView: View {
 
 struct AddReviewView_Previews: PreviewProvider {
     static var previews: some View {
-        AddReviewView(rating: 1, maxRating: 5, fsq_id:"default", placeName: "default", userEmail: .constant("example@example.com"))
+        AddReviewView(rating: 1, maxRating: 5, fsq_id:"default", ckRecordIdPlace: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"), placeName: "default", userEmail: .constant("example@example.com"))
     }
 }
 

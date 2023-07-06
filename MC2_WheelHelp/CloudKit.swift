@@ -67,7 +67,7 @@ func addRecordHealthFacilitiesToCloudKit(name:String, address:String, category:S
 func addReviewToCloudKit(
     accessibility_rating:Int64, akses_masuk:String, date:Date, description:String, eskalator_lantai:[String], eskalator_lokasi:[String],
     first_name:String, id_place:String, image:[CKAsset], last_name:String, lift_lantai:[String], lift_lokasi:[String], likes:Int64,
-    place_name:String, ramp:String, sedia_kursi_roda:String, tempat_prakir:String, title:String, toilet_lantai:[String], toilet_lokasi:[String], email_user:String) {
+    place_name:String, ramp:String, sedia_kursi_roda:String, tempat_prakir:String, title:String, toilet_lantai:[String], toilet_lokasi:[String], email_user:String, ckRecordIdPlace: CKRecord.ID) {
     
     print("ke passed: \(id_place) - \(email_user)")
         
@@ -77,9 +77,9 @@ func addReviewToCloudKit(
         
     let referenceRecordName = "Place"
     let zoneID = CKRecordZone.default().zoneID
-    let id_place = CKRecord.ID(recordName: referenceRecordName, zoneID: zoneID)
-    let reference = CKRecord.Reference(recordID: id_place, action: .none)
-    print("ref: \(reference.recordID)")
+//    let placeRecordID = CKRecord.ID(recordName: id_place, zoneID: zoneID)
+    let placeReference = CKRecord.Reference(recordID: ckRecordIdPlace, action: .none)
+    print("ref: \(placeReference.recordID)")
 
     record["accesibility_rating"] = accessibility_rating as CKRecordValue
     record["akses_masuk"] = akses_masuk as CKRecordValue
@@ -88,7 +88,7 @@ func addReviewToCloudKit(
     record["eskalator_lantai"] = eskalator_lantai as CKRecordValue
     record["eskalator_lokasi"] = eskalator_lokasi as CKRecordValue
     record["first_name"] = first_name as CKRecordValue
-    record["id_place"] = reference as CKRecordValue
+    record["id_place"] = placeReference as CKRecordValue
     record["image"] = image.map { CKAsset(fileURL: $0.fileURL ?? URL(fileURLWithPath: "")) }
     record["last_name"] = last_name as CKRecordValue
     record["lift_lantai"] = lift_lantai as CKRecordValue
