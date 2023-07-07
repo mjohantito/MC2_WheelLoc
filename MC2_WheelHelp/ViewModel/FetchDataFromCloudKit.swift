@@ -247,7 +247,8 @@ func fetchDataUserReviewFromCloudkit(recordTypes: [String], userId: String, comp
     }
     
     database.add(operation)
-    
+}
+
 func fetchDataPlaceRecommendationFromCloudKit(recordTypes: [String], category: String, completion: @escaping ([KategoriCardView]) -> Void) {
     var fetchedViews: [KategoriCardView] = []
     let group = DispatchGroup()

@@ -161,7 +161,7 @@ struct PlaceView: View {
                             .foregroundColor(.primary)
                             .scaledToFit()
                             .frame(width: 40, height: 40)
-//                    }
+                    }
                 }
             }
         }

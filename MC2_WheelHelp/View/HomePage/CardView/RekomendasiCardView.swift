@@ -44,9 +44,10 @@ struct RekomendasiCardView: View {
                     
                 }
             }
-//        }
+        }
     }
 }
+    
 
 struct RekomendasiCardView_Previews: PreviewProvider {
     static var previews: some View {
