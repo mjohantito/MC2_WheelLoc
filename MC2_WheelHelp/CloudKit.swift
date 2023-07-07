@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 import CloudKit
 
 func addRecordToCloudKit(name:String, address:String, category:String, health_facilities_id:[String], latitude:Double, longitude:Double, img_prefix:[String], img_suffix:[String], fsq_id:String) {
@@ -90,7 +89,7 @@ func addReviewToCloudKit(
     record["eskalator_lokasi"] = eskalator_lokasi as CKRecordValue
     record["first_name"] = first_name as CKRecordValue
     record["id_place"] = reference as CKRecordValue
-    record["image"] = image.map { CKAsset(fileURL: $0.fileURL ?? URL(fileURLWithPath: "")) }
+    record["image"] = image.map { CKAsset(fileURL: $0.fileURL ?? URL(fileURLWithPath: "")) } // ini belom
     record["last_name"] = last_name as CKRecordValue
     record["lift_lantai"] = lift_lantai as CKRecordValue
     record["lift_lokasi"] = lift_lokasi as CKRecordValue
@@ -121,7 +120,6 @@ func addReviewToCloudKit(
     }
 }
 
-
 func addUsersToCloudKit(fName:String, lName: String){
     
     let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
@@ -146,13 +144,6 @@ func addUsersToCloudKit(fName:String, lName: String){
     print("\(fName) - \(lName)")
     
 }
-
-
-
-
-
-
-
 
 
 
@@ -202,6 +193,30 @@ func removeDuplicateHealthFacilityRecords() {
     }
 }
 
+
+//func queryUserReview() {
+//    
+//    let recordType = "Review"
+//    
+//    let query = CKQuery(recordType: recordType, predicate: NSPredicate(value: true)) //filter in NSPredicate
+//    
+//    database.fetch(withQuery: query) { result in
+//        switch result {
+//        case .success(let result):
+//            result.matchResults.compactMap { $0.1 }
+//                .forEach {
+//                    switch $0 {
+//                    case .success(let record):
+//                        print(record)
+//                    case .failure(let error):
+//                        print(error)
+//                    }
+//                }
+//        case .failure(let error):
+//            print(error)
+//        }
+//    }
+//}
 
 
 

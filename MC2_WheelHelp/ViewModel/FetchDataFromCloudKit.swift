@@ -211,6 +211,43 @@ func fetchDataHealthFacilityFromCloudKit(recordTypes: [String], fsqIDs: [String]
     }
 }
 
+func fetchDataUserReviewFromCloudkit(recordTypes: [String], userId: String, completion: @escaping ([ProfileReviewCardView]) -> Void) {
+    var fetchedViews: [ProfileReviewCardView] = []
+    let group = DispatchGroup()
+    
+    //fetch nama user dari userId + image + likes
+    
+    let predicate = NSPredicate(format: "userId == %@", userId)
+    let query = CKQuery(recordType: recordTypes[0], predicate: predicate)
+    let operation = CKQueryOperation(query: query)
+    operation.resultsLimit = CKQueryOperation.maximumResults
+    
+    operation.recordFetchedBlock = { record in
+        let accessibility_rating = record["accesibility_rating"] as? Double ?? 0.0
+        let date = record["date"] as! String
+        let description = record["description"] as! String
+        let first_name = record["first_name"] as! String
+        let placeReference = record["id_place"]
+        // image
+        let last_name = record["last_name"]
+        let likes = record["likes"]
+        let place_name = record["place_name"]
+        let title = record["title"] as! String
+        let email_user = record["email_user"]
+        
+        let ProfileReviewView = ProfileReviewCardView(userNameReview: first_name, dateReview: date, ratingReview: accessibility_rating, titleReview: title, descriptionReview: description)
+    }
+    
+    operation.queryCompletionBlock = { cursor, error in
+        if let error = error {
+            print("Error fetching data from CloudKit: \(error.localizedDescription)")
+        }
+        
+        group.leave()
+    }
+    
+    database.add(operation)
+    
 func fetchDataPlaceRecommendationFromCloudKit(recordTypes: [String], category: String, completion: @escaping ([KategoriCardView]) -> Void) {
     var fetchedViews: [KategoriCardView] = []
     let group = DispatchGroup()
@@ -272,7 +309,7 @@ func fetchDataPlaceRecommendationFromCloudKit(recordTypes: [String], category: S
         
         database.add(operation)
     }
-    
+
     group.notify(queue: DispatchQueue.main) {
         completion(fetchedViews)
     }
