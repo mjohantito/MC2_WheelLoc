@@ -12,24 +12,20 @@ struct SearchView: View {
     
     var body: some View {
         NavigationStack{
-            ScrollView {
-                
-                //Scroll View List
-                VStack(alignment: .leading){
-                    ForEach(0..<10, id: \.self){ _ in
-                        if let imageURL = URL(string: "https://fastly.4sqi.net/img/general/100x10012259266_cx_Jge3F8nlmV-h0Jgg_s35sIbb7LCxdEYjDGojruIw.jpg") {
-                            CategoryListCardView(imageURL: imageURL, placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5, fsq_id: "default", latitude: 1.0, longitude: 1.0, health_facilities_id: ["default"])
-                                .padding(.horizontal, 8)
-                        }
+            ScrollView{
+                VStack{
+                    ForEach (0..<3, id: \.self){_ in
+                        KategoriCardView(imageURL: URL(string: "https://fastly.4sqi.net/img/general/100x100/12259266_cx_Jge3F8nlmV-h0Jgg_s35sIbb7LCxdEYjDGojruIw.jpg")!, placeName: "Test", address: "Somewhere over the rainbow", kategori: "Resto", rating: 2.2, jumlahUlasan: 5, fsq_id: "123", latitude: 1.0, longitude: 1.0, health_facilities_id: ["default"])
+                            .padding(.horizontal, 8)
                     }
                 }
-                
             }
-//            .navigationTitle("Restoran dan Cafe")
+            .frame(maxWidth: .infinity)
+            .background(Color.gray.opacity(0.1))
             //Search Bar
-            .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .always))
+            .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .always),
+                prompt: "Cari Restoran & Cafe, Tempat Wisata, Hotel dan Tempat Belanja")
         }
-        
     }
 }
 

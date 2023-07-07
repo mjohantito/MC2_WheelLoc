@@ -42,62 +42,73 @@ struct KategoriCardView: View {
         //        NavigationLink(destination: PlaceDetailInformationView()) {
         NavigationLink(destination: PlaceDetailInformationView(imageURLs: [imageURL], placeName: placeName, address: address, kategori:category, rating: rating, jumlahUlasan: jumlahUlasan, fsq_id: fsq_id, latitude: latitude, longitude: longitude, health_facilities_id: health_facilities_id)) {
 
-            HStack {
-                VStack(alignment: .leading){
-                    //Gambar Tempat
-                    //                Image(imageURL[0])
-                    //                    .resizable()
-                    //                    .frame(width: 170, height: 130)
-                    //                    .cornerRadius(10, corners: [.topLeft, .topRight])
-                    
+            VStack {
+                HStack{
+                    //Gambar Resto
                     AsyncImage(url: imageURL) { image in
                         image
                             .resizable()
-                            .frame(width: 170, height: 130)
-                            .cornerRadius(10, corners: [.topLeft, .topRight])
+                            .frame(width: 100, height: 100)
+                            .cornerRadius(10)
+                            .padding(.leading, 10)
                     } placeholder: {
                         // Placeholder image or activity indicator
                         Image("BebekTepiSawah")
                             .resizable()
-                            .frame(width: 170, height: 130)
-                            .cornerRadius(10, corners: [.topLeft, .topRight])
+                            .frame(width: 100, height: 100)
+                            .cornerRadius(10)
+                            .padding(.leading, 10)
                     }
                     
-                    //Nama Tempat
-                    Text(placeName)
-                        .font(.subheadline)
-                        .bold()
-                        .padding(.leading, 8)
-                        .foregroundColor(.primary)
-                    
-                    //Rating
-                    HStack{
-                        Image("wheelchair")
-                            .resizable()
-                            .frame(width: 23, height: 23)
-                        Text("\(String(rating))")
-                            .font(.body)
-                            .foregroundColor(.primary)
+                    VStack(alignment: .leading){
+                        //Nama Tempat
+                        Text(placeName)
+                            .font(.subheadline)
+                            .bold()
+                            .foregroundColor(Color(red: 19/255, green: 70/255, blue: 97/255))
+                            .multilineTextAlignment(.leading)
                         
-                        Spacer()
+                        //Kategori
+                        Text(category)
+                            .font(.caption)
+                            .foregroundColor(Color(red: 19/255, green: 70/255, blue: 97/255))
+                            .multilineTextAlignment(.leading)
                         
-                        Text("(\(String(jumlahUlasan)))")
-                            .foregroundColor(.primary)
+                        //Alamat
+                        Text(address)
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.leading)
+                            .padding(.top, -3)
+
+                        
+                        
+                        //Rating
+                        HStack{
+                            Image("wheelchair")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .foregroundColor(.primary)
+                            
+                            Text(String(rating))
+                                .foregroundColor(.yellow)
+                                .bold()
+                            
+                            
+                            Text("(\(jumlahUlasan))")
+                                .foregroundColor(.secondary)
+                        }
                     }
-                    .padding(.horizontal, 8)
-                    .padding(.bottom,8)
+                    Spacer()
                 }
-                
-                .frame(width: 170)
-                .padding(.bottom, 4)
-                
-                //Corner Radius Card dan Border
-                .cornerRadius(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(.gray, lineWidth: 1)
-                )
             }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 10)
+            .background(content:{
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(.white)
+            })
+            .padding(.top, 10)
         }
 //        }
     }
