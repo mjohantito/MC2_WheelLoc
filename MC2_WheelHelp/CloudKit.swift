@@ -67,7 +67,7 @@ func addRecordHealthFacilitiesToCloudKit(name:String, address:String, category:S
 func addReviewToCloudKit(
     accessibility_rating:Int64, akses_masuk:String, date:Date, description:String, eskalator_lantai:[String], eskalator_lokasi:[String],
     first_name:String, id_place:String, image:[CKAsset], last_name:String, lift_lantai:[String], lift_lokasi:[String], likes:Int64,
-    place_name:String, ramp:String, sedia_kursi_roda:String, tempat_prakir:String, title:String, toilet_lantai:[String], toilet_lokasi:[String], email_user:String, ckRecordIdPlace: CKRecord.ID) {
+    place_name:String, ramp:String, sedia_kursi_roda:String, tempat_prakir:String, title:String, toilet_lantai:[String], toilet_lokasi:[String], email_user:String, recordid_user: String, ckRecordIdPlace: CKRecord.ID) { //+ recordid_user
     
     print("ke passed: \(id_place) - \(email_user)")
         
@@ -77,9 +77,10 @@ func addReviewToCloudKit(
         
     let referenceRecordName = "Place"
     let zoneID = CKRecordZone.default().zoneID
-//    let placeRecordID = CKRecord.ID(recordName: id_place, zoneID: zoneID)
-    let placeReference = CKRecord.Reference(recordID: ckRecordIdPlace, action: .none)
-    print("ref: \(placeReference.recordID)")
+    let id_place = CKRecord.ID(recordName: referenceRecordName, zoneID: zoneID)
+    let reference = CKRecord.Reference(recordID: id_place, action: .none)
+    // variable simpen recordid_user
+    print("ref: \(reference.recordID)")
 
     record["accesibility_rating"] = accessibility_rating as CKRecordValue
     record["akses_masuk"] = akses_masuk as CKRecordValue
@@ -88,8 +89,8 @@ func addReviewToCloudKit(
     record["eskalator_lantai"] = eskalator_lantai as CKRecordValue
     record["eskalator_lokasi"] = eskalator_lokasi as CKRecordValue
     record["first_name"] = first_name as CKRecordValue
-    record["id_place"] = placeReference as CKRecordValue
-    record["image"] = image.map { CKAsset(fileURL: $0.fileURL ?? URL(fileURLWithPath: "")) }
+    record["id_place"] = reference as CKRecordValue
+    record["image"] = image.map { CKAsset(fileURL: $0.fileURL ?? URL(fileURLWithPath: "")) } // ini belom
     record["last_name"] = last_name as CKRecordValue
     record["lift_lantai"] = lift_lantai as CKRecordValue
     record["lift_lokasi"] = lift_lokasi as CKRecordValue
@@ -102,23 +103,8 @@ func addReviewToCloudKit(
     record["toilet_lantai"] = toilet_lantai as CKRecordValue
     record["toilet_lokasi"] = toilet_lokasi as CKRecordValue
     record["email_user"] = email_user as CKRecordValue
-        
-//    var imageAssets: [CKAsset] = []
-//
-//    for image in images {
-//        if let imageData = image.jpegData(compressionQuality: 0.5) {
-//            let tempURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(UUID().uuidString).appendingPathExtension("jpg")
-//            do {
-//                try imageData.write(to: tempURL)
-//                let imageAsset = CKAsset(fileURL: tempURL)
-//                imageAssets.append(imageAsset)
-//            } catch {
-//                print("Error writing image data to temporary URL: \(error.localizedDescription)")
-//            }
-//        }
-//    }
-//
-//    record["image"] = imageAssets
+    record["recordid_user"] = recordid_user as CKRecordValue
+    
         
     print("after: \(id_place) - \(email_user)")
 
@@ -181,9 +167,7 @@ func removeDuplicateHealthFacilityRecords() {
     }
 }
 
-func addUsersToCloudKit(fName:String, lName: String, userAppleId: String){
-    
-    print("ADD USER JALAN")
+func addUsersToCloudKit(fName:String, lName: String){
     
     let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
     let recordType = "UserListing"
@@ -191,7 +175,6 @@ func addUsersToCloudKit(fName:String, lName: String, userAppleId: String){
     
     record["fName"] = fName as CKRecordValue
     record["lName"] = lName as CKRecordValue
-    record["apple_user_id"] = userAppleId as CKRecordValue
     
     let database = container.publicCloudDatabase
 

@@ -29,13 +29,10 @@ struct LikeButtonView: View {
             }
             .foregroundColor(isLiked ? Color("customSecondary") : .gray)
             .frame(width: 18, height: 30)
-//            .border(.red)
-//            .padding(4)
             
             // likes count
             Text("\(likesCount)")
                 .frame(width: 30, height: 30)
-//                .border(.red)
                 .padding(.horizontal, -4)
             
         }

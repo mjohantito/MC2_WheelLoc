@@ -17,6 +17,7 @@ struct PlaceDetailInformationView: View {
     @State private var showAddReviewSheet = false
     @State private var userEmail: String = ""
     @State var showSheet = false
+    @State private var userId: String = ""
     
     @State private var placeDetailInformationView: [PlaceDetailInformationView] = []
     @State private var categoryViews: [NearbyHealthFacilitiesCardView] = []
@@ -278,7 +279,8 @@ struct PlaceDetailInformationView: View {
                         Text("Ulasan")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .fontWeight(.bold)
-                        NavigationLink(destination: PlaceDetailReviewView()){
+//                        let a = print(ckRecordIdPlace?.recordName)
+                        NavigationLink(destination: PlaceDetailReviewView(placeId: ckRecordIdPlace ?? CKRecord.ID(recordName: ""))){
                             Text("Lihat Semua")
                         }
                     }
@@ -321,16 +323,25 @@ struct PlaceDetailInformationView: View {
                             AddReviewView(rating: 3, maxRating: 5, fsq_id: fsq_id, ckRecordIdPlace: ckRecordIdPlace!, placeName: placeName, userEmail: $userEmail)
                                     }
                         .sheet(isPresented: $showSignInSheet) {
-                            SignInView(onSuccess: {
-                                // Handle successful sign-in by showing AddReviewView
-                                showSignInSheet = false
-                                showAddReviewSheet = true
-                            },appleUserId: "default", appleUserFName: "default", appleUserLName: "default")
-//                            SignInView(appleUserId: "default", appleUserFName: "default", appleUserLName: "default")
-//                                .environmentObject(authManager)
-//                            showSignInSheet = false
-//                            showAddReviewSheet = true
-//                            .environmentObject(authManager) // Pass the authManager to SignInView
+                            SignInView(onSuccess: { email in
+                                                            // Handle successful sign-in by showing AddReviewView
+                                                            showSignInSheet = false
+                                                            showAddReviewSheet = true
+                                                            userEmail = email
+                                                            userId = userId
+                                                            print("Parent view: \(userEmail)")
+                                                        }, userEmail: $userEmail, userId: $userId)
+                                                        .environmentObject(authManager) // Pass the authManager to SignInView
+//                            SignInView(onSuccess: {
+//                                // Handle successful sign-in by showing AddReviewView
+//                                showSignInSheet = false
+//                                showAddReviewSheet = true
+//                            },appleUserId: "default", appleUserFName: "default", appleUserLName: "default")
+////                            SignInView(appleUserId: "default", appleUserFName: "default", appleUserLName: "default")
+////                                .environmentObject(authManager)
+////                            showSignInSheet = false
+////                            showAddReviewSheet = true
+////                            .environmentObject(authManager) // Pass the authManager to SignInView
                         }
                         
                         Spacer()

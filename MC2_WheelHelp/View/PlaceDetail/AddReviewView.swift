@@ -125,6 +125,8 @@ struct AddReviewView: View {
     @State var selected = -1
     @State var message = false
     
+    @State private var userId: String = ""
+    
 //    @State var xxx:CKRecord.ID?
     
     var body: some View {
@@ -467,6 +469,7 @@ struct AddReviewView: View {
                             toilet_lantai: isOnToiletDisable ? arrayFloorToiletDisable : [],
                             toilet_lokasi: isOnToiletDisable ? arrayLocationToiletDisable : [],
                             email_user: userEmail,
+                            recordid_user: userId,
                             ckRecordIdPlace: ckRecordIdPlace
                         )
                         
