@@ -155,12 +155,13 @@ struct PlaceView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .primaryAction){
                     NavigationLink(destination: SignInView(onSuccess: { email in }, userEmail: $userEmail, userId: $userId).environmentObject(authManager)) {
+
                         Image(systemName: "person.circle")
                             .resizable()
                             .foregroundColor(.primary)
                             .scaledToFit()
                             .frame(width: 40, height: 40)
-                    }
+//                    }
                 }
             }
         }

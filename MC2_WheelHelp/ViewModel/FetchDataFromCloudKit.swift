@@ -56,7 +56,9 @@ func fetchDataPlaceFromCloudKit(recordTypes: [String], category: String, complet
                 }
                 
                 // Create a CategoryListCardView instance with the fetched data
-                let categoryView = CategoryListCardView(imageURL: imageURL, placeName: name, address: address as! String, kategori: category, rating: rating, jumlahUlasan: jumlah_review, fsq_id: fsq_id as! String, latitude: latitude as! Double, longitude: longitude as! Double, health_facilities_id: health_facilites_id as! [String])
+                let categoryView = CategoryListCardView(imageURL: imageURL, placeName: name, address: address as! String, kategori: category, rating: rating, jumlahUlasan: jumlah_review, fsq_id: fsq_id as! String,  latitude: latitude as! Double, longitude: longitude as! Double, health_facilities_id: health_facilites_id as! [String])
+                
+                
                 // Append the view to the fetchedViews array
                 fetchedViews.append(categoryView)
             }

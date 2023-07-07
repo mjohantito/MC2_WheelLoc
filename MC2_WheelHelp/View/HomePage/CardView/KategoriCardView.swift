@@ -41,6 +41,7 @@ struct KategoriCardView: View {
     var body: some View {
         //        NavigationLink(destination: PlaceDetailInformationView()) {
         NavigationLink(destination: PlaceDetailInformationView(imageURLs: [imageURL], placeName: placeName, address: address, kategori:category, rating: rating, jumlahUlasan: jumlahUlasan, fsq_id: fsq_id, latitude: latitude, longitude: longitude, health_facilities_id: health_facilities_id)) {
+
             HStack {
                 VStack(alignment: .leading){
                     //Gambar Tempat
