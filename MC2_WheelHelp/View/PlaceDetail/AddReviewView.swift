@@ -488,7 +488,7 @@ struct AddReviewView: View {
         guard let uiImage = image.toUIImage() else {
             return nil
         }
-        return uiImage.jpegData(compressionQuality: 0.8)
+        return uiImage.jpegData(compressionQuality: 0.2)
     }
     
     func saveImageToTemporaryDirectory(data: Data) -> URL {

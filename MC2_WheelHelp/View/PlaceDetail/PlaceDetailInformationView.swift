@@ -321,14 +321,16 @@ struct PlaceDetailInformationView: View {
                             AddReviewView(rating: 3, maxRating: 5, fsq_id: fsq_id, ckRecordIdPlace: ckRecordIdPlace!, placeName: placeName, userEmail: $userEmail)
                                     }
                         .sheet(isPresented: $showSignInSheet) {
-                            SignInView(onSuccess: { email in
+                            SignInView(onSuccess: {
                                 // Handle successful sign-in by showing AddReviewView
                                 showSignInSheet = false
                                 showAddReviewSheet = true
-                                userEmail = email
-                                print("Parent view: \(userEmail)")
-                            }, userEmail: $userEmail)
-                            .environmentObject(authManager) // Pass the authManager to SignInView
+                            },appleUserId: "default", appleUserFName: "default", appleUserLName: "default")
+//                            SignInView(appleUserId: "default", appleUserFName: "default", appleUserLName: "default")
+//                                .environmentObject(authManager)
+//                            showSignInSheet = false
+//                            showAddReviewSheet = true
+//                            .environmentObject(authManager) // Pass the authManager to SignInView
                         }
                         
                         Spacer()

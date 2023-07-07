@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import UIKit
 import CloudKit
 
 func addRecordToCloudKit(name:String, address:String, category:String, health_facilities_id:[String], latitude:Double, longitude:Double, img_prefix:[String], img_suffix:[String], fsq_id:String) {
@@ -103,6 +103,23 @@ func addReviewToCloudKit(
     record["toilet_lokasi"] = toilet_lokasi as CKRecordValue
     record["email_user"] = email_user as CKRecordValue
         
+//    var imageAssets: [CKAsset] = []
+//
+//    for image in images {
+//        if let imageData = image.jpegData(compressionQuality: 0.5) {
+//            let tempURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(UUID().uuidString).appendingPathExtension("jpg")
+//            do {
+//                try imageData.write(to: tempURL)
+//                let imageAsset = CKAsset(fileURL: tempURL)
+//                imageAssets.append(imageAsset)
+//            } catch {
+//                print("Error writing image data to temporary URL: \(error.localizedDescription)")
+//            }
+//        }
+//    }
+//
+//    record["image"] = imageAssets
+        
     print("after: \(id_place) - \(email_user)")
 
     let database = container.publicCloudDatabase
@@ -164,7 +181,33 @@ func removeDuplicateHealthFacilityRecords() {
     }
 }
 
+func addUsersToCloudKit(fName:String, lName: String, userAppleId: String){
+    
+    print("ADD USER JALAN")
+    
+    let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
+    let recordType = "UserListing"
+    let record = CKRecord(recordType: recordType)
+    
+    record["fName"] = fName as CKRecordValue
+    record["lName"] = lName as CKRecordValue
+    record["apple_user_id"] = userAppleId as CKRecordValue
+    
+    let database = container.publicCloudDatabase
 
+    database.save(record) { (savedRecord, error) in
+        if let error = error {
+            // Handle the error
+            print("Error saving record: \(error.localizedDescription)")
+        } else {
+            // Handle the success
+            print("Record saved successfully")
+        }
+    }
+    
+    print("\(fName) - \(lName)")
+    
+}
 
 
 
