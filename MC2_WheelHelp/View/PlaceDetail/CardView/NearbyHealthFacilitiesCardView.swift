@@ -37,12 +37,9 @@ struct NearbyHealthFacilitiesCardView: View {
 
         }
         .padding(.trailing)
-        .background(.white)
+        .background(Color.gray.opacity(0.1))
         .cornerRadius(10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .strokeBorder(.gray, lineWidth: 1)
-        )
+        
     }
 }
 

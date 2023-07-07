@@ -28,7 +28,7 @@ struct FacilityCardView: View {
                 Spacer()
             }
             .padding()
-            .frame(width: 350, alignment: .leading)
+            .frame(width: 370, alignment: .leading)
             .background(Color(red: 0.96, green: 0.96, blue: 0.96))
             .cornerRadius(10)
             

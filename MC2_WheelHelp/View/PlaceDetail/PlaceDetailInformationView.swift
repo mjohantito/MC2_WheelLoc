@@ -50,132 +50,141 @@ struct PlaceDetailInformationView: View {
                 
                 VStack{
                     
-                    // Section Image Slider
-                    
-                    
-                    
-                    
                     // Section Nama Tempat & Rating
-                    
                     VStack{
-                        Text("Pakuwon Mall")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.top,10)
-                        
-                    }
-                    HStack {
-                        Image("wheelchairSmall")
-                            .resizable()
-                            .frame(width: 30, height: 30, alignment: .leading)
-                            .foregroundColor(Color.yellow)
-                        ForEach (1..<6) { _ in
-                            Image(systemName: "star.fill")
-                                .foregroundColor(Color.yellow)
-                        }
-                        
-                        Text("5.0")
-                            .fontWeight(.bold)
-                        
-                        Text("(4)")
-                        Spacer()
-                    }
-                    .frame(alignment: .leading)
-                    .padding(.bottom, 20)
-                    
-                    // End Section Nama Tempat & Rating
-                    
-                    Divider()
-                    
-                    //Section Fasilitas
-                    
-                    VStack{
-                        HStack{
-                            Text("Fasilitas")
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                        VStack{
+                            Text("Pakuwon Mall")
+                                .font(.system(size:24))
                                 .fontWeight(.bold)
-                            
-                            NavigationLink(destination: PlaceDetailFacilityView()){
-                                Text("Lihat Semua")
-                            }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding()
+                                .padding(.bottom,-20)
                             
                         }
-                        HStack{
-                            VStack(alignment: .leading){
-                                
-                                HStack {
-                                    Image("elevator")
-                                        .resizable()
-                                        .frame(width: 30, height: 30, alignment: .leading)
-                                        .foregroundColor(Color.black)
-                                    Text("Lift")
-                                }
-                                
-                                HStack {
-                                    Image("escalator")
-                                        .resizable()
-                                        .frame(width: 30, height: 30, alignment: .leading)
-                                        .foregroundColor(Color.black)
-                                    
-                                    Text("Eskalator")
-                                }
-                                
-                                HStack {
-                                    Image("ramp-loading")
-                                        .resizable()
-                                        .frame(width: 30, height: 30, alignment: .leading)
-                                        .foregroundColor(Color.black)
-                                    
-                                    Text("Ramp")
-                                }
-                                
-                                
-                            }.padding(.top,8)
+                        HStack {
+                            Image("wheelchairSmall")
+                                .resizable()
+                                .frame(width: 22, height: 22, alignment: .leading)
+                                .foregroundColor(Color.orange)
+                            ForEach (1..<6) { _ in
+                                Image(systemName: "star.fill")
+                                    .foregroundColor(Color.orange)
+                                    .frame(width: 14, height: 22, alignment: .leading)
+                            }
                             
+                            Text("5.0")
+                                .fontWeight(.bold)
+                                .font(.system(size: 20))
+                                .foregroundColor(Color.orange)
+                                .padding(.leading,5)
+                            
+                            Text("(4)")
+                                .foregroundColor(Color.gray)
                             Spacer()
-                            VStack(alignment: .leading){
-                                HStack {
-                                    Image("wheelchairSmall")
-                                        .resizable()
-                                        .frame(width: 30, height: 30, alignment: .leading)
-                                        .foregroundColor(Color.black)
-                                    Text("Toilet Disabilitas")
+                        }
+                        .frame(alignment: .leading)
+                        .padding()
+                        
+                        // End Section Nama Tempat & Rating
+                        
+                        Divider()
+                            .padding(.leading,8)
+                            .padding(.trailing,8)
+                        
+                        //Section Fasilitas
+                        
+                        VStack{
+                            HStack{
+                                Text("Fasilitas")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .fontWeight(.bold)
+                                
+                                NavigationLink(destination: PlaceDetailFacilityView()){
+                                    Text("Lihat Semua")
                                 }
                                 
-                                HStack {
-                                    Image("wheelchairSmall")
-                                        .resizable()
-                                        .frame(width: 30, height: 30, alignment: .leading)
-                                        .foregroundColor(Color.black)
-                                    Text("Akses Masuk")
-                                }
-                                
-                                HStack {
-                                    Image("wheelchairSmall")
-                                        .resizable()
-                                        .frame(width: 30, height: 30, alignment: .leading)
-                                        .foregroundColor(Color.black)
+                            }
+                            HStack{
+                                VStack(alignment: .leading){
                                     
-                                    Text("Tempat Parkir")
+                                    HStack {
+                                        Image("icon_lift")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.black)
+                                        Text("Lift")
+                                    }
+                                    
+                                    HStack {
+                                        Image("icon_escalator")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.black)
+                                        
+                                        Text("Eskalator")
+                                    }
+                                    
+                                    HStack {
+                                        Image("icon_ramp")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.black)
+                                        
+                                        Text("Ramp")
+                                    }
+                                    
+                                    
+                                }.padding(.top,8)
+                                
+                                Spacer()
+                                VStack(alignment: .leading){
+                                    HStack {
+                                        Image("wheelchairSmall")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.black)
+                                        Text("Toilet Disabilitas")
+                                    }
+                                    
+                                    HStack {
+                                        Image("icon_entrance")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.black)
+                                        Text("Akses Masuk")
+                                    }
+                                    
+                                    HStack {
+                                        Image("icon_parkinglot")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.black)
+                                        
+                                        Text("Tempat Parkir")
+                                    }
+                                    
+                                    
                                 }
+                                
+                                
                                 
                                 
                             }
-                            
-                            
-                            
                             
                         }
                         
+                        .padding()
+                        
+                        
                     }
+                    .background(Color.white)
+                    .cornerRadius(10)
                     
-                    .padding(.top, 8)
-                    .padding(.bottom, 8)
                     
                     // End Section Fasilitas
                     
-                    Divider()
+                    
+                   
                     
                     // Section Fasilitas Kesehatan Terdekat
                     
@@ -203,71 +212,81 @@ struct PlaceDetailInformationView: View {
                         }
                         
                     }
-                    .padding(.top,8)
-                    .padding(.bottom,8)
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(10)
                     
-                    Divider()
+                   
                     
                     // End Section Fasilitas Kesehatan Terdekat
                     
-                }
-                .padding()
+                
                 
                 // Section Ulasan
                 
-                VStack{
-                    HStack{
-                        Text("Ulasan")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .fontWeight(.bold)
-                        NavigationLink(destination: PlaceDetailReviewView()){
-                            Text("Lihat Semua")
-                        }
-                    }
-                    
-                    // Slider Top 3 Ulasan
-                    
-                    ScrollView(.horizontal, showsIndicators: false){
+                
+                    VStack{
                         HStack{
+                            Text("Ulasan")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .fontWeight(.bold)
+                            NavigationLink(destination: PlaceDetailReviewView()){
+                                Text("Lihat Semua")
+                            }
+                        }
+                        .padding()
+                        
+                        // Slider Top 3 Ulasan
+                        
+                        ScrollView(.horizontal, showsIndicators: false){
+                            HStack{
+                                
+                                ForEach (0..<3, id: \.self){_ in
+                                    ReviewSmallCardView(userNameReview: "Angelo Kusuma", dateReview: "30 Mar 2023", ratingReview: 4.5, titleReview: "Bagus Banget!", descriptionReview: "Disini fasilitas buat pengguna kursi roda aman banget, bahkan toiletnya disediain khusus buat disabilitas!")
+                                }
+                                
+                                Spacer()
+                                
+                            }
+                            .frame(alignment: .leading)
+                            .padding(.leading, 8)
                             
-                            ForEach (0..<3, id: \.self){_ in
-                                ReviewSmallCardView(userNameReview: "Angelo Kusuma", dateReview: "30 Mar 2023", ratingReview: 4.5, titleReview: "Bagus Banget!", descriptionReview: "Disini fasilitas buat pengguna kursi roda aman banget, bahkan toiletnya disediain khusus buat disabilitas!")
+                        }
+                        
+                        // Button Tulis Ulasan
+                        
+                        HStack {
+                            Button{
+                                showSheet.toggle()
+                            }label: {
+                                Text(Image(systemName: "square.and.pencil"))
+                                    .padding(.top)
+                                Text("Tulis Ulasan")
+                                    .frame(alignment: .leading)
+                                    .padding(.top)
+                                
+                                    .sheet(isPresented: $showSheet){
+                                        AddReviewView(rating: 3, maxRating: 5)
+                                    }
                             }
                             
                             Spacer()
-                            
-                        }
-                        .frame(alignment: .leading)
+                        }.padding(.leading, 8)
+                            .padding(.bottom, 20)
+                        
+                        
+                        
                         
                     }
+                    .padding(.top,8)
+                    .background(Color.white)
                     
-                    // Button Tulis Ulasan
+                    .cornerRadius(10)
+//                    }
+//                .padding()
                     
-                    HStack {
-                        Button{
-                            showSheet.toggle()
-                        }label: {
-                            Text(Image(systemName: "square.and.pencil"))
-                                .padding(.top)
-                            Text("Tulis Ulasan")
-                                .frame(alignment: .leading)
-                                .padding(.top)
-                            
-                                .sheet(isPresented: $showSheet){
-                                    AddReviewView(rating: 3, maxRating: 5)
-                                }
-                        }
-                        
-                        Spacer()
-                    }
-                    
-                    
-                    
-                }
-                .padding()
                 
-                Divider()
-                
+            
                 // End Ulasan
                 
                 
@@ -280,6 +299,7 @@ struct PlaceDetailInformationView: View {
                             .fontWeight(.bold)
                         
                     }
+                        .padding(.top, 8)
                     
                     
                     Button(action: {
@@ -295,9 +315,18 @@ struct PlaceDetailInformationView: View {
                     
                 }
                 .padding()
+                .background(Color.white)
+                
+                .cornerRadius(10)
+                
+                    
+                }
+                .padding()
             }
+            .background(Color.gray.opacity(0.1))
         }
         .navigationBarHidden(true)
+        
     }
 }
 

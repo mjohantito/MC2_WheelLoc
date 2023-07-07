@@ -29,6 +29,9 @@
 		FF3F39902A496DBB004B1E3F /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F398F2A496DBB004B1E3F /* AddReviewView.swift */; };
 		FF9A44CE2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9A44CD2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift */; };
 		FF9A44D22A444C2400D345EC /* ReviewSmallCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9A44D12A444C2400D345EC /* ReviewSmallCardView.swift */; };
+		FFE9F6562A53F8E900842402 /* ProfileReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE9F6552A53F8E900842402 /* ProfileReviewView.swift */; };
+		FFE9F6582A54048200842402 /* ProfileReviewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE9F6572A54048200842402 /* ProfileReviewDetailView.swift */; };
+		FFE9F65A2A54087600842402 /* ProfileReviewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE9F6592A54087600842402 /* ProfileReviewCardView.swift */; };
 		FFEEEBBE2A4E8F0A00E97FE5 /* PlaceDetailFacilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEEEBBD2A4E8F0A00E97FE5 /* PlaceDetailFacilityView.swift */; };
 		FFEEEBC02A4E915100E97FE5 /* PlaceDetailReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEEEBBF2A4E915100E97FE5 /* PlaceDetailReviewView.swift */; };
 		FFEEEBC22A4E93FB00E97FE5 /* ReviewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEEEBC12A4E93FB00E97FE5 /* ReviewCardView.swift */; };
@@ -61,6 +64,9 @@
 		FF3F398F2A496DBB004B1E3F /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
 		FF9A44CD2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyHealthFacilitiesCardView.swift; sourceTree = "<group>"; };
 		FF9A44D12A444C2400D345EC /* ReviewSmallCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSmallCardView.swift; sourceTree = "<group>"; };
+		FFE9F6552A53F8E900842402 /* ProfileReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReviewView.swift; sourceTree = "<group>"; };
+		FFE9F6572A54048200842402 /* ProfileReviewDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReviewDetailView.swift; sourceTree = "<group>"; };
+		FFE9F6592A54087600842402 /* ProfileReviewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReviewCardView.swift; sourceTree = "<group>"; };
 		FFEEEBBD2A4E8F0A00E97FE5 /* PlaceDetailFacilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailFacilityView.swift; sourceTree = "<group>"; };
 		FFEEEBBF2A4E915100E97FE5 /* PlaceDetailReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailReviewView.swift; sourceTree = "<group>"; };
 		FFEEEBC12A4E93FB00E97FE5 /* ReviewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCardView.swift; sourceTree = "<group>"; };
@@ -139,13 +145,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		9583E39F2A4F15250062B1D4 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		C994EFD82A3C551800667459 = {
 			isa = PBXGroup;
 			children = (
@@ -167,7 +166,6 @@
 			children = (
 				C994EFFC2A42F12600667459 /* MC2_WheelHelp.entitlements */,
 				9583E39E2A4F15210062B1D4 /* Model */,
-				9583E39F2A4F15250062B1D4 /* ViewModel */,
 				FF29F02A2A42E908001234AB /* View */,
 				954217182A43063D0031A3A4 /* Extension */,
 				C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */,
@@ -192,11 +190,11 @@
 		FF29F02A2A42E908001234AB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FFE9F6542A53F8BF00842402 /* Profile */,
 				9583E3962A4F0D460062B1D4 /* OnBoardingPage */,
 				FF9A44CB2A443CEC00D345EC /* PlaceDetail */,
 				954217132A4305490031A3A4 /* HomePage */,
 				954217142A4305510031A3A4 /* CategoryListView */,
-				C994EFFA2A42ED7C00667459 /* ProfileView.swift */,
 				C994EFFD2A42F92600667459 /* SignInView.swift */,
 			);
 			path = View;
@@ -223,6 +221,25 @@
 				FFEEEBC32A4E972D00E97FE5 /* FacilityCardView.swift */,
 			);
 			path = CardView;
+			sourceTree = "<group>";
+		};
+		FFE9F6542A53F8BF00842402 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FFE9F65B2A54141B00842402 /* Card View */,
+				C994EFFA2A42ED7C00667459 /* ProfileView.swift */,
+				FFE9F6552A53F8E900842402 /* ProfileReviewView.swift */,
+				FFE9F6572A54048200842402 /* ProfileReviewDetailView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		FFE9F65B2A54141B00842402 /* Card View */ = {
+			isa = PBXGroup;
+			children = (
+				FFE9F6592A54087600842402 /* ProfileReviewCardView.swift */,
+			);
+			path = "Card View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +317,7 @@
 				C994EFEE2A3C551900667459 /* Persistence.swift in Sources */,
 				FF9A44D22A444C2400D345EC /* ReviewSmallCardView.swift in Sources */,
 				FF29F02E2A42EEBF001234AB /* PlaceDetailInformationView.swift in Sources */,
+				FFE9F6582A54048200842402 /* ProfileReviewDetailView.swift in Sources */,
 				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
 				9583E3A12A4F155F0062B1D4 /* OnBoarding.swift in Sources */,
 				FF3F39902A496DBB004B1E3F /* AddReviewView.swift in Sources */,
@@ -307,11 +325,13 @@
 				FFEEEBC02A4E915100E97FE5 /* PlaceDetailReviewView.swift in Sources */,
 				C994EFE72A3C551800667459 /* ContentView.swift in Sources */,
 				9583E39A2A4F0EA70062B1D4 /* OnBoardingPageView.swift in Sources */,
+				FFE9F6562A53F8E900842402 /* ProfileReviewView.swift in Sources */,
 				FF9A44CE2A443E7200D345EC /* NearbyHealthFacilitiesCardView.swift in Sources */,
 				954217222A4307020031A3A4 /* StarRatingView.swift in Sources */,
 				C994EFFE2A42F92600667459 /* SignInView.swift in Sources */,
 				C994EFF12A3C551900667459 /* MC2_WheelHelp.xcdatamodeld in Sources */,
 				954217262A4307400031A3A4 /* CategoryListView.swift in Sources */,
+				FFE9F65A2A54087600842402 /* ProfileReviewCardView.swift in Sources */,
 				954217162A4306070031A3A4 /* PlaceView.swift in Sources */,
 				9542171E2A4306B00031A3A4 /* KategoriCardView.swift in Sources */,
 				C994EFE72A3C551800667459 /* ContentView.swift in Sources */,
