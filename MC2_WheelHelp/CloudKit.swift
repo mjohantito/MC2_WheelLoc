@@ -77,8 +77,8 @@ func addReviewToCloudKit(
         
     let referenceRecordName = "Place"
     let zoneID = CKRecordZone.default().zoneID
-    let id_place = CKRecord.ID(recordName: referenceRecordName, zoneID: zoneID)
-    let reference = CKRecord.Reference(recordID: id_place, action: .none)
+//    let id_place = CKRecord.ID(recordName: referenceRecordName, zoneID: zoneID)
+    let reference = CKRecord.Reference(recordID: ckRecordIdPlace, action: .none)
     // variable simpen recordid_user
     print("ref: \(reference.recordID)")
 
@@ -192,6 +192,36 @@ func addUsersToCloudKit(fName:String, lName: String){
     
 }
 
-
+func updateReviewLikes(ckRecordIdReview: CKRecord.ID, currentLikes: Int64) {
+    let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
+    let recordType = "Review"
+    let record = CKRecord(recordType: recordType)
+    let database = container.publicCloudDatabase
+    
+    print("UPDATE LIKES")
+    print(currentLikes)
+    
+    // fetch existing record
+    database.fetch(withRecordID: ckRecordIdReview) { record, fetchError in
+        if let fetchError = fetchError {
+            print("Error fetching record: \(fetchError.localizedDescription)")
+            return
+        }
+        
+        record?["likes"] = currentLikes as CKRecordValue
+        
+        if let record = record {
+            // Save the modified record back to the database
+            database.save(record) { savedRecord, saveError in
+                if let saveError = saveError {
+                    print("Error updating likes: \(saveError.localizedDescription)")
+                } else {
+                    print("Likes updated successfully")
+                }
+            }
+        }
+        
+    }
+}
 
 

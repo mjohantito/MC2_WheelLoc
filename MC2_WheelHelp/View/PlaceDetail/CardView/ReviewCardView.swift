@@ -80,7 +80,7 @@ struct ReviewCardView: View {
                         .font(.footnote)
                         .bold()
                     Spacer()
-                    LikeButtonView()
+                    LikeButtonView(likesCount: Int64(likesReview), ckRecordIdReview: ckRecordIdReview)
 //                    Image(systemName: "hand.thumbsup.fill")
 //                        .resizable()
 //                        .frame(width:18, height:18)
