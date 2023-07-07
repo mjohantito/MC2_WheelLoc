@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 import CloudKit
 
 func addRecordToCloudKit(name:String, address:String, category:String, health_facilities_id:[String], latitude:Double, longitude:Double, img_prefix:[String], img_suffix:[String], fsq_id:String) {
@@ -66,7 +67,8 @@ func addRecordHealthFacilitiesToCloudKit(name:String, address:String, category:S
 func addReviewToCloudKit(
     accessibility_rating:Int64, akses_masuk:String, date:Date, description:String, eskalator_lantai:[String], eskalator_lokasi:[String],
     first_name:String, id_place:String, image:[CKAsset], last_name:String, lift_lantai:[String], lift_lokasi:[String], likes:Int64,
-    place_name:String, ramp:String, sedia_kursi_roda:String, tempat_prakir:String, title:String, toilet_lantai:[String], toilet_lokasi:[String], email_user:String, recordid_user: String) { //+ recordid_user
+    place_name:String, ramp:String, sedia_kursi_roda:String, tempat_prakir:String, title:String, toilet_lantai:[String], toilet_lokasi:[String], email_user:String, recordid_user: String, ckRecordIdPlace: CKRecord.ID) { //+ recordid_user
+
     
     print("ke passed: \(id_place) - \(email_user)")
         
@@ -76,8 +78,10 @@ func addReviewToCloudKit(
         
     let referenceRecordName = "Place"
     let zoneID = CKRecordZone.default().zoneID
-    let id_place = CKRecord.ID(recordName: referenceRecordName, zoneID: zoneID)
-    let reference = CKRecord.Reference(recordID: id_place, action: .none)
+//    let id_place = CKRecord.ID(recordName: referenceRecordName, zoneID: zoneID)
+    let reference = CKRecord.Reference(recordID: ckRecordIdPlace, action: .none)
+    //let id_place = CKRecord.ID(recordName: referenceRecordName, zoneID: zoneID)
+    //let reference = CKRecord.Reference(recordID: id_place, action: .none)
     // variable simpen recordid_user
     print("ref: \(reference.recordID)")
 
@@ -193,6 +197,31 @@ func removeDuplicateHealthFacilityRecords() {
     }
 }
 
+func addUsersToCloudKit(fName:String, lName: String){
+    
+    let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
+    let recordType = "UserListing"
+    let record = CKRecord(recordType: recordType)
+    
+    record["fName"] = fName as CKRecordValue
+    record["lName"] = lName as CKRecordValue
+    
+    let database = container.publicCloudDatabase
+
+
+    database.save(record) { (savedRecord, error) in
+        if let error = error {
+            // Handle the error
+            print("Error saving record: \(error.localizedDescription)")
+        } else {
+            // Handle the success
+            print("Record saved successfully")
+        }
+    }
+    
+    print("\(fName) - \(lName)")
+    
+}
 
 //func queryUserReview() {
 //    
@@ -219,6 +248,36 @@ func removeDuplicateHealthFacilityRecords() {
 //}
 
 
-
+func updateReviewLikes(ckRecordIdReview: CKRecord.ID, currentLikes: Int64) {
+    let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
+    let recordType = "Review"
+    let record = CKRecord(recordType: recordType)
+    let database = container.publicCloudDatabase
+    
+    print("UPDATE LIKES")
+    print(currentLikes)
+    
+    // fetch existing record
+    database.fetch(withRecordID: ckRecordIdReview) { record, fetchError in
+        if let fetchError = fetchError {
+            print("Error fetching record: \(fetchError.localizedDescription)")
+            return
+        }
+        
+        record?["likes"] = currentLikes as CKRecordValue
+        
+        if let record = record {
+            // Save the modified record back to the database
+            database.save(record) { savedRecord, saveError in
+                if let saveError = saveError {
+                    print("Error updating likes: \(saveError.localizedDescription)")
+                } else {
+                    print("Likes updated successfully")
+                }
+            }
+        }
+        
+    }
+}
 
 

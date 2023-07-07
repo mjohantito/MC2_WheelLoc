@@ -118,6 +118,7 @@ struct AddReviewView: View {
     @State var rating: CGFloat
     @State var maxRating: Int
     @State var fsq_id: String
+    @State var ckRecordIdPlace: CKRecord.ID
     @State var placeName: String
     @Binding var userEmail: String
     
@@ -125,7 +126,7 @@ struct AddReviewView: View {
     @State var message = false
     
     @State private var userId: String = ""
-    
+
     var body: some View {
         NavigationView{
             
@@ -471,7 +472,8 @@ struct AddReviewView: View {
                             toilet_lantai: isOnToiletDisable ? arrayFloorToiletDisable : [],
                             toilet_lokasi: isOnToiletDisable ? arrayLocationToiletDisable : [],
                             email_user: userEmail,
-                            recordid_user: userId
+                            recordid_user: userId,
+                            ckRecordIdPlace: ckRecordIdPlace
                         )
                         
                         dismissSheet()
@@ -492,7 +494,7 @@ struct AddReviewView: View {
         guard let uiImage = image.toUIImage() else {
             return nil
         }
-        return uiImage.jpegData(compressionQuality: 0.8)
+        return uiImage.jpegData(compressionQuality: 0.2)
     }
     
     func saveImageToTemporaryDirectory(data: Data) -> URL {
@@ -510,7 +512,7 @@ struct AddReviewView: View {
 
 struct AddReviewView_Previews: PreviewProvider {
     static var previews: some View {
-        AddReviewView(rating: 1, maxRating: 5, fsq_id:"default", placeName: "default", userEmail: .constant("example@example.com"))
+        AddReviewView(rating: 1, maxRating: 5, fsq_id:"default", ckRecordIdPlace: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"), placeName: "default", userEmail: .constant("example@example.com"))
     }
 }
 
