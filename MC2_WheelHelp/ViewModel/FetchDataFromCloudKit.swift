@@ -215,6 +215,7 @@ func fetchDataHealthFacilityFromCloudKit(recordTypes: [String], fsqIDs: [String]
     }
 }
 
+
 // fetch data review related to the place
 func fetchDataPlaceReviewFromCloudkit(recordTypes: [String], placeId: CKRecord.ID, completion: @escaping ([ReviewCardView]) -> Void) {
     var fetchedViews: [ReviewCardView] = []
@@ -249,10 +250,39 @@ func fetchDataPlaceReviewFromCloudkit(recordTypes: [String], placeId: CKRecord.I
         fetchedViews.append(reviewView)
     }
 
+
+func fetchDataUserReviewFromCloudkit(recordTypes: [String], userId: String, completion: @escaping ([ProfileReviewCardView]) -> Void) {
+    var fetchedViews: [ProfileReviewCardView] = []
+    let group = DispatchGroup()
+    
+    //fetch nama user dari userId + image + likes
+    
+    let predicate = NSPredicate(format: "userId == %@", userId)
+    let query = CKQuery(recordType: recordTypes[0], predicate: predicate)
+    let operation = CKQueryOperation(query: query)
+    operation.resultsLimit = CKQueryOperation.maximumResults
+    
+    operation.recordFetchedBlock = { record in
+        let accessibility_rating = record["accesibility_rating"] as? Double ?? 0.0
+        let date = record["date"] as! String
+        let description = record["description"] as! String
+        let first_name = record["first_name"] as! String
+        let placeReference = record["id_place"]
+        // image
+        let last_name = record["last_name"]
+        let likes = record["likes"]
+        let place_name = record["place_name"]
+        let title = record["title"] as! String
+        let email_user = record["email_user"]
+        
+        let ProfileReviewView = ProfileReviewCardView(userNameReview: first_name, dateReview: date, ratingReview: accessibility_rating, titleReview: title, descriptionReview: description)
+    }
+    
     operation.queryCompletionBlock = { cursor, error in
         if let error = error {
             print("Error fetching data from CloudKit: \(error.localizedDescription)")
         }
+
         group.leave()
     }
     
@@ -286,4 +316,76 @@ func fetchDummyDataPlaceFromCloudKit() -> PlaceResponse {
     let response = PlaceResponse(address: "default", category: "default", count_review: 1, fsq_id: "default", health_facilities_id: ["default"], img_prefix: ["default"], img_suffix: ["default"], latitude: 1.0, longitude: 1.0, name: "default", rating: 1.0, ckRecordIdPlace: CKRecord.ID(recordName: "default"))
     
     return response
+
+        
+//         group.leave()
+    }
+    
+//     database.add(operation)
+    
+func fetchDataPlaceRecommendationFromCloudKit(recordTypes: [String], category: String, completion: @escaping ([KategoriCardView]) -> Void) {
+    var fetchedViews: [KategoriCardView] = []
+    let group = DispatchGroup()
+    
+    for recordType in recordTypes {
+        group.enter()
+        
+        let predicate = NSPredicate(format: "category == %@", category)
+        let query = CKQuery(recordType: recordType, predicate: predicate)
+        
+        let operation = CKQueryOperation(query: query)
+        operation.resultsLimit = CKQueryOperation.maximumResults
+        
+        operation.recordFetchedBlock = { record in
+            // Extract the necessary data from the CloudKit record
+            let imgPrefixList = record["img_prefix"] as? [String]
+            let imgPrefix = imgPrefixList?.first
+            let imgSuffixList = record["img_suffix"] as? [String]
+            let imgSuffix = imgSuffixList?.first
+
+            if let imgPrefix = imgPrefix,
+               let imgSuffix = imgSuffix {
+                let concatImage = "\(imgPrefix)100x100\(imgSuffix)"
+                let concatImageURL = URL(string: concatImage)
+                
+                let address = record["address"]
+                let category = record["category"] as? String ?? ""
+                let fsq_id = record["fsq_id"]
+                let health_facilites_id = record["health_facilities_id"]
+                let latitude = record["latitude"]
+                let longitude = record["longitude"]
+                let name = record["name"] as? String ?? ""
+                let rating = record["rating"] as? Double ?? 0.0
+                let jumlah_review = record["jumlah_review"] as? Int ?? 0
+
+                if rating > 3.5 { // Filter places with rating > 3.5
+                    let imageURL: URL
+                    if let imageString = concatImageURL {
+                        imageURL = imageString
+                    } else {
+                        imageURL = URL(string: "https://example.com/default-image.jpg")!
+                    }
+
+                    // Create a CategoryListCardView instance with the fetched data
+                    let categoryView = KategoriCardView(imageURL: imageURL, placeName: name, address: address as! String, kategori: category, rating: rating, jumlahUlasan: jumlah_review, fsq_id: fsq_id as! String, latitude: latitude as! Double, longitude: longitude as! Double, health_facilities_id: health_facilites_id as! [String])
+                    // Append the view to the fetchedViews array
+                    fetchedViews.append(categoryView)
+                }
+            }
+        }
+        
+        operation.queryCompletionBlock = { cursor, error in
+            if let error = error {
+                print("Error fetching data from CloudKit: \(error.localizedDescription)")
+            }
+            
+            group.leave()
+        }
+        
+        database.add(operation)
+    }
+
+    group.notify(queue: DispatchQueue.main) {
+        completion(fetchedViews)
+    }
 }

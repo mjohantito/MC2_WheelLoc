@@ -16,6 +16,7 @@ struct PlaceDetailInformationView: View {
     @State private var showSignInSheet = false
     @State private var showAddReviewSheet = false
     @State private var userEmail: String = ""
+    @State private var userId: String = ""
     @State var showSheet = false
     @State private var userId: String = ""
     
@@ -342,6 +343,7 @@ struct PlaceDetailInformationView: View {
 ////                            showSignInSheet = false
 ////                            showAddReviewSheet = true
 ////                            .environmentObject(authManager) // Pass the authManager to SignInView
+
                         }
                         
                         Spacer()

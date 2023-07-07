@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CloudKit
 
 @main
 struct MC2_WheelHelpApp: App {
@@ -14,6 +15,8 @@ struct MC2_WheelHelpApp: App {
 
     var body: some Scene {
         WindowGroup {
+            
+            
 
             if(UserDefaults.standard.bool(forKey: "notFirstInApp") == false){
                 OnBoardingPageView()

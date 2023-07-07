@@ -126,9 +126,7 @@ struct AddReviewView: View {
     @State var message = false
     
     @State private var userId: String = ""
-    
-//    @State var xxx:CKRecord.ID?
-    
+
     var body: some View {
         NavigationView{
             
@@ -170,10 +168,10 @@ struct AddReviewView: View {
                         
                         Button("Add Row") {
                             escalatorRows.append(EscalatorRow(floor: "", location: ""))
-                            for escalatorRow in escalatorRows {
-                                arrayFloorEscalator.append(escalatorRow.floor)
-                                arrayLocationEscalator.append(escalatorRow.location)
-                            }
+//                            for escalatorRow in escalatorRows {
+//                                arrayFloorEscalator.append(escalatorRow.floor)
+//                                arrayLocationEscalator.append(escalatorRow.location)
+//                            }
                         }
                         
                         
@@ -445,6 +443,11 @@ struct AddReviewView: View {
                                 return CKAsset(fileURL: url)
                             }
                             return nil
+                        }
+                        
+                        for escalatorRow in escalatorRows {
+                            arrayFloorEscalator.append(escalatorRow.floor)
+                            arrayLocationEscalator.append(escalatorRow.location)
                         }
                         
                         addReviewToCloudKit(

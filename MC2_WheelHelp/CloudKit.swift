@@ -68,6 +68,7 @@ func addReviewToCloudKit(
     accessibility_rating:Int64, akses_masuk:String, date:Date, description:String, eskalator_lantai:[String], eskalator_lokasi:[String],
     first_name:String, id_place:String, image:[CKAsset], last_name:String, lift_lantai:[String], lift_lokasi:[String], likes:Int64,
     place_name:String, ramp:String, sedia_kursi_roda:String, tempat_prakir:String, title:String, toilet_lantai:[String], toilet_lokasi:[String], email_user:String, recordid_user: String, ckRecordIdPlace: CKRecord.ID) { //+ recordid_user
+
     
     print("ke passed: \(id_place) - \(email_user)")
         
@@ -79,6 +80,8 @@ func addReviewToCloudKit(
     let zoneID = CKRecordZone.default().zoneID
 //    let id_place = CKRecord.ID(recordName: referenceRecordName, zoneID: zoneID)
     let reference = CKRecord.Reference(recordID: ckRecordIdPlace, action: .none)
+    //let id_place = CKRecord.ID(recordName: referenceRecordName, zoneID: zoneID)
+    //let reference = CKRecord.Reference(recordID: id_place, action: .none)
     // variable simpen recordid_user
     print("ref: \(reference.recordID)")
 
@@ -120,6 +123,33 @@ func addReviewToCloudKit(
         }
     }
 }
+
+func addUsersToCloudKit(fName:String, lName: String){
+    
+    let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
+    let recordType = "UserListing"
+    let record = CKRecord(recordType: recordType)
+    
+    record["fName"] = fName as CKRecordValue
+    record["lName"] = lName as CKRecordValue
+    
+    let database = container.publicCloudDatabase
+
+    database.save(record) { (savedRecord, error) in
+        if let error = error {
+            // Handle the error
+            print("Error saving record: \(error.localizedDescription)")
+        } else {
+            // Handle the success
+            print("Record saved successfully")
+        }
+    }
+    
+    print("\(fName) - \(lName)")
+    
+}
+
+
 
 func removeDuplicateHealthFacilityRecords() {
     let container = CKContainer.default()
@@ -178,6 +208,7 @@ func addUsersToCloudKit(fName:String, lName: String){
     
     let database = container.publicCloudDatabase
 
+
     database.save(record) { (savedRecord, error) in
         if let error = error {
             // Handle the error
@@ -191,6 +222,31 @@ func addUsersToCloudKit(fName:String, lName: String){
     print("\(fName) - \(lName)")
     
 }
+
+//func queryUserReview() {
+//    
+//    let recordType = "Review"
+//    
+//    let query = CKQuery(recordType: recordType, predicate: NSPredicate(value: true)) //filter in NSPredicate
+//    
+//    database.fetch(withQuery: query) { result in
+//        switch result {
+//        case .success(let result):
+//            result.matchResults.compactMap { $0.1 }
+//                .forEach {
+//                    switch $0 {
+//                    case .success(let record):
+//                        print(record)
+//                    case .failure(let error):
+//                        print(error)
+//                    }
+//                }
+//        case .failure(let error):
+//            print(error)
+//        }
+//    }
+//}
+
 
 func updateReviewLikes(ckRecordIdReview: CKRecord.ID, currentLikes: Int64) {
     let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
