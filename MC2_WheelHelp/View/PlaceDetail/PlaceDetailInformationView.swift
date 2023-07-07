@@ -36,8 +36,10 @@ struct PlaceDetailInformationView: View {
 //    let latitudeRegion: Double
 //    let longitudeRegion: Double
     
-    //    @EnvironmentObject private var vm: MapDetailViewModel
-//    @State private var mapRegion: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 4.9088, longitude: longitudeRegion), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+//
+//    @State var spot: Spot
+//    @State private var mapRegion = MKCoordinateRegion()
+    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -7.285406, longitude: 112.631832), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     
     
     init(imageURLs: [URL], placeName: String, address: String, kategori: String, rating: Double, jumlahUlasan: Int, fsq_id:String, latitude:Double, longitude: Double, health_facilities_id: [String]) {
@@ -371,8 +373,9 @@ struct PlaceDetailInformationView: View {
                         
                         
                         // add maps here
-//                        Map(coordinateRegion: $mapRegion)
-//                            .scaledToFill()
+                        Map(coordinateRegion: $mapRegion, showsUserLocation: true)
+                            .scaledToFill()
+                            
                         // kasi padding
                         
                     }
@@ -386,6 +389,11 @@ struct PlaceDetailInformationView: View {
         .onAppear {
 //            latitudeRegion == latitude
 //            longitudeRegion == longitude
+            
+            mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters:500 ,longitudinalMeters: 500)
+            print("longitude ,\(longitude)")
+            print("latitude ,\(latitude)")
+            
             fetchDataFromCloudKit(fsq_id: fsq_id) { views in
                 placeDetailInformationView = views
             }

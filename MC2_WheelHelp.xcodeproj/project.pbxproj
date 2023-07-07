@@ -73,6 +73,7 @@
 		C994EFFA2A42ED7C00667459 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		C994EFFD2A42F92600667459 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		C9C0360F2A580071003575C4 /* MapDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailViewModel.swift; sourceTree = "<group>"; };
+		C9C036112A5815B5003575C4 /* MC2-WheelHelp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MC2-WheelHelp-Info.plist"; sourceTree = SOURCE_ROOT; };
 		C9CC26802A52D6B500F602B1 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
 		C9CC26822A52D6CA00F602B1 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		C9CC26852A52D71F00F602B1 /* KategoriCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KategoriCardView.swift; sourceTree = "<group>"; };
@@ -142,6 +143,7 @@
 		C994EFE32A3C551800667459 /* MC2_WheelHelp */ = {
 			isa = PBXGroup;
 			children = (
+				C9C036112A5815B5003575C4 /* MC2-WheelHelp-Info.plist */,
 				C9CC26922A52D7FC00F602B1 /* Model */,
 				BEB382A02A4C16DC00ED81AA /* MC2_WheelHelp.entitlements */,
 				FF29F02A2A42E908001234AB /* View */,
@@ -524,6 +526,8 @@
 				DEVELOPMENT_TEAM = ADCCQ7XPC3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MC2-WheelHelp-Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -557,6 +561,8 @@
 				DEVELOPMENT_TEAM = ADCCQ7XPC3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MC2-WheelHelp-Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

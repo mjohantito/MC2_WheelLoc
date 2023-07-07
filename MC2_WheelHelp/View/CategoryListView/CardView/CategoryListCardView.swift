@@ -92,11 +92,17 @@ struct CategoryListCardView: View {
                 }
                 Divider()
             }
+            .onAppear {
+                print("longitude,\(longitude)")
+                print("latitude, \(latitude)")
+            }
+            
             
         }
         
         
     }
+        
 }
 
 struct CategoryListCardView_Previews: PreviewProvider {
