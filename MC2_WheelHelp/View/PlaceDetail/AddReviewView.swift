@@ -124,6 +124,8 @@ struct AddReviewView: View {
     @State var selected = -1
     @State var message = false
     
+    @State private var userId: String = ""
+    
     var body: some View {
         NavigationView{
             
@@ -165,10 +167,10 @@ struct AddReviewView: View {
                         
                         Button("Add Row") {
                             escalatorRows.append(EscalatorRow(floor: "", location: ""))
-                            for escalatorRow in escalatorRows {
-                                arrayFloorEscalator.append(escalatorRow.floor)
-                                arrayLocationEscalator.append(escalatorRow.location)
-                            }
+//                            for escalatorRow in escalatorRows {
+//                                arrayFloorEscalator.append(escalatorRow.floor)
+//                                arrayLocationEscalator.append(escalatorRow.location)
+//                            }
                         }
                         
                         
@@ -442,6 +444,11 @@ struct AddReviewView: View {
                             return nil
                         }
                         
+                        for escalatorRow in escalatorRows {
+                            arrayFloorEscalator.append(escalatorRow.floor)
+                            arrayLocationEscalator.append(escalatorRow.location)
+                        }
+                        
                         addReviewToCloudKit(
                             accessibility_rating: Int64(selected + 1),
                             akses_masuk: isOnEnterAccess ? "\(descriptionEnterAccess)" : "",
@@ -463,7 +470,8 @@ struct AddReviewView: View {
                             title: titleReview,
                             toilet_lantai: isOnToiletDisable ? arrayFloorToiletDisable : [],
                             toilet_lokasi: isOnToiletDisable ? arrayLocationToiletDisable : [],
-                            email_user: userEmail
+                            email_user: userEmail,
+                            recordid_user: userId
                         )
                         
                         dismissSheet()
