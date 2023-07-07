@@ -69,10 +69,9 @@ struct SignInView: View {
                             
                             addUsersToCloudKit(fName: firstName ?? "", lName: lastName ?? "")
                             
-                            
                             authManager.isSignedIn = true
                             onSuccess(userEmail)
-                            print("USERID: \(userid) - \(email)")
+//                            print("USERID: \(userid) - \(email)")
                             
                         default:
                             break

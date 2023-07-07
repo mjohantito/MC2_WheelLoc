@@ -18,7 +18,6 @@ struct PlaceDetailInformationView: View {
     @State private var userEmail: String = ""
     @State private var userId: String = ""
     @State var showSheet = false
-    @State private var userId: String = ""
     
     @State private var placeDetailInformationView: [PlaceDetailInformationView] = []
     @State private var categoryViews: [NearbyHealthFacilitiesCardView] = []

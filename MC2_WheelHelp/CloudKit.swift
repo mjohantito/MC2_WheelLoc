@@ -124,31 +124,6 @@ func addReviewToCloudKit(
     }
 }
 
-func addUsersToCloudKit(fName:String, lName: String){
-    
-    let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
-    let recordType = "UserListing"
-    let record = CKRecord(recordType: recordType)
-    
-    record["fName"] = fName as CKRecordValue
-    record["lName"] = lName as CKRecordValue
-    
-    let database = container.publicCloudDatabase
-
-    database.save(record) { (savedRecord, error) in
-        if let error = error {
-            // Handle the error
-            print("Error saving record: \(error.localizedDescription)")
-        } else {
-            // Handle the success
-            print("Record saved successfully")
-        }
-    }
-    
-    print("\(fName) - \(lName)")
-    
-}
-
 
 
 func removeDuplicateHealthFacilityRecords() {
