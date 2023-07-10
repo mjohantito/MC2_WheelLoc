@@ -96,11 +96,19 @@ struct CategoryListCardView: View {
                 }
                 Divider()
             }
+            .onAppear {
+                print("longitude,\(longitude)")
+                print("latitude, \(latitude)")
+            }
+            
+            
+
             .environmentObject(authManager)
         }
         
         
     }
+        
 }
 
 struct CategoryListCardView_Previews: PreviewProvider {

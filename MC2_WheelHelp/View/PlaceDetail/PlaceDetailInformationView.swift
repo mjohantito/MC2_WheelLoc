@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 import CloudKit
 
 struct PlaceDetailInformationView: View {
@@ -21,7 +22,7 @@ struct PlaceDetailInformationView: View {
     
     @State private var placeDetailInformationView: [PlaceDetailInformationView] = []
     @State private var categoryViews: [NearbyHealthFacilitiesCardView] = []
-
+    
     @State private var imageURLs: [URL] = []
     @State public var placeName: String
     @State private var address: String
@@ -33,6 +34,14 @@ struct PlaceDetailInformationView: View {
     @State private var longitude: Double
     @State private var health_facilities_id: [String]
     @State var ckRecordIdPlace: CKRecord.ID?
+    
+//    let latitudeRegion: Double
+//    let longitudeRegion: Double
+    
+//
+//    @State var spot: Spot
+//    @State private var mapRegion = MKCoordinateRegion()
+    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -7.285406, longitude: 112.631832), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     
     
     init(imageURLs: [URL], placeName: String, address: String, kategori: String, rating: Double, jumlahUlasan: Int, fsq_id:String, latitude:Double, longitude: Double, health_facilities_id: [String], ckRecordIdPlace: CKRecord.ID) {
@@ -48,6 +57,8 @@ struct PlaceDetailInformationView: View {
         self._health_facilities_id = State(initialValue: health_facilities_id)
         self._ckRecordIdPlace = State(initialValue: ckRecordIdPlace)
     }
+    
+    
     
     var body: some View {
         NavigationView{
@@ -216,7 +227,7 @@ struct PlaceDetailInformationView: View {
                                 
                                 
                             }
-                               
+                            
                         }
                         
                     }
@@ -317,9 +328,10 @@ struct PlaceDetailInformationView: View {
                                 .frame(alignment: .leading)
                                 .padding(.top)
                             
-                                
+                            
                         }
                         .sheet(isPresented: $showAddReviewSheet) {
+
                             AddReviewView(rating: 3, maxRating: 5, fsq_id: fsq_id, ckRecordIdPlace: ckRecordIdPlace!, placeName: placeName, userEmail: $userEmail)
                                     }
                         .sheet(isPresented: $showSignInSheet) {
@@ -374,9 +386,14 @@ struct PlaceDetailInformationView: View {
                             UIApplication.shared.open(url)
                         }
                     }) {
-                        Image("appleMapsStatic")
-                            .resizable()
+                        
+                        
+                        // add maps here
+                        Map(coordinateRegion: $mapRegion, showsUserLocation: true)
                             .scaledToFill()
+                            
+                        // kasi padding
+                        
                     }
                     
                     
@@ -386,6 +403,13 @@ struct PlaceDetailInformationView: View {
         }
         .navigationBarHidden(true)
         .onAppear {
+//            latitudeRegion == latitude
+//            longitudeRegion == longitude
+            
+            mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters:500 ,longitudinalMeters: 500)
+            print("longitude ,\(longitude)")
+            print("latitude ,\(latitude)")
+            
             fetchDataFromCloudKit(fsq_id: fsq_id) { views in
                 placeDetailInformationView = views
             }

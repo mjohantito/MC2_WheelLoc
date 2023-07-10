@@ -287,6 +287,9 @@ func fetchDataUserReviewFromCloudkit(recordTypes: [String], userId: String, comp
         group.leave()
     }
     
+    database.add(operation)
+}
+
     // Execute the operation
     CKContainer.default().publicCloudDatabase.add(operation)
     
@@ -323,7 +326,6 @@ func fetchDummyDataPlaceFromCloudKit() -> PlaceResponse {
 }
 
 //     database.add(operation)
-
 func fetchDataPlaceRecommendationFromCloudKit(recordTypes: [String], category: String, completion: @escaping ([KategoriCardView]) -> Void) {
     var fetchedViews: [KategoriCardView] = []
     let group = DispatchGroup()
