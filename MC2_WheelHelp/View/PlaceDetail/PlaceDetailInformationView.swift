@@ -11,6 +11,8 @@ struct PlaceDetailInformationView: View {
     
     @State var showSheet = false
     @Environment(\.dismiss) private var dismiss
+    var fasilitas = false
+    var review = false
     
     var body: some View {
         NavigationStack{
@@ -32,7 +34,7 @@ struct PlaceDetailInformationView: View {
                     .frame(height: 300)
                     .tabViewStyle(.page)
                     .padding(.top, -80)
-
+                    
                     
                     VStack {
                         Button(){
@@ -42,7 +44,7 @@ struct PlaceDetailInformationView: View {
                                 .foregroundColor(.primary)
                         }
                         .padding(.leading)
-                           
+                        
                         Spacer()
                     }
                     
@@ -93,105 +95,118 @@ struct PlaceDetailInformationView: View {
                         
                         //Section Fasilitas
                         
-                        VStack{
-                            HStack{
-                                Text("Fasilitas")
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .fontWeight(.bold)
-                                
-                                NavigationLink(destination: PlaceDetailFacilityView()){
-                                    Text("Lihat Semua")
-                                }
-                                
-                            }
-                            HStack{
-                                VStack(alignment: .leading){
+                        if(fasilitas == true) {
+                            VStack{
+                                HStack{
+                                    Text("Fasilitas")
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .fontWeight(.bold)
                                     
-                                    HStack {
-                                        Image("icon_lift")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                            .foregroundColor(Color.black)
-                                        Text("Lift")
+                                    NavigationLink(destination: PlaceDetailFacilityView()){
+                                        Text("Lihat Semua")
                                     }
-                                    
-                                    HStack {
-                                        Image("icon_escalator")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                            .foregroundColor(Color.black)
-                                        
-                                        Text("Eskalator")
-                                    }
-                                    
-                                    HStack {
-                                        Image("icon_ramp")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                            .foregroundColor(Color.black)
-                                        
-                                        Text("Ramp")
-                                    }
-                                    
-                                    HStack {
-                                        Image("icon_wheelchair")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                            .foregroundColor(Color.black)
-                                        
-                                        Text("Tersedia Kursi Roda")
-                                    }
-                                    
-                                    
-                                }.padding(.top,8)
-                                
-                                Spacer()
-                                VStack(alignment: .leading){
-                                    HStack {
-                                        Image("wheelchairSmall")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                            .foregroundColor(Color.black)
-                                        Text("Toilet Disabilitas")
-                                    }
-                                    
-                                    HStack {
-                                        Image("icon_entrance")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                            .foregroundColor(Color.black)
-                                        Text("Akses Masuk")
-                                    }
-                                    
-                                    HStack {
-                                        Image("icon_parkinglot")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                            .foregroundColor(Color.black)
-                                        
-                                        Text("Tempat Parkir")
-                                    }
-                                    
-                                    HStack {
-                                        Image("")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                            .foregroundColor(Color.black)
-                                        
-                                        Text("")
-                                    }
-                                    
                                     
                                 }
-                                
-                                
-                                
+                                HStack{
+                                    VStack(alignment: .leading){
+                                        
+                                        HStack {
+                                            Image("icon_lift")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.black)
+                                            Text("Lift")
+                                        }
+                                        
+                                        HStack {
+                                            Image("icon_escalator")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.black)
+                                            
+                                            Text("Eskalator")
+                                        }
+                                        
+                                        HStack {
+                                            Image("icon_ramp")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.black)
+                                            
+                                            Text("Ramp")
+                                        }
+                                        
+                                        HStack {
+                                            Image("icon_wheelchair")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.black)
+                                            
+                                            Text("Tersedia Kursi Roda")
+                                        }
+                                        
+                                        
+                                    }.padding(.top,8)
+                                    
+                                    Spacer()
+                                    VStack(alignment: .leading){
+                                        HStack {
+                                            Image("wheelchairSmall")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.black)
+                                            Text("Toilet Disabilitas")
+                                        }
+                                        
+                                        HStack {
+                                            Image("icon_entrance")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.black)
+                                            Text("Akses Masuk")
+                                        }
+                                        
+                                        HStack {
+                                            Image("icon_parkinglot")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.black)
+                                            
+                                            Text("Tempat Parkir")
+                                        }
+                                        
+                                        HStack {
+                                            Image("")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.black)
+                                            
+                                            Text("")
+                                        }
+                                        
+                                        
+                                    }
+                                    
+                                    
+                                    
+                                    
+                                }
                                 
                             }
                             
+                            .padding()
+                        }else{
+                            VStack{
+                                Text("Tidak ada fasilitas")
+                                    .font(.title2)
+                                    .foregroundColor(Color.secondary)
+                                    .padding(.top, 50)
+                                Text("Tambahkan review untuk melihat fasilitas")
+                                    .font(.caption)
+                                    .foregroundColor(Color.secondary)
+                                    .padding(.bottom, 50)
+                            }
                         }
-                        
-                        .padding()
                         
                         
                     }
@@ -202,7 +217,7 @@ struct PlaceDetailInformationView: View {
                     // End Section Fasilitas
                     
                     
-                   
+                    
                     
                     // Section Fasilitas Kesehatan Terdekat
                     
@@ -234,109 +249,148 @@ struct PlaceDetailInformationView: View {
                     .background(Color.white)
                     .cornerRadius(10)
                     
-                   
+                    
                     
                     // End Section Fasilitas Kesehatan Terdekat
                     
-                
-                
-                // Section Ulasan
-                
-                
-                    VStack{
-                        HStack{
-                            Text("Ulasan")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .fontWeight(.bold)
-                            NavigationLink(destination: PlaceDetailReviewView()){
-                                Text("Lihat Semua")
-                            }
-                        }
-                        .padding()
-                        
-                        // Slider Top 3 Ulasan
-                        
-                        ScrollView(.horizontal, showsIndicators: false){
+                    
+                    
+                    // Section Ulasan
+                    
+                    
+                    if(review == true) {
+                        VStack{
                             HStack{
+                                Text("Ulasan")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .fontWeight(.bold)
+                                NavigationLink(destination: PlaceDetailReviewView()){
+                                    Text("Lihat Semua")
+                                }
+                            }
+                            .padding()
+                            
+                            // Slider Top 3 Ulasan
+                            
+                            ScrollView(.horizontal, showsIndicators: false){
+                                HStack{
+                                    
+                                    ForEach (0..<3, id: \.self){_ in
+                                        ReviewSmallCardView(userNameReview: "Angelo Kusuma", dateReview: "30 Mar 2023", ratingReview: 4.5, titleReview: "Bagus Banget!", descriptionReview: "Disini fasilitas buat pengguna kursi roda aman banget, bahkan toiletnya disediain khusus buat disabilitas!")
+                                    }
+                                    
+                                    Spacer()
+                                    
+                                }
+                                .frame(alignment: .leading)
+                                .padding(.leading, 8)
                                 
-                                ForEach (0..<3, id: \.self){_ in
-                                    ReviewSmallCardView(userNameReview: "Angelo Kusuma", dateReview: "30 Mar 2023", ratingReview: 4.5, titleReview: "Bagus Banget!", descriptionReview: "Disini fasilitas buat pengguna kursi roda aman banget, bahkan toiletnya disediain khusus buat disabilitas!")
+                            }
+                            
+                            // Button Tulis Ulasan
+                            
+                            HStack {
+                                Button{
+                                    showSheet.toggle()
+                                }label: {
+                                    Text(Image(systemName: "square.and.pencil"))
+                                        .padding(.top)
+                                    Text("Tulis Ulasan")
+                                        .frame(alignment: .leading)
+                                        .padding(.top)
+                                    
+                                        .sheet(isPresented: $showSheet){
+                                            AddReviewView(rating: 3, maxRating: 5)
+                                        }
                                 }
                                 
                                 Spacer()
-                                
                             }
-                            .frame(alignment: .leading)
                             .padding(.leading, 8)
+                            .padding(.bottom, 20)
+                            
+                            
+                            
                             
                         }
-                        
-                        // Button Tulis Ulasan
-                        
-                        HStack {
-                            Button{
-                                showSheet.toggle()
-                            }label: {
-                                Text(Image(systemName: "square.and.pencil"))
-                                    .padding(.top)
-                                Text("Tulis Ulasan")
-                                    .frame(alignment: .leading)
-                                    .padding(.top)
-                                
-                                    .sheet(isPresented: $showSheet){
-                                        AddReviewView(rating: 3, maxRating: 5)
-                                    }
+                        .padding(.top,8)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                    } else {
+                        VStack(alignment: .center){
+                            HStack{
+                                Text("Ulasan")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .fontWeight(.bold)
                             }
+                            .padding()
                             
-                            Spacer()
-                        }.padding(.leading, 8)
+                            Text("Belum ada ulasan")
+                                .font(.title2)
+                                .foregroundColor(Color.secondary)
+                                .padding(.top, 50)
+                            Text("Mulai tulis ulasan")
+                                .font(.caption)
+                                .foregroundColor(Color.secondary)
+                                .padding(.bottom, 50)
+                            
+                            HStack {
+                                Button{
+                                    showSheet.toggle()
+                                }label: {
+                                    Text(Image(systemName: "square.and.pencil"))
+                                        .padding(.top)
+                                    Text("Tulis Ulasan")
+                                        .frame(alignment: .leading)
+                                        .padding(.top)
+                                    
+                                        .sheet(isPresented: $showSheet){
+                                            AddReviewView(rating: 3, maxRating: 5)
+                                        }
+                                }
+                                
+                                Spacer()
+                            }
+                            .padding(.leading, 8)
                             .padding(.bottom, 20)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.top,8)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                    }
+
+                    // End Ulasan
+                    
+                    // Section Lokasi
+                    
+                    VStack{
+                        HStack{
+                            Text("Lokasi")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .fontWeight(.bold)
+                            
+                        }
+                        .padding(.top, 8)
                         
                         
+                        Button(action: {
+                            if let url = URL(string: "https://maps.apple.com/?ll=-7.28879,112.675712") {
+                                UIApplication.shared.open(url)
+                            }
+                        }) {
+                            Image("appleMapsStatic")
+                                .resizable()
+                                .scaledToFill()
+                        }
                         
                         
                     }
-                    .padding(.top,8)
+                    .padding()
                     .background(Color.white)
                     
                     .cornerRadius(10)
-//                    }
-//                .padding()
                     
-                
-            
-                // End Ulasan
-                
-                
-                // Section Lokasi
-                
-                VStack{
-                    HStack{
-                        Text("Lokasi")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .fontWeight(.bold)
-                        
-                    }
-                        .padding(.top, 8)
-                    
-                    
-                    Button(action: {
-                        if let url = URL(string: "https://maps.apple.com/?ll=-7.28879,112.675712") {
-                            UIApplication.shared.open(url)
-                        }
-                    }) {
-                        Image("appleMapsStatic")
-                            .resizable()
-                            .scaledToFill()
-                    }
-                    
-                    
-                }
-                .padding()
-                .background(Color.white)
-                
-                .cornerRadius(10)
-                
                     
                 }
                 .padding()
