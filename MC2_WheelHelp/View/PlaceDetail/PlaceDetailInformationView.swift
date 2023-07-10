@@ -133,6 +133,15 @@ struct PlaceDetailInformationView: View {
                                         Text("Ramp")
                                     }
                                     
+                                    HStack {
+                                        Image("icon_wheelchair")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.black)
+                                        
+                                        Text("Tersedia Kursi Roda")
+                                    }
+                                    
                                     
                                 }.padding(.top,8)
                                 
@@ -161,6 +170,15 @@ struct PlaceDetailInformationView: View {
                                             .foregroundColor(Color.black)
                                         
                                         Text("Tempat Parkir")
+                                    }
+                                    
+                                    HStack {
+                                        Image("")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.black)
+                                        
+                                        Text("")
                                     }
                                     
                                     
