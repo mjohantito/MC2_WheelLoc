@@ -21,8 +21,9 @@ struct PlaceDetailInformationView: View {
     
     @State private var placeDetailInformationView: [PlaceDetailInformationView] = []
     @State private var categoryViews: [NearbyHealthFacilitiesCardView] = []
+    @State private var reviewResponses: [ReviewResponse] = []
 
-    @State private var imageURLs: [URL] = []
+    @State private var imageURLs: [URL]
     @State public var placeName: String
     @State private var address: String
     @State private var kategori: String
@@ -32,10 +33,13 @@ struct PlaceDetailInformationView: View {
     @State private var latitude: Double
     @State private var longitude: Double
     @State private var health_facilities_id: [String]
-    @State var ckRecordIdPlace: CKRecord.ID?
+    @State var ckRecordIdPlace: CKRecord.ID
+    @State private var currentTab = 0
     
     
     init(imageURLs: [URL], placeName: String, address: String, kategori: String, rating: Double, jumlahUlasan: Int, fsq_id:String, latitude:Double, longitude: Double, health_facilities_id: [String], ckRecordIdPlace: CKRecord.ID) {
+        print("init")
+        
         self._imageURLs = State(initialValue: imageURLs)
         self._placeName = State(initialValue: placeName)
         self._address = State(initialValue: address)
@@ -55,31 +59,26 @@ struct PlaceDetailInformationView: View {
                 ZStack (alignment: .leading){
                     
                     if imageURLs.isEmpty {
-                        Image("national-hospital")
+                        Image(systemName: "photo")
                             .resizable()
-                            .frame(maxWidth: .infinity)
+                            .frame(width: 100, height: 100)
+                            .cornerRadius(10)
                     } else {
-                        TabView {
-                            ForEach(imageURLs.indices, id: \.self) { index in
-                                AsyncImage(url: imageURLs[index]) { image in
-                                    image
-                                        .resizable()
-                                        .frame(maxWidth: .infinity)
-                                } placeholder: {
-                                    Image("BebekTepiSawah")
-                                        .resizable()
-                                        .frame(width: 100, height: 100)
-                                        .cornerRadius(10)
-                                }
-                            }
-                        }
-                        .frame(height: 300)
-                        .tabViewStyle(PageTabViewStyle())
-                        .padding(.top, -80)
+                        TabView( content:  {
+                            ForEach(imageURLs, id: \.self) { index in
+                                        AsyncImage(url: index) { image in
+                                            image
+                                                .resizable()
+                                                .frame(maxWidth: .infinity)
+                                        } placeholder: {
+                                            Color.gray
+                                        }
+                                    }
+                               })
+                                .frame(height: 300)
+                               .tabViewStyle(PageTabViewStyle())
+                               .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                     }
-                    
-                    
-                    
                     
                     VStack {
                         Button(){
@@ -90,6 +89,7 @@ struct PlaceDetailInformationView: View {
                         }
                         .padding(.leading)
                         
+                        
                         Spacer()
                     }
                     
@@ -97,11 +97,7 @@ struct PlaceDetailInformationView: View {
                 
                 VStack{
                     
-                    // Section Image Slider
-                    
-                    
-                    
-                    
+
                     // Section Nama Tempat & Rating
                     VStack{
                         Text(placeName)
@@ -229,7 +225,6 @@ struct PlaceDetailInformationView: View {
                     Divider()
                     
                     // Section Fasilitas Kesehatan Terdekat
-                    
                     VStack {
                         HStack{
                             Text("Fasilitas Kesehatan Terdekat")
@@ -287,19 +282,45 @@ struct PlaceDetailInformationView: View {
                     
                     // Slider Top 3 Ulasan
                     
-                    ScrollView(.horizontal, showsIndicators: false){
-                        HStack{
-                            
-                            ForEach (0..<3, id: \.self){_ in
-                                ReviewSmallCardView(userNameReview: "Angelo Kusuma", dateReview: "30 Mar 2023", ratingReview: 4.5, titleReview: "Bagus Banget!", descriptionReview: "Disini fasilitas buat pengguna kursi roda aman banget, bahkan toiletnya disediain khusus buat disabilitas!")
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(reviewResponses.prefix(3), id: \.ckRecordIdReview) { response in
+                                ReviewSmallCardView(
+                                    userFName: response.first_name,
+                                    userLName: response.last_name,
+                                    dateReview: response.date,
+                                    titleReview: response.title,
+                                    descriptionReview: response.description,
+                                    likesReview: Int(response.likes),
+                                    ratingReview: response.accessibilityRating,
+                                    ckRecordIdReview: response.ckRecordIdReview,
+                                    ckRecordIDPlace: response.placeId
+                                )
                             }
-                            
                             Spacer()
-                            
                         }
                         .frame(alignment: .leading)
-                        
                     }
+                    .onAppear {
+                        fetchDataPlaceReviewFromCloudkit(recordTypes: ["Review"], placeId: ckRecordIdPlace) { responses in
+                            reviewResponses = responses ?? []
+                        }
+                    }
+
+                    
+//                    ScrollView(.horizontal, showsIndicators: false){
+//                        HStack{
+//
+//                            ForEach (0..<min(3, 1), id: \.self){_ in
+//                                let response = fetchDummyDataPlaceFromCloudKit()
+//                                ReviewSmallCardView(userFName: "Angelo", userLName: "Kusuma", dateReview: Date(), titleReview: "Bagus Banget!", descriptionReview: "Disini fasilitas buat pengguna kursi roda aman banget, bahkan toiletnya disediain khusus buat disabilitas!", likesReview: 0, ratingReview: 1.0, ckRecordIdReview: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"), ckRecordIDPlace: CKRecord.Reference(recordID: response.ckRecordIdPlace, action:.none))
+//                            }
+//
+//                            Spacer()
+//
+//                        }
+//                        .frame(alignment: .leading)
+//                    }
                     
                     // Button Tulis Ulasan
                     
@@ -320,35 +341,23 @@ struct PlaceDetailInformationView: View {
                                 
                         }
                         .sheet(isPresented: $showAddReviewSheet) {
-                            AddReviewView(rating: 3, maxRating: 5, fsq_id: fsq_id, ckRecordIdPlace: ckRecordIdPlace!, placeName: placeName, userEmail: $userEmail)
+                            AddReviewView(rating: 3, maxRating: 5, fsq_id: fsq_id, ckRecordIdPlace: ckRecordIdPlace, placeName: placeName, userEmail: $userEmail)
                                     }
                         .sheet(isPresented: $showSignInSheet) {
                             SignInView(onSuccess: { email in
-                                                            // Handle successful sign-in by showing AddReviewView
-                                                            showSignInSheet = false
-                                                            showAddReviewSheet = true
-                                                            userEmail = email
-                                                            userId = userId
-                                                            print("Parent view: \(userEmail)")
-                                                        }, userEmail: $userEmail, userId: $userId)
-                                                        .environmentObject(authManager) // Pass the authManager to SignInView
-//                            SignInView(onSuccess: {
-//                                // Handle successful sign-in by showing AddReviewView
-//                                showSignInSheet = false
-//                                showAddReviewSheet = true
-//                            },appleUserId: "default", appleUserFName: "default", appleUserLName: "default")
-////                            SignInView(appleUserId: "default", appleUserFName: "default", appleUserLName: "default")
-////                                .environmentObject(authManager)
-////                            showSignInSheet = false
-////                            showAddReviewSheet = true
-////                            .environmentObject(authManager) // Pass the authManager to SignInView
+                                    // Handle successful sign-in by showing AddReviewView
+                                    showSignInSheet = false
+                                    showAddReviewSheet = true
+                                    userEmail = email
+                                    userId = userId
+                                    print("Parent view: \(userEmail)")
+                                }, userEmail: $userEmail, userId: $userId)
+                                .environmentObject(authManager)
 
                         }
                         
                         Spacer()
                     }
-                    
-                    
                     
                 }
                 .padding()
@@ -357,9 +366,7 @@ struct PlaceDetailInformationView: View {
                 
                 // End Ulasan
                 
-                
                 // Section Lokasi
-                
                 VStack{
                     HStack{
                         Text("Lokasi")
@@ -383,13 +390,15 @@ struct PlaceDetailInformationView: View {
                 }
                 .padding()
             }
+            
+        }
+        .onAppear {
+            print("onappear")
+//            fetchDataFromCloudKit(fsq_id: fsq_id) { views in
+//                placeDetailInformationView = views
+//            }
         }
         .navigationBarHidden(true)
-        .onAppear {
-            fetchDataFromCloudKit(fsq_id: fsq_id) { views in
-                placeDetailInformationView = views
-            }
-        }
         
     }
     

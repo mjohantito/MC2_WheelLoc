@@ -10,29 +10,41 @@ import CloudKit
 
 struct PlaceDetailReviewView: View {
     
-    @State private var reviewViews: [ReviewCardView] = []
+    @State private var reviewResponses: [ReviewResponse] = []
     @State public var placeId: CKRecord.ID
     
     var body: some View {
         NavigationStack{
             ScrollView{
-//                ForEach (0..<3, id: \.self){_ in
-//                    ReviewCardView(userFName: "Angelo", userLName: "Kusuma", dateReview: Date(), titleReview: "Bagus Banget!", descriptionReview: "Disini fasilitas buat pengguna kursi roda aman banget, bahkan toiletnya disediain khusus buat disabilitas!", likesReview: 0, ratingReview: 1.0)
-//                }
                 VStack(alignment: .leading){
-                    ForEach(reviewViews, id: \.ckRecordIdReview) { view in
-                        view
-                            .padding()
-                    }
-                }
-                .onAppear {
-                    fetchDataPlaceReviewFromCloudkit(recordTypes: ["Review"], placeId: placeId) { views in
-                        reviewViews = views
-                    }
+                    ForEach(reviewResponses, id: \.ckRecordIdReview) { review in
+                        let a = print(review.first_name)
+                            ReviewCardView(
+                                userFName: review.first_name,
+                                userLName: review.last_name,
+                                dateReview: review.date,
+                                titleReview: review.title,
+                                descriptionReview: review.description,
+                                likesReview: Int(review.likes),
+                                ratingReview: review.accessibilityRating,
+                                ckRecordIdReview: review.ckRecordIdReview,
+                                ckRecordIDPlace: review.placeId
+                            )
+                        }
+//                    ForEach(reviewViews, id: \.ckRecordIdReview) { view in
+//                        view
+//                            .padding()
+//                    }
                 }
 
                 Spacer()
-            }.padding(.top,16)
+            }
+            .padding(.top,16)
+            .onAppear {
+                fetchDataPlaceReviewFromCloudkit(recordTypes: ["Review"], placeId: placeId) { responses in
+                    reviewResponses = responses ?? []
+                }
+            }
         } .navigationTitle("Ulasan")
     }
 }

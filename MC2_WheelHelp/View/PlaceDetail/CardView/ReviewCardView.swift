@@ -9,13 +9,7 @@ import SwiftUI
 import CloudKit
 
 struct ReviewCardView: View {
-    
-//    let userNameReview: String
-//    let dateReview: String
-//    let ratingReview: Double
-//    let titleReview: String
-//    let descriptionReview: String
-//
+
     @State private var userFName: String
     @State private var userLName: String
     @State private var dateReview: Date

@@ -19,10 +19,6 @@ struct CategoryListView: View {
                 
                 //Scroll View List
                 VStack(alignment: .leading){
-                    //                    ForEach(0..<10, id: \.self){ _ in
-                    //                        CategoryListCardView(image: "BebekTepiSawah", placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5)
-                    //                            .padding(.horizontal, 8)
-                    //                    }
                     ForEach(categoryViews, id: \.placeName) { view in
                         view
                             .padding()
