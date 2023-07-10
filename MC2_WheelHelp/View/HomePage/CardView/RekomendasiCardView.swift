@@ -60,4 +60,4 @@ struct RekomendasiCardView: View {
         }
 
     }
-}
+

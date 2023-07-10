@@ -288,7 +288,7 @@ func fetchDataUserReviewFromCloudkit(recordTypes: [String], userId: String, comp
     }
     
     database.add(operation)
-}
+
 
     // Execute the operation
     CKContainer.default().publicCloudDatabase.add(operation)
@@ -298,6 +298,7 @@ func fetchDataUserReviewFromCloudkit(recordTypes: [String], userId: String, comp
         completion(fetchedViews) // Pass the fetched views to the completion handler
     }
 }
+
 
 struct PlaceResponse {
     let address: String

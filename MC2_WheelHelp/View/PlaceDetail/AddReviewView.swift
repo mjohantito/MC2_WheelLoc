@@ -10,6 +10,7 @@ import PhotosUI
 import CloudKit
 
 extension Image {
+    
     func toUIImage() -> UIImage? {
         guard let imageData = self.asUIImage()?.jpegData(compressionQuality: 1.0) else {
             return nil
@@ -445,6 +446,8 @@ struct AddReviewView: View {
                             return nil
                         }
                         
+                        
+                        
                         for escalatorRow in escalatorRows {
                             arrayFloorEscalator.append(escalatorRow.floor)
                             arrayLocationEscalator.append(escalatorRow.location)
@@ -497,7 +500,10 @@ struct AddReviewView: View {
         return uiImage.jpegData(compressionQuality: 0.2)
     }
     
+    
+    
     func saveImageToTemporaryDirectory(data: Data) -> URL {
+        
         let temporaryDirectory = FileManager.default.temporaryDirectory
         let uniqueFilename = ProcessInfo.processInfo.globallyUniqueString
         let fileURL = temporaryDirectory.appendingPathComponent(uniqueFilename).appendingPathExtension("jpg")
@@ -506,6 +512,10 @@ struct AddReviewView: View {
         
         return fileURL
     }
+    
+    
+    
+    
 }
 
 
