@@ -40,10 +40,7 @@ struct ReviewSmallCardView: View {
                 Text(descriptionReview)
                     .padding(.bottom,8)
                     .font(.system(size: 12))
-                
-                
             }
-
         }
         .padding()
         .frame(width: 300, height: 180)

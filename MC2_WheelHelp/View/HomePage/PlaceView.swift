@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct PlaceView: View {
     @State private var search = ""
@@ -91,7 +92,7 @@ struct PlaceView: View {
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack{
                             ForEach (0..<3, id: \.self){_ in
-                                KategoriCardView(imageURL: URL(string: "https://fastly.4sqi.net/img/general/100x100/12259266_cx_Jge3F8nlmV-h0Jgg_s35sIbb7LCxdEYjDGojruIw.jpg")!, placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5, fsq_id: "123", latitude: 1.0, longitude: 1.0, health_facilities_id: ["default"])
+                                KategoriCardView(imageURL: URL(string: "https://fastly.4sqi.net/img/general/100x100/12259266_cx_Jge3F8nlmV-h0Jgg_s35sIbb7LCxdEYjDGojruIw.jpg")!, placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5, fsq_id: "123", latitude: 1.0, longitude: 1.0, health_facilities_id: ["default"], ckRecordIdPlace: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"))
                                     .padding(.horizontal, 8)
                             }
                         }
@@ -116,7 +117,7 @@ struct PlaceView: View {
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack{
                             ForEach (0..<3, id: \.self){_ in
-                                KategoriCardView(imageURL: URL(string: "https://fastly.4sqi.net/img/general/100x100/12259266_cx_Jge3F8nlmV-h0Jgg_s35sIbb7LCxdEYjDGojruIw.jpg")!, placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5, fsq_id: "123", latitude: 1.0, longitude: 1.0, health_facilities_id: ["default"])
+                                KategoriCardView(imageURL: URL(string: "https://fastly.4sqi.net/img/general/100x100/12259266_cx_Jge3F8nlmV-h0Jgg_s35sIbb7LCxdEYjDGojruIw.jpg")!, placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5, fsq_id: "123", latitude: 1.0, longitude: 1.0, health_facilities_id: ["default"], ckRecordIdPlace: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"))
                                     .padding(.horizontal, 8)
                             }
                         }
@@ -142,7 +143,7 @@ struct PlaceView: View {
                         ScrollView(.horizontal, showsIndicators: false){
                             HStack{
                                 ForEach (0..<3, id: \.self){_ in
-                                    KategoriCardView(imageURL: URL(string: "https://fastly.4sqi.net/img/general/100x100/12259266_cx_Jge3F8nlmV-h0Jgg_s35sIbb7LCxdEYjDGojruIw.jpg")!, placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5, fsq_id: "123", latitude: 1.0, longitude: 1.0, health_facilities_id: ["default"])
+                                    KategoriCardView(imageURL: URL(string: "https://fastly.4sqi.net/img/general/100x100/12259266_cx_Jge3F8nlmV-h0Jgg_s35sIbb7LCxdEYjDGojruIw.jpg")!, placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5, fsq_id: "123", latitude: 1.0, longitude: 1.0, health_facilities_id: ["default"], ckRecordIdPlace: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"))
                                         .padding(.horizontal, 8)
                                 }
                             }
@@ -155,21 +156,22 @@ struct PlaceView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .primaryAction){
                     NavigationLink(destination: SignInView(onSuccess: { email in }, userEmail: $userEmail, userId: $userId).environmentObject(authManager)) {
-
+                        
                         Image(systemName: "person.circle")
                             .resizable()
                             .foregroundColor(.primary)
                             .scaledToFit()
                             .frame(width: 40, height: 40)
+
                     }
                 }
             }
+            .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .always))
+        }}
+    
+    struct PlaceView_Previews: PreviewProvider {
+        static var previews: some View {
+            PlaceView()
         }
-        .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .always))
-    }}
-
-struct PlaceView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlaceView()
     }
 }

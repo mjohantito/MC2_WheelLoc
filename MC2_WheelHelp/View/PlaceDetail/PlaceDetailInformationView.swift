@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import CloudKit
 
 struct PlaceDetailInformationView: View {
     @Environment(\.dismiss) private var dismiss
@@ -32,6 +33,7 @@ struct PlaceDetailInformationView: View {
     @State private var latitude: Double
     @State private var longitude: Double
     @State private var health_facilities_id: [String]
+    @State var ckRecordIdPlace: CKRecord.ID?
     
 //    let latitudeRegion: Double
 //    let longitudeRegion: Double
@@ -42,7 +44,7 @@ struct PlaceDetailInformationView: View {
     @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -7.285406, longitude: 112.631832), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     
     
-    init(imageURLs: [URL], placeName: String, address: String, kategori: String, rating: Double, jumlahUlasan: Int, fsq_id:String, latitude:Double, longitude: Double, health_facilities_id: [String]) {
+    init(imageURLs: [URL], placeName: String, address: String, kategori: String, rating: Double, jumlahUlasan: Int, fsq_id:String, latitude:Double, longitude: Double, health_facilities_id: [String], ckRecordIdPlace: CKRecord.ID) {
         self._imageURLs = State(initialValue: imageURLs)
         self._placeName = State(initialValue: placeName)
         self._address = State(initialValue: address)
@@ -53,6 +55,7 @@ struct PlaceDetailInformationView: View {
         self._latitude = State(initialValue: latitude)
         self._longitude = State(initialValue: longitude)
         self._health_facilities_id = State(initialValue: health_facilities_id)
+        self._ckRecordIdPlace = State(initialValue: ckRecordIdPlace)
     }
     
     
@@ -287,7 +290,8 @@ struct PlaceDetailInformationView: View {
                         Text("Ulasan")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .fontWeight(.bold)
-                        NavigationLink(destination: PlaceDetailReviewView()){
+//                        let a = print(ckRecordIdPlace?.recordName)
+                        NavigationLink(destination: PlaceDetailReviewView(placeId: ckRecordIdPlace ?? CKRecord.ID(recordName: ""))){
                             Text("Lihat Semua")
                         }
                     }
@@ -327,18 +331,30 @@ struct PlaceDetailInformationView: View {
                             
                         }
                         .sheet(isPresented: $showAddReviewSheet) {
-                            AddReviewView(rating: 3, maxRating: 5, fsq_id: fsq_id, placeName: placeName, userEmail: $userEmail)
-                        }
+
+                            AddReviewView(rating: 3, maxRating: 5, fsq_id: fsq_id, ckRecordIdPlace: ckRecordIdPlace!, placeName: placeName, userEmail: $userEmail)
+                                    }
                         .sheet(isPresented: $showSignInSheet) {
                             SignInView(onSuccess: { email in
-                                // Handle successful sign-in by showing AddReviewView
-                                showSignInSheet = false
-                                showAddReviewSheet = true
-                                userEmail = email
-                                userId = userId
-                                print("Parent view: \(userEmail)")
-                            }, userEmail: $userEmail, userId: $userId)
-                            .environmentObject(authManager) // Pass the authManager to SignInView
+                                                            // Handle successful sign-in by showing AddReviewView
+                                                            showSignInSheet = false
+                                                            showAddReviewSheet = true
+                                                            userEmail = email
+                                                            userId = userId
+                                                            print("Parent view: \(userEmail)")
+                                                        }, userEmail: $userEmail, userId: $userId)
+                                                        .environmentObject(authManager) // Pass the authManager to SignInView
+//                            SignInView(onSuccess: {
+//                                // Handle successful sign-in by showing AddReviewView
+//                                showSignInSheet = false
+//                                showAddReviewSheet = true
+//                            },appleUserId: "default", appleUserFName: "default", appleUserLName: "default")
+////                            SignInView(appleUserId: "default", appleUserFName: "default", appleUserLName: "default")
+////                                .environmentObject(authManager)
+////                            showSignInSheet = false
+////                            showAddReviewSheet = true
+////                            .environmentObject(authManager) // Pass the authManager to SignInView
+
                         }
                         
                         Spacer()
@@ -405,6 +421,6 @@ struct PlaceDetailInformationView: View {
 
 struct PlaceDetailInformationView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceDetailInformationView(imageURLs: [URL(string: "https://fastly.4sqi.net/img/general/100x100/12259266_cx_Jge3F8nlmV-h0Jgg_s35sIbb7LCxdEYjDGojruIw.jpg")!], placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5, fsq_id: "123", latitude: 1.0, longitude: 1.0, health_facilities_id: [])
+        PlaceDetailInformationView(imageURLs: [URL(string: "https://fastly.4sqi.net/img/general/100x100/12259266_cx_Jge3F8nlmV-h0Jgg_s35sIbb7LCxdEYjDGojruIw.jpg")!], placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5, fsq_id: "123", latitude: 1.0, longitude: 1.0, health_facilities_id: [], ckRecordIdPlace: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"))
     }
 }
