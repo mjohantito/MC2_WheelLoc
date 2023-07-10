@@ -391,6 +391,9 @@ struct PlaceDetailInformationView: View {
                         // add maps here
                         Map(coordinateRegion: $mapRegion, showsUserLocation: true)
                             .scaledToFill()
+                            .onTapGesture {
+                                openMaps()
+                            }
                             
                         // kasi padding
                         
@@ -416,8 +419,22 @@ struct PlaceDetailInformationView: View {
         }
         
     }
+    private func openMaps() {
+//            let latitudeString = String(latitude)
+//            let longitudeString = String(longitude)
+//
+//            if let url = URL(string: "http://maps.apple.com/?ll=\(latitudeString),\(longitudeString)") {
+//                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//            }
+        let encodedPlaceName = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            if let url = URL(string: "http://maps.apple.com/?daddr=\(latitude),\(longitude)") {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
     
 }
+
+
 
 struct PlaceDetailInformationView_Previews: PreviewProvider {
     static var previews: some View {
