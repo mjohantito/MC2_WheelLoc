@@ -163,6 +163,7 @@ struct AddReviewView: View {
                                 }) {
                                     Image(systemName: "minus.circle")
                                         .foregroundColor(.red)
+                                    
                                 }
                             }
                         }
