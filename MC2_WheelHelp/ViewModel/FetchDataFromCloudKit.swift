@@ -12,8 +12,8 @@ let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
 let database = container.publicCloudDatabase
 
 // fetch data place for CategoryListCardView
-func fetchDataPlaceFromCloudKit(recordTypes: [String], category: String, completion: @escaping ([CategoryListCardView]) -> Void) {
-    var fetchedViews: [CategoryListCardView] = []
+func fetchDataPlaceFromCloudKit(recordTypes: [String], category: String = "",nama: String = "", completion: @escaping ([KategoriCardView]) -> Void) {
+    var fetchedViews: [KategoriCardView] = []
     let group = DispatchGroup()
     print("category: \(category)")
     
@@ -57,7 +57,7 @@ func fetchDataPlaceFromCloudKit(recordTypes: [String], category: String, complet
                 }
                 
                 // Create a CategoryListCardView instance with the fetched data
-                let categoryView = CategoryListCardView(imageURL: imageURL, placeName: name, address: address as! String, kategori: category, rating: rating, jumlahUlasan: jumlah_review, fsq_id: fsq_id as! String,  latitude: latitude as! Double, longitude: longitude as! Double, health_facilities_id: health_facilites_id as! [String], ckRecordIdPlace: ckRecordIdPlace)
+                let categoryView = KategoriCardView(imageURL: imageURL, placeName: name, address: address as! String, kategori: category, rating: rating, jumlahUlasan: jumlah_review, fsq_id: fsq_id as! String,  latitude: latitude as! Double, longitude: longitude as! Double, health_facilities_id: health_facilites_id as! [String], ckRecordIdPlace: ckRecordIdPlace)
                 
                 
                 // Append the view to the fetchedViews array
@@ -288,7 +288,7 @@ func fetchDataUserReviewFromCloudkit(recordTypes: [String], userId: String, comp
     }
     
     database.add(operation)
-}
+
 
 
     // Execute the operation
