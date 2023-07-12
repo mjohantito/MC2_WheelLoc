@@ -42,7 +42,7 @@ struct PlaceView: View {
                 .padding(.top)
                 
                 //Search Bar
-                NavigationLink(destination: SearchView()){
+                NavigationLink(destination: NewSearchView()){
                     HStack{
                         Image(systemName: "magnifyingglass")
                         Text("Cari Restoran & Cafe, Tempat Wisata, Hotel dan Tempat Belanja")

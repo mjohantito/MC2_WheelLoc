@@ -12,7 +12,7 @@ let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
 let database = container.publicCloudDatabase
 
 // fetch data place for CategoryListCardView
-func fetchDataPlaceFromCloudKit(recordTypes: [String], category: String = "",nama: String = "", completion: @escaping ([KategoriCardView]) -> Void) {
+func fetchDataPlaceFromCloudKit(recordTypes: [String], category: String = "",name: String = "", completion: @escaping ([KategoriCardView]) -> Void) {
     var fetchedViews: [KategoriCardView] = []
     let group = DispatchGroup()
     print("category: \(category)")
@@ -80,6 +80,81 @@ func fetchDataPlaceFromCloudKit(recordTypes: [String], category: String = "",nam
         completion(fetchedViews)
     }
 }
+
+
+// fetch data place for SearchView
+func fetchDataSearchPlaceFromCloudKit(recordTypes: [String],name: String = "", completion: @escaping ([KategoriCardView]) -> Void) {
+    var fetchedViews: [KategoriCardView] = []
+    let group = DispatchGroup()
+    print("name: \(name)")
+    
+    for recordType in recordTypes {
+        group.enter()
+        
+        
+        let predicate = NSPredicate(format: "name BEGINSWITH %@", name)
+        let query = CKQuery(recordType: recordType, predicate: predicate)
+        
+        let operation = CKQueryOperation(query: query)
+        operation.resultsLimit = CKQueryOperation.maximumResults
+        
+        operation.recordFetchedBlock = { record in
+            // Extract the necessary data from the CloudKit record
+            let imgPrefixList = record["img_prefix"] as? [String]
+            let imgPrefix = imgPrefixList?.first
+            let imgSuffixList = record["img_suffix"] as? [String]
+            let imgSuffix = imgSuffixList?.first
+
+            if let imgPrefix = imgPrefix,
+               let imgSuffix = imgSuffix {
+                let concatImage = "\(imgPrefix)100x100\(imgSuffix)"
+                let concatImageURL = URL(string: concatImage)
+                
+                let address = record["address"]
+                let category = record["category"] as? String ?? ""
+                let fsq_id = record["fsq_id"]
+                let health_facilites_id = record["health_facilities_id"]
+                let latitude = record["latitude"]
+                let longitude = record["longitude"]
+                let name = record["name"] as? String ?? ""
+                let rating = record["rating"] as? Double ?? 0.0
+                let jumlah_review = record["jumlah_review"] as? Int ?? 0
+                let ckRecordIdPlace = record.recordID
+
+                let imageURL: URL
+                if let imageString = concatImageURL {
+                    imageURL = imageString
+                } else {
+                    imageURL = URL(string: "https://example.com/default-image.jpg")!
+                }
+                
+                // Create a CategoryListCardView instance with the fetched data
+                let categoryView = KategoriCardView(imageURL: imageURL, placeName: name, address: address as! String, kategori: category, rating: rating, jumlahUlasan: jumlah_review, fsq_id: fsq_id as! String,  latitude: latitude as! Double, longitude: longitude as! Double, health_facilities_id: health_facilites_id as! [String], ckRecordIdPlace: ckRecordIdPlace)
+                
+                //check if the category contains the filter
+                if name.contains(name){
+                    // Append the view to the fetchedViews array
+                    fetchedViews.append(categoryView)
+                }
+            }
+        }
+        
+        operation.queryCompletionBlock = { cursor, error in
+            if let error = error {
+                print("Error fetching data from CloudKit: \(error.localizedDescription)")
+            }
+            
+            group.leave()
+        }
+        
+        database.add(operation)
+    }
+    
+    group.notify(queue: DispatchQueue.main) {
+        completion(fetchedViews)
+    }
+}
+
 
 // fetch data place detail information
 func fetchDataFromCloudKit(fsq_id: String, completion: @escaping ([PlaceDetailInformationView]) -> Void) {

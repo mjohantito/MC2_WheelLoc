@@ -20,6 +20,7 @@
 		BEF118DA2A42E786000FA40D /* SearchPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118D92A42E786000FA40D /* SearchPlaceView.swift */; };
 		BEF118DC2A42E898000FA40D /* FoursquareAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */; };
 		BEF118E02A4304CF000FA40D /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF118DF2A4304CF000FA40D /* PlacesModel.swift */; };
+		C97C98E82A5E88C600F7DD3A /* NewSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97C98E72A5E88C600F7DD3A /* NewSearchView.swift */; };
 		C994EFE52A3C551800667459 /* MC2_WheelHelpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */; };
 		C994EFE72A3C551800667459 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C994EFE62A3C551800667459 /* ContentView.swift */; };
 		C994EFE92A3C551900667459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C994EFE82A3C551900667459 /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		BEF118D92A42E786000FA40D /* SearchPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceView.swift; sourceTree = "<group>"; };
 		BEF118DB2A42E898000FA40D /* FoursquareAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPI.swift; sourceTree = "<group>"; };
 		BEF118DF2A4304CF000FA40D /* PlacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
+		C97C98E72A5E88C600F7DD3A /* NewSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSearchView.swift; sourceTree = "<group>"; };
 		C994EFE12A3C551800667459 /* MC2_WheelHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2_WheelHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C994EFE42A3C551800667459 /* MC2_WheelHelpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_WheelHelpApp.swift; sourceTree = "<group>"; };
 		C994EFE62A3C551800667459 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				C9CC26842A52D6FD00F602B1 /* CardView */,
 				C9CC26802A52D6B500F602B1 /* PlaceView.swift */,
 				C9CC26822A52D6CA00F602B1 /* SearchView.swift */,
+				C97C98E72A5E88C600F7DD3A /* NewSearchView.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				C9C036102A580071003575C4 /* MapDetailViewModel.swift in Sources */,
 				FFEEEBBE2A4E8F0A00E97FE5 /* PlaceDetailFacilityView.swift in Sources */,
 				FFEEEBC42A4E972D00E97FE5 /* FacilityCardView.swift in Sources */,
+				C97C98E82A5E88C600F7DD3A /* NewSearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
