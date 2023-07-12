@@ -36,12 +36,9 @@ struct ProfileView: View {
                 }
                 Section{
                     HStack{
-                        NavigationLink(destination: ProfileReviewView()){
-                            Text("Reviews")
-                            Spacer()
-//                            Image(systemName: "chevron.forward")
-                        }
-                        
+                        Text("Reviews")
+                        Spacer()
+                        Image(systemName: "chevron.forward")
                     }
                 }
             }
