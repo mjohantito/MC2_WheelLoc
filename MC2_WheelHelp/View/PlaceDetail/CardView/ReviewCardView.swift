@@ -39,7 +39,7 @@ struct ReviewCardView: View {
     }
     
     var body: some View {
-        HStack{
+        VStack{
 
             VStack(alignment: .leading){
                 
@@ -50,17 +50,15 @@ struct ReviewCardView: View {
                     
                     ForEach (1..<6) { _ in
                         Image(systemName: "star.fill")
-                            .foregroundColor(Color.yellow)
-                            .padding(.horizontal, -2.5)
+                            .foregroundColor(Color.orange)
+                            .frame(width: 14, height: 22, alignment: .leading)
                     }
     
-                    Text("5.0")
-                        .fontWeight(.bold)
                     
-                    Spacer()
                 }
                 .frame(alignment: .leading)
-                .padding(.bottom, 10)
+                .padding(.bottom, 8)
+
                 Text(descriptionReview)
                     .padding(.bottom,8)
                     .font(.footnote)
@@ -95,6 +93,9 @@ struct ReviewCardView: View {
         // ini nanti diganti background color nya jadi white
         .background(Color(red: 0.96, green: 0.96, blue: 0.96))
         .cornerRadius(10)
+        
+        
+        
     }
     
 }

@@ -79,7 +79,9 @@ struct NearbyHealthFacilitiesCardView: View {
             )
             
         }
-        
+        .padding(.trailing)
+        .background(Color.gray.opacity(0.1))
+        .cornerRadius(10)        
     }
     private func openMaps() {
 //            let latitudeString = String(latitude)
