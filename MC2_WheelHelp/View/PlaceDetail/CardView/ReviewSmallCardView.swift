@@ -27,11 +27,9 @@ struct ReviewSmallCardView: View {
                     
                     ForEach (1..<6) { _ in
                         Image(systemName: "star.fill")
-                            .foregroundColor(Color.yellow)
+                            .foregroundColor(Color.orange)
+                            .frame(width: 14, height: 22, alignment: .leading)
                     }
-    
-                    Text("5.0")
-                        .fontWeight(.bold)
                     
                     Spacer()
                 }
@@ -40,6 +38,17 @@ struct ReviewSmallCardView: View {
                 Text(descriptionReview)
                     .padding(.bottom,8)
                     .font(.system(size: 12))
+                HStack{
+                    Text("Angelo K.")
+                        .fontWeight(.semibold)
+                        .font(.system(size: 12))
+                    
+                    Spacer()
+                    
+                    Text("30 Mar 2023")
+                        .font(.system(size: 12))
+                        .foregroundColor(Color.gray)
+                }
             }
         }
         .padding()
