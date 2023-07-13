@@ -35,3 +35,5 @@ class AuthManager: ObservableObject {
         UserDefaults.standard.set(false, forKey: "isSignedIn")
     }
 }
+
+

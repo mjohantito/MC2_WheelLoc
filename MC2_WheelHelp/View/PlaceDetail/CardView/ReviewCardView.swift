@@ -9,13 +9,7 @@ import SwiftUI
 import CloudKit
 
 struct ReviewCardView: View {
-    
-//    let userNameReview: String
-//    let dateReview: String
-//    let ratingReview: Double
-//    let titleReview: String
-//    let descriptionReview: String
-//
+
     @State private var userFName: String
     @State private var userLName: String
     @State private var dateReview: Date
@@ -25,6 +19,7 @@ struct ReviewCardView: View {
     @State private var ratingReview: Double
     @State public var ckRecordIdReview: CKRecord.ID
     @State public var ckRecordIdPlace: CKRecord.Reference
+//    @State public var userId: String
     @State public var isLiked: Bool
     
     init(userFName: String, userLName: String, dateReview: Date, titleReview: String, descriptionReview: String, likesReview: Int, ratingReview: Double, ckRecordIdReview: CKRecord.ID, ckRecordIDPlace: CKRecord.Reference, isLiked: Bool) {
@@ -82,7 +77,9 @@ struct ReviewCardView: View {
                         .font(.footnote)
                         .bold()
                     Spacer()
-                    LikeButtonView(likesCount: Int64(likesReview), ckRecordIdReview: ckRecordIdReview)
+                    LikeButtonView(likesCount: Int64(likesReview), isLiked: isLiked, ckRecordIdReview: ckRecordIdReview/*, userId: userId*/)
+//                    let a = print("ckRecordIdReview: \(ckRecordIdReview)")
+//                    let b = print("ckRecordIdPlace: \(ckRecordIdPlace)")
 //                    Image(systemName: "hand.thumbsup.fill")
 //                        .resizable()
 //                        .frame(width:18, height:18)

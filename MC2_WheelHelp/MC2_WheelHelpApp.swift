@@ -15,9 +15,6 @@ struct MC2_WheelHelpApp: App {
 
     var body: some Scene {
         WindowGroup {
-            
-            
-
             if(UserDefaults.standard.bool(forKey: "notFirstInApp") == false){
                 OnBoardingPageView()
                     .onAppear {

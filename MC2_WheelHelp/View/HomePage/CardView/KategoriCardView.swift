@@ -107,6 +107,9 @@ struct KategoriCardView: View {
                     Spacer()
                 }
             }
+
+//        }
+
             .frame(maxWidth: .infinity)
             .padding(.vertical, 10)
             .background(content:{
@@ -115,6 +118,7 @@ struct KategoriCardView: View {
             })
             .padding(.top, 10)
         }
+
 //        }
     }
 }

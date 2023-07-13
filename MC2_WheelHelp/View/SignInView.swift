@@ -15,6 +15,8 @@
 import AuthenticationServices
 import SwiftUI
 
+//public var userIdGlobal: String = ""
+
 struct SignInView: View {
     @EnvironmentObject var authManager: AuthManager
     var onSuccess: (String, String, String) -> Void
@@ -24,6 +26,7 @@ struct SignInView: View {
     @AppStorage("firstName") var firstName: String = ""
     @AppStorage("lastName") var lastName: String = ""
     @AppStorage("userIdGlobal") var userIdGlobal: String = ""
+
     
     var body: some View {
         NavigationStack{
@@ -62,6 +65,7 @@ struct SignInView: View {
                             // Update other properties if needed
                             self.firstName = firstName ?? ""
                             self.lastName = lastName ?? ""
+//                            self.userId = userid
                             userIdGlobal = userid
                             
                             addUsersToCloudKit(fName: firstName ?? "", lName: lastName ?? "", email: email ?? "")

@@ -74,11 +74,13 @@ struct ReviewSmallCardView: View {
         .background(Color(red: 0.96, green: 0.96, blue: 0.96))
         .cornerRadius(10)
     }
+    
 }
 
 struct ReviewSmallCardView_Previews: PreviewProvider {
     static var previews: some View {
         let response = fetchDummyDataPlaceFromCloudKit()
+        
         ReviewSmallCardView(userFName: "Angelo", userLName: "Kusuma", dateReview: Date(), titleReview: "Bagus Banget!", descriptionReview: "Disini fasilitas buat pengguna kursi roda aman banget, bahkan toiletnya disediain khusus buat disabilitas!", likesReview: 0, ratingReview: 1.0, ckRecordIdReview: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"), ckRecordIDPlace: CKRecord.Reference(recordID: response.ckRecordIdPlace, action:.none), isLiked: false)
     }
 }

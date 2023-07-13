@@ -14,7 +14,7 @@ struct PlaceDetailReviewView: View {
         @State public var placeId: CKRecord.ID
     
     var body: some View {
-        NavigationStack{
+//        NavigationStack{
             ScrollView{
                 VStack(alignment: .leading){
                      ForEach(reviewResponses, id: \.ckRecordIdReview) { review in
@@ -46,8 +46,10 @@ struct PlaceDetailReviewView: View {
 //                }
 
                 Spacer()
-            }.padding(.top,16)
-        } .navigationTitle("Ulasan")
+            }
+            .padding(.top,16)
+//        }
+        .navigationTitle("Ulasan")
     }
 }
 

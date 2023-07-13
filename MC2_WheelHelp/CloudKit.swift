@@ -76,8 +76,8 @@ func addReviewToCloudKit(
     let recordType = "Review"
     let record = CKRecord(recordType: recordType)
         
-    let referenceRecordName = "Place"
-    let zoneID = CKRecordZone.default().zoneID
+//    let referenceRecordName = "Place"
+//    let zoneID = CKRecordZone.default().zoneID
 //    let id_place = CKRecord.ID(recordName: referenceRecordName, zoneID: zoneID)
     let reference = CKRecord.Reference(recordID: ckRecordIdPlace, action: .none)
     //let id_place = CKRecord.ID(recordName: referenceRecordName, zoneID: zoneID)
@@ -172,7 +172,7 @@ func removeDuplicateHealthFacilityRecords() {
     }
 }
 
-func addUsersToCloudKit(fName:String, lName: String, email:String){
+func addUsersToCloudKit(fName:String, lName: String, email: String){
     
     let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
     let recordType = "UserListing"
@@ -227,7 +227,7 @@ func addUsersToCloudKit(fName:String, lName: String, email:String){
 func updateReviewLikes(ckRecordIdReview: CKRecord.ID, currentLikes: Int64) {
     let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
     let recordType = "Review"
-    let record = CKRecord(recordType: recordType)
+//    let record = CKRecord(recordType: recordType)
     let database = container.publicCloudDatabase
     
     print("UPDATE LIKES")
@@ -254,6 +254,30 @@ func updateReviewLikes(ckRecordIdReview: CKRecord.ID, currentLikes: Int64) {
         }
         
     }
+}
+
+
+func addLikeToCloudkit(userId: String, reviewId: CKRecord.Reference) {
+    print("ADD LIKE TO CLOUDKIT")
+    let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
+    let recordType = "Like"
+    let record = CKRecord(recordType: recordType)
+    
+    record["user_id"] = userId as String
+    record["review_id"] = reviewId as CKRecord.Reference
+    
+    let database = container.publicCloudDatabase
+
+    database.save(record) { (savedRecord, error) in
+        if let error = error {
+            // Handle the error
+            print("Error saving record: \(error.localizedDescription)")
+        } else {
+            // Handle the success
+            print("Record saved successfully")
+        }
+    }
+    
 }
 
 
