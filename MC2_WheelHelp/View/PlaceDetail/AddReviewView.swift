@@ -66,24 +66,24 @@ struct AddReviewView: View {
     @State private var locationEscalator = ""
     @State private var rowsEscalator: [String] = [""]
     @State private var escalatorRows: [EscalatorRow] = []
-    @State private var arrayFloorEscalator: [String] = [""]
-    @State private var arrayLocationEscalator: [String] = [""]
+    @State private var arrayFloorEscalator: [String] = []
+    @State private var arrayLocationEscalator: [String] = []
     
     // Input Toilet Disabilitas
     @State private var floorToiletDisable = ""
     @State private var locationToiletDisable = ""
     @State private var rowsToilet: [String] = [""]
     @State private var toiletDisableRows: [ToiletDisableRow] = []
-    @State private var arrayFloorToiletDisable: [String] = [""]
-    @State private var arrayLocationToiletDisable: [String] = [""]
+    @State private var arrayFloorToiletDisable: [String] = []
+    @State private var arrayLocationToiletDisable: [String] = []
     
     // Input Lift
     @State private var floorLift = ""
     @State private var locationLift = ""
     @State private var rowsLift: [String] = [""]
     @State private var liftRows: [LiftRow] = []
-    @State private var arrayFloorLift: [String] = [""]
-    @State private var arrayLocationLift: [String] = [""]
+    @State private var arrayFloorLift: [String] = []
+    @State private var arrayLocationLift: [String] = []
     
     // Input Tanjakan
     @State private var descriptionRamp = ""
@@ -219,10 +219,10 @@ struct AddReviewView: View {
                         
                         Button("Add Row") {
                             toiletDisableRows.append(ToiletDisableRow(floor: "", location: ""))
-                            for toiletDisableRow in toiletDisableRows {
-                                arrayFloorToiletDisable.append(toiletDisableRow.floor)
-                                arrayLocationToiletDisable.append(toiletDisableRow.location)
-                            }
+//                            for toiletDisableRow in toiletDisableRows {
+//                                arrayFloorToiletDisable.append(toiletDisableRow.floor)
+//                                arrayLocationToiletDisable.append(toiletDisableRow.location)
+//                            }
                         }
                         
                     }
@@ -265,10 +265,10 @@ struct AddReviewView: View {
                         
                         Button("Add Row") {
                             liftRows.append(LiftRow(floor: "", location: ""))
-                            for liftRow in liftRows {
-                                arrayFloorLift.append(liftRow.floor)
-                                arrayLocationLift.append(liftRow.location)
-                            }
+//                            for liftRow in liftRows {
+//                                arrayFloorLift.append(liftRow.floor)
+//                                arrayLocationLift.append(liftRow.location)
+//                            }
                         }
                         
                     }
@@ -444,13 +444,29 @@ struct AddReviewView: View {
                             }
                             return nil
                         }
-                        
-                        
-                        
                         for escalatorRow in escalatorRows {
                             arrayFloorEscalator.append(escalatorRow.floor)
                             arrayLocationEscalator.append(escalatorRow.location)
                         }
+                        print(escalatorRows)
+                        print(arrayFloorEscalator)
+                        print(arrayLocationEscalator)
+                        
+                        for toiletDisableRow in toiletDisableRows {
+                            arrayFloorToiletDisable.append(toiletDisableRow.floor)
+                            arrayLocationToiletDisable.append(toiletDisableRow.location)
+                        }
+                        print(toiletDisableRows)
+                        print(arrayFloorToiletDisable)
+                        print(arrayLocationToiletDisable)
+                        
+                        for liftRow in liftRows {
+                            arrayFloorLift.append(liftRow.floor)
+                            arrayLocationLift.append(liftRow.location)
+                        }
+                        print(liftRows)
+                        print(arrayFloorLift)
+                        print(arrayLocationLift)
                         
                         addReviewToCloudKit(
                             accessibility_rating: Int64(selected + 1),
