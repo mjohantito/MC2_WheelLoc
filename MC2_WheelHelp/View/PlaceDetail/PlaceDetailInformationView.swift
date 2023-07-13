@@ -12,17 +12,19 @@ struct PlaceDetailInformationView: View {
     @Environment(\.dismiss) private var dismiss
     
     @EnvironmentObject var authManager: AuthManager
-    @State private var isUserSignedIn = false
+    @AppStorage("isSignedIn") private var isSignedIn = false
     @State private var showSignInSheet = false
     @State private var showAddReviewSheet = false
     @State private var userEmail: String = ""
-    @State private var userId: String = ""
+    @AppStorage("userIdGlobal") var userIdGlobal: String = ""
     @State var showSheet = false
+    @State private var showFacilityView = false
     
-    @State private var placeDetailInformationView: [PlaceDetailInformationView] = []
     @State private var categoryViews: [NearbyHealthFacilitiesCardView] = []
     @State private var reviewResponses: [ReviewResponse] = []
-
+    @State private var mostLikedReviewResponse: ReviewResponse?
+    @State public var isFacilitiesAvailable: FacilityFromReviewResponse?
+    
     @State private var imageURLs: [URL]
     @State public var placeName: String
     @State private var address: String
@@ -38,8 +40,6 @@ struct PlaceDetailInformationView: View {
     
     
     init(imageURLs: [URL], placeName: String, address: String, kategori: String, rating: Double, jumlahUlasan: Int, fsq_id:String, latitude:Double, longitude: Double, health_facilities_id: [String], ckRecordIdPlace: CKRecord.ID) {
-        print("init")
-        
         self._imageURLs = State(initialValue: imageURLs)
         self._placeName = State(initialValue: placeName)
         self._address = State(initialValue: address)
@@ -54,10 +54,9 @@ struct PlaceDetailInformationView: View {
     }
     
     var body: some View {
-        NavigationView{
+        NavigationStack{
             ScrollView {
                 ZStack (alignment: .leading){
-                    
                     if imageURLs.isEmpty {
                         Image(systemName: "photo")
                             .resizable()
@@ -66,18 +65,18 @@ struct PlaceDetailInformationView: View {
                     } else {
                         TabView( content:  {
                             ForEach(imageURLs, id: \.self) { index in
-                                        AsyncImage(url: index) { image in
-                                            image
-                                                .resizable()
-                                                .frame(maxWidth: .infinity)
-                                        } placeholder: {
-                                            Color.gray
-                                        }
-                                    }
-                               })
-                                .frame(height: 300)
-                               .tabViewStyle(PageTabViewStyle())
-                               .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+                                AsyncImage(url: index) { image in
+                                    image
+                                        .resizable()
+                                        .frame(maxWidth: .infinity)
+                                } placeholder: {
+                                    Color.gray
+                                }
+                            }
+                        })
+                        .frame(height: 300)
+                        .tabViewStyle(PageTabViewStyle())
+                        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                     }
                     
                     VStack {
@@ -96,8 +95,6 @@ struct PlaceDetailInformationView: View {
                 }
                 
                 VStack{
-                    
-
                     // Section Nama Tempat & Rating
                     VStack{
                         Text(placeName)
@@ -133,51 +130,77 @@ struct PlaceDetailInformationView: View {
                     }
                     .frame(alignment: .leading)
                     .padding(.bottom, 20)
-                    
                     // End Section Nama Tempat & Rating
                     
                     Divider()
                     
                     //Section Fasilitas
-                    
                     VStack{
                         HStack{
                             Text("Fasilitas")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .fontWeight(.bold)
-                            
-                            NavigationLink(destination: PlaceDetailFacilityView()){
+                            NavigationLink(destination: PlaceDetailFacilityView(dataFacilitiesResponse: $mostLikedReviewResponse)){
                                 Text("Lihat Semua")
                             }
-                            
+//                            NavigationLink(destination: PlaceDetailFacilityView()){
+//                                Text("Lihat Semua")
+//                            }
                         }
                         HStack{
                             VStack(alignment: .leading){
-                                
                                 HStack {
-                                    Image("elevator")
-                                        .resizable()
-                                        .frame(width: 30, height: 30, alignment: .leading)
-                                        .foregroundColor(Color.black)
-                                    Text("Lift")
+                                    if (isFacilitiesAvailable?.isLiftAvailable == true) {
+                                        Image("elevator")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.black)
+                                        Text("Lift")
+                                            .foregroundColor(Color.black)
+                                    } else {
+                                        Image("elevator")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.gray)
+                                        Text("Lift")
+                                            .foregroundColor(Color.gray)
+                                    }
                                 }
                                 
                                 HStack {
-                                    Image("escalator")
-                                        .resizable()
-                                        .frame(width: 30, height: 30, alignment: .leading)
-                                        .foregroundColor(Color.black)
-                                    
-                                    Text("Eskalator")
+                                    if (isFacilitiesAvailable?.isEscalatorAvailable == true) {
+                                        Image("escalator")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.black)
+                                        Text("Escalator")
+                                            .foregroundColor(Color.black)
+                                    } else {
+                                        Image("escalator")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.gray)
+                                        Text("Escalator")
+                                            .foregroundColor(Color.gray)
+                                    }
                                 }
                                 
                                 HStack {
-                                    Image("ramp-loading")
-                                        .resizable()
-                                        .frame(width: 30, height: 30, alignment: .leading)
-                                        .foregroundColor(Color.black)
-                                    
-                                    Text("Ramp")
+                                    if (isFacilitiesAvailable?.isRampAvailable == true) {
+                                        Image("ramp-loading")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.black)
+                                        Text("Ramp")
+                                            .foregroundColor(Color.black)
+                                    } else {
+                                        Image("ramp-loading")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.gray)
+                                        Text("Ramp")
+                                            .foregroundColor(Color.gray)
+                                    }
                                 }
                                 
                                 
@@ -186,40 +209,68 @@ struct PlaceDetailInformationView: View {
                             Spacer()
                             VStack(alignment: .leading){
                                 HStack {
-                                    Image("wheelchairSmall")
-                                        .resizable()
-                                        .frame(width: 30, height: 30, alignment: .leading)
-                                        .foregroundColor(Color.black)
-                                    Text("Toilet Disabilitas")
+                                    if (isFacilitiesAvailable?.isToiletAvailable == true) {
+                                        Image("wheelchairSmall")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.black)
+                                        Text("Toilet Disabilitas")
+                                            .foregroundColor(Color.black)
+                                    } else {
+                                        Image("wheelchairSmall")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.gray)
+                                        Text("Toilet Disabilitas")
+                                            .foregroundColor(Color.gray)
+                                    }
                                 }
                                 
                                 HStack {
-                                    Image("wheelchairSmall")
-                                        .resizable()
-                                        .frame(width: 30, height: 30, alignment: .leading)
-                                        .foregroundColor(Color.black)
-                                    Text("Akses Masuk")
+                                    if (isFacilitiesAvailable?.isEntranceAvailable == true) {
+                                        Image("wheelchairSmall")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.black)
+                                        Text("Akses Masuk")
+                                            .foregroundColor(Color.black)
+                                    } else {
+                                        Image("wheelchairSmall")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.gray)
+                                        Text("Akses Masuk")
+                                            .foregroundColor(Color.gray)
+                                    }
                                 }
                                 
                                 HStack {
-                                    Image("wheelchairSmall")
-                                        .resizable()
-                                        .frame(width: 30, height: 30, alignment: .leading)
-                                        .foregroundColor(Color.black)
-                                    
-                                    Text("Tempat Parkir")
+                                    if (isFacilitiesAvailable?.isParkingAvailable == true) {
+                                        Image("wheelchairSmall")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.black)
+                                            .border(.red)
+                                        Text("Tempat Parkir")
+                                            .foregroundColor(Color.black)
+                                    } else {
+                                        Image("wheelchairSmall")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: .leading)
+                                            .foregroundColor(Color.gray)
+                                        Text("Tempat Parkir")
+                                            .foregroundColor(Color.gray)
+                                    }
                                 }
                                 
                                 
                             }
-                               
+                            
                         }
                         
                     }
-                    
                     .padding(.top, 8)
                     .padding(.bottom, 8)
-                    
                     // End Section Fasilitas
                     
                     Divider()
@@ -259,23 +310,18 @@ struct PlaceDetailInformationView: View {
                     }
                     .padding(.top,8)
                     .padding(.bottom,8)
-                    
                     Divider()
-                    
                     // End Section Fasilitas Kesehatan Terdekat
-                    
                 }
                 .padding()
                 
                 // Section Ulasan
-                
                 VStack{
                     HStack{
                         Text("Ulasan")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .fontWeight(.bold)
-//                        let a = print(ckRecordIdPlace?.recordName)
-                        NavigationLink(destination: PlaceDetailReviewView(placeId: ckRecordIdPlace ?? CKRecord.ID(recordName: ""))){
+                        NavigationLink(destination: PlaceDetailReviewView(reviewResponses: reviewResponses, placeId: ckRecordIdPlace)){
                             Text("Lihat Semua")
                         }
                     }
@@ -286,47 +332,28 @@ struct PlaceDetailInformationView: View {
                         HStack {
                             ForEach(reviewResponses.prefix(3), id: \.ckRecordIdReview) { response in
                                 ReviewSmallCardView(
-                                    userFName: response.first_name,
-                                    userLName: response.last_name,
+                                    userFName: response.firstName,
+                                    userLName: response.lastName,
                                     dateReview: response.date,
                                     titleReview: response.title,
                                     descriptionReview: response.description,
                                     likesReview: Int(response.likes),
                                     ratingReview: response.accessibilityRating,
                                     ckRecordIdReview: response.ckRecordIdReview,
-                                    ckRecordIDPlace: response.placeId
+                                    ckRecordIDPlace: response.placeId,
+                                    isLiked: response.isLiked
                                 )
                             }
                             Spacer()
                         }
                         .frame(alignment: .leading)
                     }
-                    .onAppear {
-                        fetchDataPlaceReviewFromCloudkit(recordTypes: ["Review"], placeId: ckRecordIdPlace) { responses in
-                            reviewResponses = responses ?? []
-                        }
-                    }
-
-                    
-//                    ScrollView(.horizontal, showsIndicators: false){
-//                        HStack{
-//
-//                            ForEach (0..<min(3, 1), id: \.self){_ in
-//                                let response = fetchDummyDataPlaceFromCloudKit()
-//                                ReviewSmallCardView(userFName: "Angelo", userLName: "Kusuma", dateReview: Date(), titleReview: "Bagus Banget!", descriptionReview: "Disini fasilitas buat pengguna kursi roda aman banget, bahkan toiletnya disediain khusus buat disabilitas!", likesReview: 0, ratingReview: 1.0, ckRecordIdReview: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"), ckRecordIDPlace: CKRecord.Reference(recordID: response.ckRecordIdPlace, action:.none))
-//                            }
-//
-//                            Spacer()
-//
-//                        }
-//                        .frame(alignment: .leading)
-//                    }
                     
                     // Button Tulis Ulasan
                     
                     HStack {
                         Button{
-                            if authManager.isSignedIn {
+                            if isSignedIn {
                                 showAddReviewSheet.toggle()
                             } else {
                                 showSignInSheet = true
@@ -338,22 +365,36 @@ struct PlaceDetailInformationView: View {
                                 .frame(alignment: .leading)
                                 .padding(.top)
                             
-                                
+                            
                         }
-                        .sheet(isPresented: $showAddReviewSheet) {
-                            AddReviewView(rating: 3, maxRating: 5, fsq_id: fsq_id, ckRecordIdPlace: ckRecordIdPlace, placeName: placeName, userEmail: $userEmail)
-                                    }
-                        .sheet(isPresented: $showSignInSheet) {
-                            SignInView(onSuccess: { email in
-                                    // Handle successful sign-in by showing AddReviewView
-                                    showSignInSheet = false
-                                    showAddReviewSheet = true
-                                    userEmail = email
-                                    userId = userId
-                                    print("Parent view: \(userEmail)")
-                                }, userEmail: $userEmail, userId: $userId)
-                                .environmentObject(authManager)
+                        .sheet(isPresented: $showAddReviewSheet, onDismiss: {
+                            print("called")
+                            checkIfUserLikesReview(userId: userIdGlobal) { likedReviewIDs in
 
+                                fetchDataPlaceReviewFromCloudkit(recordTypes: ["Review"], placeId: ckRecordIdPlace, userId: userIdGlobal, likedReviewIDs: likedReviewIDs) { responses, likedResponses  in
+                                    reviewResponses = responses ?? []
+                                    print("review: \(reviewResponses.count)")
+                                    mostLikedReviewResponse = likedResponses ?? nil
+                                }
+                                fetchDataFacilityFromMostLikedReview(reviewId: mostLikedReviewResponse?.ckRecordIdReview ?? CKRecord.ID(recordName: "default")) { dataFacilities in
+                                    isFacilitiesAvailable = dataFacilities
+
+                                }
+
+                            }
+                        }) {
+                            AddReviewView(rating: 3, maxRating: 5, fsq_id: fsq_id, ckRecordIdPlace: ckRecordIdPlace, placeName: placeName, userEmail: $userEmail)
+                        }
+                        .sheet(isPresented: $showSignInSheet) {
+                            SignInView(onSuccess: { firstName, lastName, email in
+                                // Handle successful sign-in by showing AddReviewView
+                                showSignInSheet = false
+                                showAddReviewSheet = true
+                                userEmail = email
+                                userIdGlobal = userIdGlobal
+                            })
+                            .environmentObject(authManager)
+                            
                         }
                         
                         Spacer()
@@ -361,9 +402,7 @@ struct PlaceDetailInformationView: View {
                     
                 }
                 .padding()
-                
                 Divider()
-                
                 // End Ulasan
                 
                 // Section Lokasi
@@ -390,22 +429,33 @@ struct PlaceDetailInformationView: View {
                 }
                 .padding()
             }
+            .onAppear {
+                checkIfUserLikesReview(userId: userIdGlobal) { likedReviewIDs in
+
+                    fetchDataPlaceReviewFromCloudkit(recordTypes: ["Review"], placeId: ckRecordIdPlace, userId: userIdGlobal, likedReviewIDs: likedReviewIDs) { responses, likedResponses  in
+                        reviewResponses = responses ?? []
+                        mostLikedReviewResponse = likedResponses ?? nil
+                    }
+                    fetchDataFacilityFromMostLikedReview(reviewId: mostLikedReviewResponse?.ckRecordIdReview ?? CKRecord.ID(recordName: "default")) { dataFacilities in
+                        isFacilitiesAvailable = dataFacilities
+
+                    }
+
+                }
+
+
+            }
             
         }
-        .onAppear {
-            print("onappear")
-//            fetchDataFromCloudKit(fsq_id: fsq_id) { views in
-//                placeDetailInformationView = views
-//            }
-        }
         .navigationBarHidden(true)
-        
     }
     
 }
 
 struct PlaceDetailInformationView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceDetailInformationView(imageURLs: [URL(string: "https://fastly.4sqi.net/img/general/100x100/12259266_cx_Jge3F8nlmV-h0Jgg_s35sIbb7LCxdEYjDGojruIw.jpg")!], placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5, fsq_id: "123", latitude: 1.0, longitude: 1.0, health_facilities_id: [], ckRecordIdPlace: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"))
+        NavigationStack{
+            PlaceDetailInformationView(imageURLs: [URL(string: "https://fastly.4sqi.net/img/general/100x100/12259266_cx_Jge3F8nlmV-h0Jgg_s35sIbb7LCxdEYjDGojruIw.jpg")!], placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5, fsq_id: "123", latitude: 1.0, longitude: 1.0, health_facilities_id: [], ckRecordIdPlace: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"))
+        }
     }
 }

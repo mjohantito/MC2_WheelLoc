@@ -14,7 +14,7 @@ struct CategoryListView: View {
     @State private var categoryViews: [CategoryListCardView] = []
     
     var body: some View {
-        NavigationStack{
+//        NavigationStack{
             ScrollView {
                 
                 //Scroll View List
@@ -33,7 +33,7 @@ struct CategoryListView: View {
             }
             //Search Bar
             .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .always))
-        }
+//        }
         .navigationBarTitle(kategori)
         
     }

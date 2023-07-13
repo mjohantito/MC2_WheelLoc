@@ -40,7 +40,7 @@ struct CategoryListCardView: View {
     var body: some View {
         
         NavigationLink(destination: PlaceDetailInformationView(imageURLs: imageURLs, placeName: placeName, address: address, kategori:category, rating: rating, jumlahUlasan: jumlahUlasan, fsq_id: fsq_id, latitude: latitude, longitude: longitude, health_facilities_id: health_facilities_id, ckRecordIdPlace: ckRecordIdPlace)) {
-            let a = print("jumlah: \(imageURLs.count)")
+//            let a = print("jumlah: \(imageURLs.count)")
             VStack {
                 HStack{
                     VStack(alignment: .leading){

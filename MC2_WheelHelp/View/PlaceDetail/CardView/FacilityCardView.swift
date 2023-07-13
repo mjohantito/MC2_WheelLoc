@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct FacilityCardView: View {
+//
+//    @Binding public var dataFacilitiesResponse: ReviewResponse?
+    
     var body: some View {
         ScrollView{
             VStack(alignment: .leading){
@@ -40,6 +44,7 @@ struct FacilityCardView: View {
 
 struct FacilityCardView_Previews: PreviewProvider {
     static var previews: some View {
+//        FacilityCardView(dataFacilitiesResponse: .constant(ReviewResponse(accessibilityRating: 1.0, entrance: "", date: Date(), description: "", escalatorFloor: [""], escalatorLocation: [""], firstName: "", placeId: CKRecord.Reference(recordID: CKRecord.ID(recordName: "default"), action: .none), lastName: "", liftFloor: [""], liftLocation: [""], likes: 0, placeName: "", ramp: "", wheelchairAvailable: "", parking: "", title: "", toiletFloor: [""], toiletLocation: [""], ckRecordIdReview: CKRecord.ID(recordName: "default"), isLiked: false)))
         FacilityCardView()
     }
 }
