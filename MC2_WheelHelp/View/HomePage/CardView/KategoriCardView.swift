@@ -44,7 +44,7 @@ struct KategoriCardView: View {
     var body: some View {
         //NavigationLink(destination: PlaceDetailInformationView(imageURLs: [URL(string: "https://fastly.4sqi.net/img/general/100x100/12259266_cx_Jge3F8nlmV-h0Jgg_s35sIbb7LCxdEYjDGojruIw.jpg")!], placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5, fsq_id: "123", latitude: 1.0, longitude: 1.0, health_facilities_id: [], ckRecordIdPlace: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"))) {
         //        NavigationLink(destination: PlaceDetailInformationView()) {
-        NavigationLink(destination: PlaceDetailInformationView(imageURLs: [imageURL], placeName: placeName, address: address, kategori:category, rating: rating, jumlahUlasan: jumlahUlasan, fsq_id: fsq_id, latitude: latitude, longitude: longitude, health_facilities_id: health_facilities_id, ckRecordIdPlace: ckRecordIdPlace)) {
+//        NavigationLink(destination: PlaceDetailInformationView(imageURLs: [imageURL], placeName: placeName, address: address, kategori:category, rating: rating, jumlahUlasan: jumlahUlasan, fsq_id: fsq_id, latitude: latitude, longitude: longitude, health_facilities_id: health_facilities_id, ckRecordIdPlace: ckRecordIdPlace)) {
 
             VStack {
                 HStack{
@@ -106,6 +106,9 @@ struct KategoriCardView: View {
                     Spacer()
                 }
             }
+
+//        }
+
             .frame(maxWidth: .infinity)
             .padding(.vertical, 10)
             .background(content:{
@@ -114,6 +117,7 @@ struct KategoriCardView: View {
             })
             .padding(.top, 10)
         }
+
 //        }
     }
 }

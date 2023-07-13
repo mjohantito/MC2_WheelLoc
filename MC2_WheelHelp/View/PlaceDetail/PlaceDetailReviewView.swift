@@ -10,35 +10,41 @@ import CloudKit
 
 struct PlaceDetailReviewView: View {
     
-    @State private var reviewViews: [ReviewCardView] = []
+    @State public var reviewResponses: [ReviewResponse]
     @State public var placeId: CKRecord.ID
+//    @AppStorage("userIdGlobal") var userIdGlobal: String = ""
     
     var body: some View {
-        NavigationStack{
+//        NavigationStack{
             ScrollView{
-//                ForEach (0..<3, id: \.self){_ in
-//                    ReviewCardView(userFName: "Angelo", userLName: "Kusuma", dateReview: Date(), titleReview: "Bagus Banget!", descriptionReview: "Disini fasilitas buat pengguna kursi roda aman banget, bahkan toiletnya disediain khusus buat disabilitas!", likesReview: 0, ratingReview: 1.0)
-//                }
                 VStack(alignment: .leading){
-                    ForEach(reviewViews, id: \.ckRecordIdReview) { view in
-                        view
-                            .padding()
+                    ForEach(reviewResponses, id: \.ckRecordIdReview) { review in
+                        ReviewCardView(
+                            userFName: review.firstName,
+                            userLName: review.lastName,
+                            dateReview: review.date,
+                            titleReview: review.title,
+                            descriptionReview: review.description,
+                            likesReview: Int(review.likes),
+                            ratingReview: review.accessibilityRating,
+                            ckRecordIdReview: review.ckRecordIdReview,
+                            ckRecordIdPlace: review.placeId,
+//                            userId: userIdGlobal,
+                            isLiked: review.isLiked
+                        )
                     }
                 }
-                .onAppear {
-                    fetchDataPlaceReviewFromCloudkit(recordTypes: ["Review"], placeId: placeId) { views in
-                        reviewViews = views
-                    }
-                }
-
+                
                 Spacer()
-            }.padding(.top,16)
-        } .navigationTitle("Ulasan")
+            }
+            .padding(.top,16)
+//        }
+        .navigationTitle("Ulasan")
     }
 }
 
 struct PlaceDetailReviewView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceDetailReviewView(placeId: CKRecord.ID(recordName: "default"))
+        PlaceDetailReviewView(reviewResponses: [], placeId: CKRecord.ID(recordName: "default"))
     }
 }

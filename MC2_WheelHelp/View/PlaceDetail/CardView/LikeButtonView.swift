@@ -10,13 +10,17 @@ import CloudKit
 
 struct LikeButtonView: View {
     @State public var likesCount: Int64
-    @State private var isLiked = false
+    @State public var isLiked: Bool
     @State public var ckRecordIdReview: CKRecord.ID
+//    @State public var userId: String
+    
+    @AppStorage("userIdGlobal") var userIdGlobal: String = ""
     
     var body: some View {
         
         HStack {
             // thumbs up button
+            let a = print("IS LIKED ON VIEW: \(isLiked)")
             Button(action: {
                 if isLiked {
                     likesCount -= 1
@@ -25,8 +29,8 @@ struct LikeButtonView: View {
                 }
                 isLiked.toggle()
                 
-                
                 updateReviewLikes(ckRecordIdReview: ckRecordIdReview, currentLikes: Int64(likesCount))
+                addLikeToCloudkit(userId: userIdGlobal, reviewId: CKRecord.Reference(recordID: ckRecordIdReview, action:.none))
                 
             }) {
                 Image(systemName: isLiked ? "hand.thumbsup.fill" : "hand.thumbsup")
@@ -49,6 +53,6 @@ struct LikeButtonView: View {
 
 struct LikeButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        LikeButtonView(likesCount: 0, ckRecordIdReview: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"))
+        LikeButtonView(likesCount: 0, isLiked: false, ckRecordIdReview: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8")/*, userId: "default"*/)
     }
 }
