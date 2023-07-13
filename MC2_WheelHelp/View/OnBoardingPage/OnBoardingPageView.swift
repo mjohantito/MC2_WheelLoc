@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct OnBoardingPageView: View {
-    
+    @EnvironmentObject var authManager: AuthManager
     private let onBoardingPage = [
         OnBoarding(image: "OnBoardingPage1", background: "Blurry 1", title: "Selamat Datang!", description: "Wheeloc menyediakan informasi yang anda butuhkan ketika bepergian dengan pengguna kursi roda"),
         OnBoarding(image: "OnBoardingPage2", background: "Blurry 1", title: "Pergi ke Tempat Baru Tanpa Ragu", description: ""),
@@ -24,7 +24,7 @@ struct OnBoardingPageView: View {
     
     var body: some View {
         TabView {
-            ForEach(0..<onBoardingPage.count) { x in
+            ForEach(0..<4) { x in
                 ZStack {
                     Image(onBoardingPage[x].image)
                         .resizable()
@@ -51,7 +51,11 @@ struct OnBoardingPageView: View {
                                 .padding(.horizontal, 32)
                                 .foregroundColor(.white)
                                 .onTapGesture {
-                                    UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: PlaceView())
+                                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                                       let window = windowScene.windows.first {
+                                        window.rootViewController = UIHostingController(rootView: PlaceView())
+                                    }
+//                                    UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: PlaceView())
                                 }
                         }
                     }
@@ -63,7 +67,11 @@ struct OnBoardingPageView: View {
                             Text("Skip")
                                 .foregroundColor(Color(red: 37/255, green: 157/255, blue: 184/255))
                                 .onTapGesture {
-                                    UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: PlaceView())
+                                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                                       let window = windowScene.windows.first {
+                                        window.rootViewController = UIHostingController(rootView: PlaceView().environmentObject(authManager))
+                                    }
+//                                    UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: PlaceView())
                                 }
                                 .padding(.top,50)
                                 .padding(.trailing,40)
@@ -75,6 +83,7 @@ struct OnBoardingPageView: View {
         }
         .ignoresSafeArea()
         .tabViewStyle(.page)
+        
     }
 }
 

@@ -14,7 +14,7 @@ struct KategoriCardView: View {
 //    let rating: Double
 //    let jumlahrating: Int
     
-    @State private var imageURL: URL
+    @State private var imageURLs: [URL]
     @State public var placeName: String
     @State private var address: String
     //    let jam: String
@@ -27,8 +27,8 @@ struct KategoriCardView: View {
     @State private var health_facilities_id: [String]
     @State private var ckRecordIdPlace: CKRecord.ID
     
-    init(imageURL: URL, placeName: String, address: String, kategori: String, rating: Double, jumlahUlasan: Int, fsq_id:String, latitude:Double, longitude: Double, health_facilities_id: [String], ckRecordIdPlace: CKRecord.ID) {
-        self._imageURL = State(initialValue: imageURL)
+    init(imageURLs: [URL], placeName: String, address: String, kategori: String, rating: Double, jumlahUlasan: Int, fsq_id:String, latitude:Double, longitude: Double, health_facilities_id: [String], ckRecordIdPlace: CKRecord.ID) {
+        self._imageURLs = State(initialValue: imageURLs)
         self._placeName = State(initialValue: placeName)
         self._address = State(initialValue: address)
         self._category = State(initialValue: kategori)
@@ -44,12 +44,13 @@ struct KategoriCardView: View {
     var body: some View {
         //NavigationLink(destination: PlaceDetailInformationView(imageURLs: [URL(string: "https://fastly.4sqi.net/img/general/100x100/12259266_cx_Jge3F8nlmV-h0Jgg_s35sIbb7LCxdEYjDGojruIw.jpg")!], placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5, fsq_id: "123", latitude: 1.0, longitude: 1.0, health_facilities_id: [], ckRecordIdPlace: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"))) {
         //        NavigationLink(destination: PlaceDetailInformationView()) {
-        NavigationLink(destination: PlaceDetailInformationView(imageURLs: [imageURL], placeName: placeName, address: address, kategori:category, rating: rating, jumlahUlasan: jumlahUlasan, fsq_id: fsq_id, latitude: latitude, longitude: longitude, health_facilities_id: health_facilities_id, ckRecordIdPlace: ckRecordIdPlace)) {
+        NavigationLink(destination: PlaceDetailInformationView(imageURLs: imageURLs, placeName: placeName, address: address, kategori:category, rating: rating, jumlahUlasan: jumlahUlasan, fsq_id: fsq_id, latitude: latitude, longitude: longitude, health_facilities_id: health_facilities_id, ckRecordIdPlace: ckRecordIdPlace)) {
 
             VStack {
                 HStack{
                     //Gambar Resto
-                    AsyncImage(url: imageURL) { image in
+                    AsyncImage(url: imageURLs.first) { image in
+                        let a = print("image nih \(imageURLs.first)")
                         image
                             .resizable()
                             .frame(width: 100, height: 100)
@@ -106,6 +107,9 @@ struct KategoriCardView: View {
                     Spacer()
                 }
             }
+
+//        }
+
             .frame(maxWidth: .infinity)
             .padding(.vertical, 10)
             .background(content:{
@@ -114,12 +118,13 @@ struct KategoriCardView: View {
             })
             .padding(.top, 10)
         }
+
 //        }
     }
 }
 
 struct KategoriCardView_Previews: PreviewProvider {
     static var previews: some View {
-        KategoriCardView(imageURL: URL(string: "https://fastly.4sqi.net/img/general/100x100/12259266_cx_Jge3F8nlmV-h0Jgg_s35sIbb7LCxdEYjDGojruIw.jpg")!, placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5, fsq_id: "123", latitude: 1.0, longitude: 1.0, health_facilities_id: ["default"], ckRecordIdPlace: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"))
+        KategoriCardView(imageURLs: [URL(string: "https://fastly.4sqi.net/img/general/100x100/12259266_cx_Jge3F8nlmV-h0Jgg_s35sIbb7LCxdEYjDGojruIw.jpg")!], placeName: "Bebek Tepi Sawah", address: "Jalan Diponegoro No.87, Surabaya", kategori: "Restoran Keluarga", rating: 2.2, jumlahUlasan: 5, fsq_id: "123", latitude: 1.0, longitude: 1.0, health_facilities_id: ["default"], ckRecordIdPlace: CKRecord.ID(recordName: "3D204835-A7D5-4F80-8A7F-632C2CB1FBA8"))
     }
 }

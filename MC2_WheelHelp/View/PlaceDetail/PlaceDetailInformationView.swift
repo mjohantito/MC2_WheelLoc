@@ -13,15 +13,20 @@ struct PlaceDetailInformationView: View {
     @Environment(\.dismiss) private var dismiss
     
     @EnvironmentObject var authManager: AuthManager
-    @State private var isUserSignedIn = false
+    @AppStorage("isSignedIn") private var isSignedIn = false
+    @AppStorage("userIdGlobal") var userIdGlobal: String = ""
     @State private var showSignInSheet = false
     @State private var showAddReviewSheet = false
     @State private var userEmail: String = ""
     @State private var userId: String = ""
     @State var showSheet = false
     
-    @State private var placeDetailInformationView: [PlaceDetailInformationView] = []
+//    @State private var placeDetailInformationView: [PlaceDetailInformationView] = []
+//    @State private var categoryViews: [NearbyHealthFacilitiesCardView] = []
     @State private var categoryViews: [NearbyHealthFacilitiesCardView] = []
+    @State private var reviewResponses: [ReviewResponse] = []
+    @State private var mostLikedReviewResponse: ReviewResponse?
+    @State public var isFacilitiesAvailable: FacilityFromReviewResponse?
     
     @State private var imageURLs: [URL] = []
     @State public var placeName: String
@@ -33,7 +38,7 @@ struct PlaceDetailInformationView: View {
     @State private var latitude: Double
     @State private var longitude: Double
     @State private var health_facilities_id: [String]
-    @State var ckRecordIdPlace: CKRecord.ID?
+    @State var ckRecordIdPlace: CKRecord.ID
     
     //    let latitudeRegion: Double
     //    let longitudeRegion: Double
@@ -66,31 +71,27 @@ struct PlaceDetailInformationView: View {
                 ZStack (alignment: .leading){
                     
                     if imageURLs.isEmpty {
-                        Image("national-hospital")
+                        Image(systemName: "photo")
                             .resizable()
                             .frame(maxWidth: .infinity)
                     } else {
-                        TabView {
-                            ForEach(imageURLs.indices, id: \.self) { index in
-                                AsyncImage(url: imageURLs[index]) { image in
+                        TabView( content:  {
+                            ForEach(imageURLs, id: \.self) { index in
+                                AsyncImage(url: index) { image in
                                     image
                                         .resizable()
                                         .frame(maxWidth: .infinity)
                                 } placeholder: {
-                                    Image("BebekTepiSawah")
-                                        .resizable()
-                                        .frame(width: 100, height: 100)
-                                        .cornerRadius(10)
+                                    Color.gray
                                 }
                             }
-                        }
+                        })
+                        .padding(.top, -80)
                         .frame(height: 300)
                         .tabViewStyle(PageTabViewStyle())
-                        .padding(.top, -80)
+                        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+                        
                     }
-                    
-                    
-                    
                     
                     VStack {
                         Button(){
@@ -107,11 +108,6 @@ struct PlaceDetailInformationView: View {
                 }
                 VStack{
                     VStack{
-                        
-                        // Section Image Slider
-                        
-                        
-                        
                         
                         // Section Nama Tempat & Rating
                         VStack{
@@ -171,47 +167,80 @@ struct PlaceDetailInformationView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .fontWeight(.bold)
                                 
-                                NavigationLink(destination: PlaceDetailFacilityView()){
+                                NavigationLink(destination: PlaceDetailFacilityView(dataFacilitiesResponse: $mostLikedReviewResponse)){
                                     Text("Lihat Semua")
                                 }
                                 
                             }
                             HStack{
                                 VStack(alignment: .leading){
-                                    
+
                                     HStack {
-                                        Image("elevator")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                            .foregroundColor(Color.black)
-                                        Text("Lift")
+                                        if (isFacilitiesAvailable?.isLiftAvailable == true) {
+                                            Image("elevator")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.black)
+                                            Text("Lift")
+                                        } else {
+                                            Image("elevator")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.gray)
+                                            Text("Lift")
+                                                .foregroundColor(Color.gray)
+                                        }
                                     }
                                     
                                     HStack {
-                                        Image("escalator")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                            .foregroundColor(Color.black)
-                                        
-                                        Text("Eskalator")
+                                        if (isFacilitiesAvailable?.isEscalatorAvailable == true) {
+                                            Image("escalator")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.black)
+                                            Text("Eskalator")
+                                        } else {
+                                            Image("escalator")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.gray)
+                                            Text("Eskalator")
+                                                .foregroundColor(Color.gray)
+                                        }
                                     }
                                     
                                     HStack {
-                                        Image("ramp-loading")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                            .foregroundColor(Color.black)
-                                        
-                                        Text("Ramp")
+                                        if (isFacilitiesAvailable?.isRampAvailable == true) {
+                                            Image("ramp-loading")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.black)
+                                            Text("Ramp")
+                                        } else {
+                                            Image("ramp-loading")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.gray)
+                                            Text("Ramp")
+                                                .foregroundColor(Color.gray)
+                                        }
                                     }
                                     
                                     HStack {
-                                        Image("wheelchairSmall")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                            .foregroundColor(Color.black)
-                                        
-                                        Text("Tersedia Kursi Roda")
+                                        if (isFacilitiesAvailable?.isWheelchairAvailable == true) {
+                                            Image("wheelchairSmall")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.black)
+                                            Text("Tersedia Kursi Roda")
+                                        } else {
+                                            Image("wheelchairSmall")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.gray)
+                                            Text("Tersedia Kursi Roda")
+                                                .foregroundColor(Color.gray)
+                                        }
                                     }
                                     
                                     
@@ -220,28 +249,54 @@ struct PlaceDetailInformationView: View {
                                 Spacer()
                                 VStack(alignment: .leading){
                                     HStack {
-                                        Image("wheelchairSmall")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                            .foregroundColor(Color.black)
-                                        Text("Toilet Disabilitas")
+                                        if (isFacilitiesAvailable?.isToiletAvailable == true) {
+                                            Image("wheelchairSmall")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.black)
+                                            Text("Toilet Disabilitas")
+                                        } else {
+                                            Image("wheelchairSmall")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.gray)
+                                            Text("Toilet Disabilitas")
+                                                .foregroundColor(Color.gray)
+                                        }
                                     }
                                     
                                     HStack {
-                                        Image("wheelchairSmall")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                            .foregroundColor(Color.black)
-                                        Text("Akses Masuk")
+                                        if (isFacilitiesAvailable?.isEntranceAvailable == true) {
+                                            Image("wheelchairSmall")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.black)
+                                            Text("Akses Masuk")
+                                        } else {
+                                            Image("wheelchairSmall")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.gray)
+                                            Text("Akses Masuk")
+                                                .foregroundColor(Color.gray)
+                                        }
                                     }
                                     
                                     HStack {
-                                        Image("wheelchairSmall")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                            .foregroundColor(Color.black)
-                                        
-                                        Text("Tempat Parkir")
+                                        if (isFacilitiesAvailable?.isParkingAvailable == true) {
+                                            Image("wheelchairSmall")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.black)
+                                            Text("Tempat Parkit")
+                                        } else {
+                                            Image("wheelchairSmall")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .foregroundColor(Color.gray)
+                                            Text("Tempat Parkir")
+                                                .foregroundColor(Color.gray)
+                                        }
                                     }
                                     
                                     HStack {
@@ -262,16 +317,6 @@ struct PlaceDetailInformationView: View {
                         }
                         
                         .padding()
-                        
-                        
-                        // End Section Fasilitas
-                        
-                        
-                        
-                        
-                        
-                        // End Section Fasilitas Kesehatan Terdekat
-                        
                     }
                     .background(Color.white)
                     .cornerRadius(10)
@@ -318,8 +363,7 @@ struct PlaceDetailInformationView: View {
                             Text("Ulasan")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .fontWeight(.bold)
-                            //                        let a = print(ckRecordIdPlace?.recordName)
-                            NavigationLink(destination: PlaceDetailReviewView(placeId: ckRecordIdPlace ?? CKRecord.ID(recordName: ""))){
+                            NavigationLink(destination: PlaceDetailReviewView(reviewResponses: reviewResponses, placeId: ckRecordIdPlace)){
                                 Text("Lihat Semua")
                             }
                         }
@@ -328,14 +372,22 @@ struct PlaceDetailInformationView: View {
                         // Slider Top 3 Ulasan
                         
                         ScrollView(.horizontal, showsIndicators: false){
-                            HStack{
-                                
-                                ForEach (0..<3, id: \.self){_ in
-                                    ReviewSmallCardView(userNameReview: "Angelo Kusuma", dateReview: "30 Mar 2023", ratingReview: 4.5, titleReview: "Bagus Banget!", descriptionReview: "Disini fasilitas buat pengguna kursi roda aman banget, bahkan toiletnya disediain khusus buat disabilitas!")
+                            HStack {
+                                ForEach(reviewResponses.prefix(3), id: \.ckRecordIdReview) { response in
+                                    ReviewSmallCardView(
+                                        userFName: response.firstName,
+                                        userLName: response.lastName,
+                                        dateReview: response.date,
+                                        titleReview: response.title,
+                                        descriptionReview: response.description,
+                                        likesReview: Int(response.likes),
+                                        ratingReview: response.accessibilityRating,
+                                        ckRecordIdReview: response.ckRecordIdReview,
+                                        ckRecordIDPlace: response.placeId,
+                                        isLiked: response.isLiked
+                                    )
                                 }
-                                
                                 Spacer()
-                                
                             }
                             .frame(alignment: .leading)
                             .padding(.leading, 8)
@@ -345,7 +397,7 @@ struct PlaceDetailInformationView: View {
                         
                         HStack {
                             Button{
-                                if authManager.isSignedIn {
+                                if isSignedIn {
                                     showAddReviewSheet.toggle()
                                 } else {
                                     showSignInSheet = true
@@ -359,30 +411,33 @@ struct PlaceDetailInformationView: View {
                                 
                                 
                             }
-                            .sheet(isPresented: $showAddReviewSheet) {
-                                
-                                AddReviewView(rating: 3, maxRating: 5, fsq_id: fsq_id, ckRecordIdPlace: ckRecordIdPlace!, placeName: placeName, userEmail: $userEmail)
+                            .sheet(isPresented: $showAddReviewSheet, onDismiss: {
+                                print("called")
+                                checkIfUserLikesReview(userId: userIdGlobal) { likedReviewIDs in
+
+                                    fetchDataPlaceReviewFromCloudkit(recordTypes: ["Review"], placeId: ckRecordIdPlace, userId: userIdGlobal, likedReviewIDs: likedReviewIDs) { responses, likedResponses  in
+                                        reviewResponses = responses ?? []
+                                        print("review: \(reviewResponses.count)")
+                                        mostLikedReviewResponse = likedResponses ?? nil
+                                    }
+                                    fetchDataFacilityFromMostLikedReview(reviewId: mostLikedReviewResponse?.ckRecordIdReview ?? CKRecord.ID(recordName: "default")) { dataFacilities in
+                                        isFacilitiesAvailable = dataFacilities
+
+                                    }
+
+                                }
+                            }) {
+                                AddReviewView(rating: 3, maxRating: 5, fsq_id: fsq_id, ckRecordIdPlace: ckRecordIdPlace, placeName: placeName, userEmail: $userEmail)
                             }
                             .sheet(isPresented: $showSignInSheet) {
-                                SignInView(onSuccess: { email in
+                                SignInView(onSuccess: { firstName, lastName, email in
                                     // Handle successful sign-in by showing AddReviewView
                                     showSignInSheet = false
                                     showAddReviewSheet = true
                                     userEmail = email
-                                    userId = userId
-                                    print("Parent view: \(userEmail)")
-                                }, userEmail: $userEmail, userId: $userId)
-                                .environmentObject(authManager) // Pass the authManager to SignInView
-                                //                            SignInView(onSuccess: {
-                                //                                // Handle successful sign-in by showing AddReviewView
-                                //                                showSignInSheet = false
-                                //                                showAddReviewSheet = true
-                                //                            },appleUserId: "default", appleUserFName: "default", appleUserLName: "default")
-                                ////                            SignInView(appleUserId: "default", appleUserFName: "default", appleUserLName: "default")
-                                ////                                .environmentObject(authManager)
-                                ////                            showSignInSheet = false
-                                ////                            showAddReviewSheet = true
-                                ////                            .environmentObject(authManager) // Pass the authManager to SignInView
+                                    userIdGlobal = userIdGlobal
+                                })
+                                .environmentObject(authManager)
                                 
                             }
                             
@@ -445,29 +500,27 @@ struct PlaceDetailInformationView: View {
                 
             }
             .background(Color.gray.opacity(0.1))
-        }
-        .navigationBarHidden(true)
-        .onAppear {
-            //            latitudeRegion == latitude
-            //            longitudeRegion == longitude
-            
-            mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters:500 ,longitudinalMeters: 500)
-            print("longitude ,\(longitude)")
-            print("latitude ,\(latitude)")
-            
-            fetchDataFromCloudKit(fsq_id: fsq_id) { views in
-                placeDetailInformationView = views
+            .onAppear {
+                checkIfUserLikesReview(userId: userIdGlobal) { likedReviewIDs in
+
+                    fetchDataPlaceReviewFromCloudkit(recordTypes: ["Review"], placeId: ckRecordIdPlace, userId: userIdGlobal, likedReviewIDs: likedReviewIDs) { responses, likedResponses  in
+                        reviewResponses = responses ?? []
+                        mostLikedReviewResponse = likedResponses ?? nil
+                    }
+                    fetchDataFacilityFromMostLikedReview(reviewId: mostLikedReviewResponse?.ckRecordIdReview ?? CKRecord.ID(recordName: "default")) { dataFacilities in
+                        isFacilitiesAvailable = dataFacilities
+
+                    }
+
+                }
+
+
             }
         }
+        .navigationBarHidden(true)
         
     }
     private func openMaps() {
-        //            let latitudeString = String(latitude)
-        //            let longitudeString = String(longitude)
-        //
-        //            if let url = URL(string: "http://maps.apple.com/?ll=\(latitudeString),\(longitudeString)") {
-        //                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        //            }
         let encodedPlaceName = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         if let url = URL(string: "http://maps.apple.com/?daddr=\(latitude),\(longitude)") {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)

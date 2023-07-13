@@ -12,9 +12,11 @@ struct PlaceView: View {
     @State private var search = ""
     @State private var categoryViews: [KategoriCardView] = []
     @EnvironmentObject var authManager: AuthManager
-    
-    @State private var userEmail: String = ""
+    @AppStorage("isSignedIn") private var isSignedIn = false
     @State private var userId: String = ""
+    @State private var firstName: String = ""
+    @State private var lastName: String = ""
+    @State private var email: String = ""
     
     @State private var activeTag: String = "Restoran & Cafe"
     
@@ -74,6 +76,28 @@ struct PlaceView: View {
                 }
                 .frame(maxWidth: .infinity)
             }
+//             .navigationTitle("Telusuri")
+//             .toolbar {
+//                 ToolbarItemGroup(placement: .primaryAction){
+                    
+//                     if authManager.isSignedIn {
+//                         NavigationLink(destination: ProfileView(userDetails: UserDetailsResponse(firstName: "", lastName: "", email: ""))) {
+//                             Image(systemName: "person.circle")
+//                                 .resizable()
+//                                 .foregroundColor(.primary)
+//                                 .scaledToFit()
+//                                 .frame(width: 40, height: 40)
+//                         }
+//                     }
+//                     else {
+//                         NavigationLink(destination: SignInView(onSuccess: { firstName, lastName, email in }).environmentObject(authManager)) {
+//                             Image(systemName: "person.circle")
+//                                 .resizable()
+//                                 .foregroundColor(.primary)
+//                                 .scaledToFit()
+//                                 .frame(width: 40, height: 40)
+//                         }
+
             .background(Color.gray.opacity(0.1))
         }
     }
@@ -105,6 +129,7 @@ struct PlaceView: View {
                             categoryViews = views
                         }
                         
+
                     }
                 }
                 .background( content: {
@@ -116,6 +141,11 @@ struct PlaceView: View {
                 .contentShape(Rectangle())
                 .padding(.horizontal, 2)
             }
+
+            .environmentObject(authManager)
+//             .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .always))
+        }
+        
         }
     }
     
@@ -125,4 +155,3 @@ struct PlaceView: View {
         }
         
     }
-}
