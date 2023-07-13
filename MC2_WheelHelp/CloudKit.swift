@@ -172,7 +172,7 @@ func removeDuplicateHealthFacilityRecords() {
     }
 }
 
-func addUsersToCloudKit(fName:String, lName: String){
+func addUsersToCloudKit(fName:String, lName: String, email:String){
     
     let container = CKContainer(identifier: "iCloud.com.ada.MC2-WheelHelp-Putri")
     let recordType = "UserListing"
@@ -180,6 +180,7 @@ func addUsersToCloudKit(fName:String, lName: String){
     
     record["fName"] = fName as CKRecordValue
     record["lName"] = lName as CKRecordValue
+    record["email"] = email as CKRecordValue
     
     let database = container.publicCloudDatabase
 
