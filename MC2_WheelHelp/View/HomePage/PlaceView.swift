@@ -94,7 +94,9 @@ struct PlaceView: View {
                         .font(.caption)
                         .padding(.horizontal, 22)
                         .padding(.bottom, 5)
+                        .multilineTextAlignment(.center)
                 }
+                .frame(height: 90)
                 //Active
                 .onTapGesture {
                     withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.7)) {
