@@ -445,6 +445,8 @@ struct AddReviewView: View {
                             return nil
                         }
                         
+                        
+                        
                         for escalatorRow in escalatorRows {
                             arrayFloorEscalator.append(escalatorRow.floor)
                             arrayLocationEscalator.append(escalatorRow.location)
