@@ -1,23 +1,21 @@
 //
-//  SearchView.swift
+//  NewSearchView.swift
 //  MC2_WheelHelp
 //
-//  Created by Angelo Kusuma on 22/06/23.
+//  Created by Manuel Johan Tito on 12/07/23.
 //
 
 import SwiftUI
 import CloudKit
 
-struct SearchView: View {
-    @State private var search = ""
+struct NewSearchView: View {
+    @State private var searchText = ""
     @State private var categoryViews: [KategoriCardView] = []
-    var notfound = false
     
     var body: some View {
         NavigationStack{
-            
             VStack{
-                if(notfound == true){
+                if categoryViews.isEmpty {
                     Spacer()
                     Image("Empty State")
                         .resizable()
@@ -27,7 +25,7 @@ struct SearchView: View {
                         .font(.title2.bold())
                         .foregroundColor(Color(red: 19/255, green: 70/255, blue: 97/255))
                     Spacer()
-                }else{
+                } else {
                     ScrollView{
                         ForEach(categoryViews, id: \.placeName) { view in
                             view
@@ -35,44 +33,40 @@ struct SearchView: View {
                         }
 
                     }
-                    .onAppear {
-                        fetchDataPlaceFromCloudKit(recordTypes: ["Place"], name: search) { views in
-                            categoryViews = views
-                        }
-                    }
+
                 }
+                                
             }
             .frame(maxWidth: .infinity)
             .background(Color.gray.opacity(0.1))
-            //Search Bar
-            .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .always),
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always),
                         prompt: "Cari Restoran & Cafe, Tempat Wisata, Hotel dan Pusat Belanja")
-            .onChange(of: search) { search in
-                if !search.isEmpty{
-                    fetchDataPlaceFromCloudKit(recordTypes: ["Place"], name: search) { views in
+            .onChange(of: searchText) { searchText in
+                if searchText.isEmpty{
+                    fetchDataSearchPlaceFromCloudKit(recordTypes: ["Place"], name: "") { views in
                         categoryViews = views
-                        print("nama : \(search)")
+                        print("nama empty : \(searchText)")
                         print(views)
                     }
-
                 } else {
-                    fetchDataPlaceFromCloudKit(recordTypes: ["Place"], name: search) { views in
+                    fetchDataSearchPlaceFromCloudKit(recordTypes: ["Place"], name: searchText) { views in
                         categoryViews = views
-                        print("nama : \(search)")
+                        print("nama not empty: \(searchText)")
                         print(views)
                     }
 
                 }
+                // if object empty
+                
                     
             }
             
         }
-    }
+    }    
 }
 
-
-struct SearchView_Previews: PreviewProvider {
+struct NewSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView()
+        NewSearchView()
     }
 }

@@ -26,15 +26,9 @@ struct OnBoardingPageView: View {
         TabView {
             ForEach(0..<onBoardingPage.count) { x in
                 ZStack {
-                    Image(onBoardingPage[x].background)
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                    
                     Image(onBoardingPage[x].image)
                         .resizable()
                         .scaledToFill()
-                        .padding()
                     
                     VStack(alignment: .center){
                         Text(onBoardingPage[x].title)
@@ -69,6 +63,7 @@ struct OnBoardingPageView: View {
                                 .onTapGesture {
                                     UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: PlaceView())
                                 }
+                                .padding(.top)
                                 .padding(.trailing,40)
                         }
                         Spacer()
