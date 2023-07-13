@@ -90,13 +90,13 @@ struct KategoriCardView: View {
                         
                         //Rating
                         HStack{
-                            Image("wheelchair")
+                            Image("wheelchairSmall")
                                 .resizable()
-                                .frame(width: 30, height: 30)
-                                .foregroundColor(.primary)
+                                .frame(width: 22, height: 22)
+                                .foregroundColor(Color.orange)
                             
                             Text(String(rating))
-                                .foregroundColor(.yellow)
+                                .foregroundColor(.orange)
                                 .bold()
                             
                             

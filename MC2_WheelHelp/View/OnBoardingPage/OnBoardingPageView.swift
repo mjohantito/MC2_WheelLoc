@@ -14,7 +14,7 @@ struct OnBoardingPageView: View {
         OnBoarding(image: "OnBoardingPage1", background: "Blurry 1", title: "Selamat Datang!", description: "Wheeloc menyediakan informasi yang anda butuhkan ketika bepergian dengan pengguna kursi roda"),
         OnBoarding(image: "OnBoardingPage2", background: "Blurry 1", title: "Pergi ke Tempat Baru Tanpa Ragu", description: ""),
         OnBoarding(image: "OnBoardingPage3", background: "Blurry 2", title: "Rekomendasi Fasilitas Medis Terdekat", description: ""),
-        OnBoarding(image: "OnBoardingPage4", background: "Blurry 2", title: "Bagikan Pengelaman Anda Melalui Ulasan", description: "")
+        OnBoarding(image: "OnBoardingPage4", background: "Blurry 2", title: "Bagikan Pengalaman Anda Melalui Ulasan", description: "")
     ]
     
     init() {
@@ -32,9 +32,11 @@ struct OnBoardingPageView: View {
                     
                     VStack(alignment: .center){
                         Text(onBoardingPage[x].title)
+                            .padding(10)
+                            .multilineTextAlignment(.center)
                             .font(.largeTitle)
                             .bold()
-                            .foregroundColor(Color(red: 64/255, green: 190/255, blue: 218/255))
+                            .foregroundColor(Color(red: 19/255, green: 70/255, blue: 97/255))
                         
                         Text(onBoardingPage[x].description)
                             .multilineTextAlignment(.center)
@@ -44,7 +46,7 @@ struct OnBoardingPageView: View {
                             Text("Lanjut ke Aplikasi")
                                 .padding(16)
                                 .frame(maxWidth: .infinity)
-                                .background(Color.blue)
+                                .background(Color(red: 37/255, green: 157/255, blue: 184/255))
                                 .cornerRadius(10)
                                 .padding(.horizontal, 32)
                                 .foregroundColor(.white)
@@ -63,7 +65,7 @@ struct OnBoardingPageView: View {
                         HStack (){
                             Spacer()
                             Text("Skip")
-                                .foregroundColor(.primary)
+                                .foregroundColor(Color(red: 37/255, green: 157/255, blue: 184/255))
                                 .onTapGesture {
                                     if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                                        let window = windowScene.windows.first {
@@ -71,7 +73,7 @@ struct OnBoardingPageView: View {
                                     }
 //                                    UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: PlaceView())
                                 }
-                                .padding(.top)
+                                .padding(.top,50)
                                 .padding(.trailing,40)
                         }
                         Spacer()
