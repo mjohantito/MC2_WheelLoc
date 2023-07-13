@@ -59,24 +59,24 @@ struct NearbyHealthFacilitiesCardView: View {
                     
                     Text(placeName)
                         .fontWeight(.semibold)
+                        .foregroundColor(.primary)
                     Text(kategori)
                         .padding(.bottom,8)
                         .font(.system(size: 12))
+                        .foregroundColor(.primary)
                     HStack{
                         Image(systemName: "location.fill")
+                            .foregroundColor(.primary)
     //                    Text("\(String(distanceNearbyFacilities)) km")
+//                            .foregroundColor(.primary)
                     }
                     
                 }.padding()
 
             }
             .padding(.trailing)
-            .background(.white)
+            .background(Color.gray.opacity(0.1))
             .cornerRadius(10)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .strokeBorder(.gray, lineWidth: 1)
-            )
             
         }
         
